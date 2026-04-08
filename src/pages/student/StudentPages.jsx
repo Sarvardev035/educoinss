@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Sidebar, TopNav, PageHeader } from '../../components/shared/Navigation';
 
@@ -44,7 +43,7 @@ export const StudySession2 = () => <PlaceholderPage title="Study Session 2" subt
 export const StudySession3 = () => <PlaceholderPage title="Study Session 3" subtitle="Collaborative study" />;
 export const StudySession4 = () => <PlaceholderPage title="Study Session 4" subtitle="Advanced study tools" />;
 
-export default {
+const StudentPages = {
   StudentDashboard2,
   AvatarShop,
   Wardrobe,
@@ -61,3 +60,5 @@ export default {
   StudySession3,
   StudySession4,
 };
+
+export default StudentPages;

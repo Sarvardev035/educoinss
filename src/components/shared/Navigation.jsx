@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 export const Sidebar = ({ navigation }) => {
@@ -84,4 +83,6 @@ export const PageHeader = ({ title, subtitle }) => {
   );
 };
 
-export default { Sidebar, TopNav, PageHeader };
+const Navigation = { Sidebar, TopNav, PageHeader };
+
+export default Navigation;

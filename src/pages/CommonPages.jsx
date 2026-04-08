@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CommonPage = ({ title, subtitle, icon }) => {
@@ -45,7 +44,7 @@ export const HeroCustomizer = () => <CommonPage title="Hero Customizer" subtitle
 export const EliteGear = () => <CommonPage title="Elite Gear" subtitle="Unlock premium equipment and items" icon="shield" />;
 export const RoleFlow = () => <CommonPage title="Role Selection Flow" subtitle="Select your user role" icon="person" />;
 
-export default {
+const CommonPages = {
   Settings,
   Chat,
   CommunityClasses,
@@ -55,3 +54,5 @@ export default {
   EliteGear,
   RoleFlow,
 };
+
+export default CommonPages;

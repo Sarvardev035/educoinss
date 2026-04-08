@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Template for Auth Pages
@@ -57,4 +56,6 @@ export const StudentRegister = () => <AuthPage title="Student Registration" subt
 export const ParentAuth = () => <AuthPage title="Parent Login" subtitle="Monitor and guide your child's progress" role="parent" />;
 export const ParentRegister = () => <AuthPage title="Parent Registration" subtitle="Create parent account and link your child" role="parent" />;
 
-export default { StudentAuth, StudentRegister, ParentAuth, ParentRegister };
+const AuthPages = { StudentAuth, StudentRegister, ParentAuth, ParentRegister };
+
+export default AuthPages;

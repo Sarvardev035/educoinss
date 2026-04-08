@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Sidebar, TopNav, PageHeader } from '../../components/shared/Navigation';
 
@@ -116,7 +115,7 @@ export const TreasuryTips = () => (
   />
 );
 
-export default {
+const ParentPages = {
   ParentDashboard,
   ParentDashboard2,
   GiftManager,
@@ -124,3 +123,5 @@ export default {
   LibraryManager,
   TreasuryTips,
 };
+
+export default ParentPages;
