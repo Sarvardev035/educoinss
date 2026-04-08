@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HERO HUB - Forge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#ffe089",
+                        "on-secondary-fixed": "#004746",
+                        "on-secondary": "#005c59",
+                        "on-background": "#fcf8fe",
+                        "surface-tint": "#aca3ff",
+                        "surface-container-high": "#1f1f24",
+                        "surface-variant": "#25252b",
+                        "on-tertiary-container": "#5a4700",
+                        "secondary-container": "#006a67",
+                        "tertiary-dim": "#efc117",
+                        "outline-variant": "#48474c",
+                        "error-container": "#a70138",
+                        "outline": "#76757a",
+                        "surface": "#0e0e12",
+                        "surface-container-highest": "#25252b",
+                        "error": "#ff6e84",
+                        "background": "#0e0e12",
+                        "surface-dim": "#0e0e12",
+                        "primary-container": "#9e93ff",
+                        "on-error-container": "#ffb2b9",
+                        "error-dim": "#d73357",
+                        "surface-bright": "#2c2b32",
+                        "on-primary": "#27009a",
+                        "tertiary-fixed": "#ffcf2a",
+                        "inverse-primary": "#5948d3",
+                        "on-primary-fixed-variant": "#250094",
+                        "primary-fixed-dim": "#8f83ff",
+                        "surface-container-lowest": "#000000",
+                        "primary-fixed": "#9e93ff",
+                        "tertiary-fixed-dim": "#efc117",
+                        "on-secondary-fixed-variant": "#006764",
+                        "on-primary-fixed": "#000000",
+                        "secondary-fixed-dim": "#46eae5",
+                        "on-primary-container": "#1d007a",
+                        "tertiary-container": "#ffcf2a",
+                        "inverse-on-surface": "#555459",
+                        "on-secondary-container": "#dafffc",
+                        "on-surface-variant": "#acaab0",
+                        "on-tertiary": "#644f00",
+                        "surface-container-low": "#131317",
+                        "surface-container": "#19191e",
+                        "on-error": "#490013",
+                        "on-surface": "#fcf8fe",
+                        "on-tertiary-fixed-variant": "#655000",
+                        "secondary-dim": "#46eae5",
+                        "on-tertiary-fixed": "#433400",
+                        "inverse-surface": "#fcf8fe",
+                        "secondary-fixed": "#5af9f3",
+                        "primary-dim": "#6f5fea",
+                        "secondary": "#5af9f3",
+                        "primary": "#aca3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-glow {
+            filter: drop-shadow(0 0 20px rgba(172, 163, 255, 0.4));
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container/30">
+<!-- TopNavBar -->
+<nav class="bg-gray-900/80 backdrop-blur-xl docked full-width top-0 z-50 shadow-[0_0_20px_rgba(108,92,231,0.1)] transition-all duration-300 ease-out flex justify-between items-center px-8 h-16 w-full fixed">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black italic text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-400 font-['Space_Grotesk'] tracking-tight">HERO HUB</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-gray-400 hover:text-indigo-300 hover:bg-white/5 font-['Space_Grotesk'] transition-all" href="#">Dashboard</a>
+<a class="text-gray-400 hover:text-indigo-300 hover:bg-white/5 font-['Space_Grotesk'] transition-all" href="#">Market</a>
+<a class="text-gray-400 hover:text-indigo-300 hover:bg-white/5 font-['Space_Grotesk'] transition-all" href="#">Library</a>
+<a class="text-gray-400 hover:text-indigo-300 hover:bg-white/5 font-['Space_Grotesk'] transition-all" href="#">Community</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-gray-400 hover:text-indigo-300 transition-all"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-2 text-gray-400 hover:text-indigo-300 transition-all"><span class="material-symbols-outlined">settings</span></button>
+<img alt="Hero Avatar" class="w-10 h-10 rounded-full ring-2 ring-indigo-500/50" data-alt="a stylized 3d portrait of a young digital hero with neon purple hair and glowing futuristic headset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw7-8RQif46gnuStlwJjRI1fCgLdN3cpTO9ymLyDFcEm9guExbW62U-bAg1AnbUk-uVnLGF1Gaq1ioZHKr5HS90laN2SLdrDNmV_vC4XZ7DxyVGtLq4roKsenJgjcgoiyYI2qzcpIBOV1nLEVQgBUIRY_b_s0hxSgCI5dSRjG0z8_YFpR9znPh8ThmRDSk7zR9xoMTum5oZZR2Xt6gO6J9bPflfkPWky-uP5-x62lz607TvI-0R5oMrOgQ-7Ql0OoDn3q7WupdTQ"/>
+</div>
+</nav>
+<div class="flex min-h-screen pt-16">
+<!-- SideNavBar -->
+<aside class="bg-gray-900 docked left-0 h-[calc(100vh-64px)] w-64 flex flex-col py-6 gap-4 border-r border-gray-800/50 fixed">
+<div class="px-6 mb-4">
+<div class="flex items-center gap-3 bg-gray-800/40 p-3 rounded-xl">
+<img alt="Rank Badge" class="w-10 h-10" data-alt="a golden heraldic shield icon with intricate filigree and a glowing center star" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgLXvOjORzTDk8sB1j77G3w2rdYEx7N6-ELrGJJ9MI_u6vMdkBZ01_l3SsS1IQGW6RTK4O_Q7P_Cj66ZKABo2hi6hYrHKsEyN76-zhP3rk4WHgBrxPchpvqys3FepDFXHgrLmIBUUQ4zVLCsG5Yz1vMhcdKRD1dLYkuoloarHYXWlC8VtOTG6iZGn_ggzXXPmiWIjsa4PDh_gtLijENFheMUStKb_xQOFuAjGKn3_CttbKKhya0F_xOAzCNjMTlGSrh2lBY2D38g"/>
+<div>
+<div class="font-headline font-bold text-sm text-indigo-400">Master Architect</div>
+<div class="font-label text-[0.6rem] text-gray-500 tracking-widest uppercase">Level 99 Elite</div>
+</div>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<a class="bg-indigo-500/10 text-indigo-400 border-r-4 border-indigo-500 flex items-center px-6 py-3 gap-4 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-bold hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hardware</span>
+                    Forge
+                </a>
+<a class="text-gray-500 flex items-center px-6 py-3 gap-4 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-bold hover:bg-gray-800 hover:text-gray-200 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+                    Inventory
+                </a>
+<a class="text-gray-500 flex items-center px-6 py-3 gap-4 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-bold hover:bg-gray-800 hover:text-gray-200 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+                    Analysis
+                </a>
+<a class="text-gray-500 flex items-center px-6 py-3 gap-4 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-bold hover:bg-gray-800 hover:text-gray-200 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+                    Treasury
+                </a>
+</div>
+<div class="px-6 pt-4 border-t border-gray-800/50 space-y-1">
+<button class="w-full bg-gradient-to-r from-primary to-primary-dim text-on-primary py-3 rounded-lg font-headline font-bold text-xs tracking-widest uppercase shadow-lg shadow-primary/20 mb-4">SUMMON HERO</button>
+<a class="text-gray-500 flex items-center py-2 gap-4 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-bold hover:text-gray-200 transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Support
+                </a>
+<a class="text-gray-500 flex items-center py-2 gap-4 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-bold hover:text-gray-200 transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+                    Log Out
+                </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-64 p-8 bg-surface">
+<!-- Hero Forge Layout: Asymmetric Bento -->
+<div class="grid grid-cols-12 gap-6 items-start">
+<!-- Left Column: Forge Controls -->
+<div class="col-span-12 lg:col-span-3 space-y-6">
+<div class="surface-container rounded-xl p-6 border-l-4 border-primary">
+<h2 class="font-headline text-xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">auto_fix_high</span>
+                            CONFIGURATION
+                        </h2>
+<div class="flex items-center gap-2 bg-surface-container-low p-1 rounded-lg mb-6">
+<button class="flex-1 py-2 rounded-md bg-primary text-on-primary text-xs font-bold font-headline uppercase tracking-wider">Boy</button>
+<button class="flex-1 py-2 rounded-md text-gray-500 text-xs font-bold font-headline uppercase tracking-wider hover:bg-surface-bright">Girl</button>
+</div>
+<!-- Gear Slots -->
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 bg-surface-container-high rounded-lg hover:bg-surface-bright transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-gray-900 flex items-center justify-center text-primary border border-primary/20">
+<span class="material-symbols-outlined">apparel</span>
+</div>
+<div>
+<div class="text-[0.65rem] text-gray-500 font-label tracking-widest uppercase">Headgear</div>
+<div class="text-sm font-bold text-on-surface">Digital Halo V2</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-600 group-hover:text-primary">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-high rounded-lg hover:bg-surface-bright transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-gray-900 flex items-center justify-center text-secondary border border-secondary/20">
+<span class="material-symbols-outlined">visibility</span>
+</div>
+<div>
+<div class="text-[0.65rem] text-gray-500 font-label tracking-widest uppercase">Eyewear</div>
+<div class="text-sm font-bold text-on-surface">Data Stream Visor</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-600 group-hover:text-secondary">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-high rounded-lg hover:bg-surface-bright transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-gray-900 flex items-center justify-center text-tertiary border border-tertiary/20">
+<span class="material-symbols-outlined">watch</span>
+</div>
+<div>
+<div class="text-[0.65rem] text-gray-500 font-label tracking-widest uppercase">Bracelets</div>
+<div class="text-sm font-bold text-on-surface">Arcane Pulse Link</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-600 group-hover:text-tertiary">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-high rounded-lg hover:bg-surface-bright transition-colors cursor-pointer group border-2 border-primary/30">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hide</span>
+</div>
+<div>
+<div class="text-[0.65rem] text-primary font-label tracking-widest uppercase">Outerwear</div>
+<div class="text-sm font-bold text-on-surface">Nova Cape [Rare]</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Market Analysis Module (Energy Aesthetic) -->
+<div class="surface-container-low rounded-xl p-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-8xl">trending_up</span>
+</div>
+<h3 class="font-headline text-sm font-bold text-secondary tracking-widest uppercase mb-4">Market Analysis</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<div class="text-2xl font-black font-headline text-on-surface">1,240 <span class="text-xs font-normal text-gray-500">K/XP</span></div>
+<div class="text-[0.65rem] text-secondary font-label font-bold uppercase tracking-tighter flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">arrow_upward</span> +14.2% Growth
+                                    </div>
+</div>
+<div class="flex gap-1 items-end h-12">
+<div class="w-1.5 h-6 bg-secondary/20 rounded-full"></div>
+<div class="w-1.5 h-8 bg-secondary/40 rounded-full"></div>
+<div class="w-1.5 h-12 bg-secondary rounded-full"></div>
+<div class="w-1.5 h-10 bg-secondary/60 rounded-full"></div>
+<div class="w-1.5 h-12 bg-secondary rounded-full shadow-[0_0_10px_rgba(90,249,243,0.5)]"></div>
+</div>
+</div>
+<button class="w-full py-2 bg-secondary/10 border border-secondary/20 text-secondary text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-secondary/20 transition-all">VIEW ASSET REGISTRY</button>
+</div>
+</div>
+</div>
+<!-- Center: Hero Showcase -->
+<div class="col-span-12 lg:col-span-6 h-[700px] relative">
+<div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent rounded-3xl"></div>
+<!-- Decorative Background elements -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]"></div>
+<div class="absolute top-1/4 left-1/4 w-32 h-32 border border-primary/10 rounded-full rotate-45 border-dashed"></div>
+<div class="absolute bottom-1/4 right-1/4 w-64 h-64 border border-secondary/10 rounded-full -rotate-12 border-dashed"></div>
+<!-- Hero Character -->
+<div class="relative h-full flex flex-col items-center justify-center">
+<img alt="Student Hero" class="h-[80%] w-auto object-contain hero-glow relative z-10" data-alt="a high-quality 3d action RPG character, a teenage boy in futuristic techwear with a glowing indigo cape and translucent digital visor, cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByPCAA3ebR4Q9l6acPJhQBEzyRIXVYayryri_4L6lZ9E7zfsb-CpIBDjnZ4BPzIU1KLmUhAgJ-AtW2HopudP4FkatNZMMiY-Q7NreBO1sBulmeHpOgZiGS2jFUPrvSwPVMob6dsWglGJp37jkbk6oswGe47z9Y386075J0Uxq-qY3MNTzsmVLOUqdO-B9hKMx4a-lSfOM0LpYmJ5AWBivi8663pOIL1qOQTA_pYp3m1tfZJWQ-1DcUvgWLr2zNTBAMpoE6ODaH8Q"/>
+<!-- Floating HUD Elements -->
+<div class="absolute left-10 top-1/3 bg-surface-container/60 backdrop-blur-xl p-4 rounded-xl border-l-2 border-primary z-20 shadow-2xl">
+<div class="text-[0.6rem] text-gray-400 font-label tracking-widest uppercase mb-1">Combat Power</div>
+<div class="text-3xl font-black font-headline text-primary">8,420</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-2">
+<div class="bg-primary h-full rounded-full shadow-[0_0_8px_rgba(172,163,255,1)]" style="width: 75%"></div>
+</div>
+</div>
+<div class="absolute right-10 bottom-1/3 bg-surface-container/60 backdrop-blur-xl p-4 rounded-xl border-r-2 border-tertiary z-20 shadow-2xl">
+<div class="text-[0.6rem] text-gray-400 font-label tracking-widest uppercase mb-1">Spirit Essence</div>
+<div class="text-3xl font-black font-headline text-tertiary">LVL 42</div>
+<div class="flex gap-1 mt-2">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<div class="w-2 h-2 rounded-full bg-gray-700"></div>
+</div>
+</div>
+<!-- Achievement Orb -->
+<div class="absolute bottom-4 flex flex-col items-center">
+<div class="w-20 h-20 rounded-full bg-gradient-to-tr from-tertiary-dim to-tertiary flex items-center justify-center shadow-[0_0_40px_rgba(255,224,137,0.3)] mb-4">
+<span class="material-symbols-outlined text-on-tertiary text-4xl" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div class="font-headline font-bold text-on-surface text-center">
+                                RANK: ASCENDANT IV
+                            </div>
+</div>
+</div>
+</div>
+<!-- Right Column: Stats & Treasury -->
+<div class="col-span-12 lg:col-span-3 space-y-6">
+<!-- Stats Grid -->
+<div class="surface-container rounded-xl p-6">
+<h3 class="font-headline text-sm font-bold text-gray-400 tracking-widest uppercase mb-6 flex justify-between items-center">
+                            Core Attributes
+                            <span class="material-symbols-outlined text-xs">info</span>
+</h3>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold font-label uppercase tracking-widest">
+<span class="text-primary">Intelligence</span>
+<span class="text-on-surface">94/100</span>
+</div>
+<div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 94%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold font-label uppercase tracking-widest">
+<span class="text-secondary">Agility</span>
+<span class="text-on-surface">76/100</span>
+</div>
+<div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 76%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold font-label uppercase tracking-widest">
+<span class="text-tertiary">Vitality</span>
+<span class="text-on-surface">82/100</span>
+</div>
+<div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary" style="width: 82%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- P2P Treasury Module -->
+<div class="surface-container rounded-xl p-6 border-t border-white/5">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline text-sm font-bold text-primary tracking-widest uppercase">Treasury</h3>
+<div class="p-1.5 bg-primary/10 rounded text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-4 rounded-lg border-l-2 border-primary/20">
+<div class="text-[0.65rem] text-gray-500 font-label uppercase tracking-widest">Digital Gold</div>
+<div class="text-2xl font-black font-headline text-tertiary tracking-tight">48,250.00</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg border-l-2 border-secondary/20">
+<div class="text-[0.65rem] text-gray-500 font-label uppercase tracking-widest">Soul Bound Gems</div>
+<div class="text-2xl font-black font-headline text-secondary tracking-tight">1,204</div>
+</div>
+<div class="pt-4 space-y-3">
+<div class="text-[0.6875rem] font-bold font-label text-gray-500 uppercase tracking-widest mb-2">Recent Transfers</div>
+<div class="flex items-center gap-3">
+<img alt="Hero Avatar" class="w-8 h-8 rounded-full border border-primary/30" data-alt="a miniature 3d headshot of a female character with teal hair and glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIksG85OMvRwEm9m5F4WyhCIml7FF3poIlqwNOGJNrwSmw34VyZS3pakRZ11udWrrkYw9ftuNNQCtRUMiLT26_FXSJ1-iJX4EOWXwQFwNcZn08L2wMzbz20NH9iQk9pEZFV7D2xtX9k8K3BKLGbAnrxjX4CzyK8S4PNDeiG3wZkO72of50UrN-aCdxcMmwe6S5RNy70qCbeDAz1yot9lj5VNsfwz0yJzAX6iVMSaY89jYM2suzchk6-P8bzYnHRiq-ettQj2oyug"/>
+<div class="flex-1">
+<div class="text-xs font-bold">Transfer from Architect_7</div>
+<div class="text-[0.6rem] text-gray-500">2 minutes ago</div>
+</div>
+<div class="text-xs font-bold text-primary">+500 G</div>
+</div>
+<div class="flex items-center gap-3">
+<img alt="Hero Avatar" class="w-8 h-8 rounded-full border border-secondary/30" data-alt="a miniature 3d headshot of a character with spiky neon blue hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI3pDVWk6zqDrJ_3-QZsdsdupvLgbz7na6B1JtUpzj9F-zcZWrUcmteCEf8CskEY3b0cMYzC3DYdVYK3XYvFXod9NLFwQ9H6HfC140khQm6mZ13fWaWPQt7la7cIaVFdmStvkE0POeYAPblDL3rZghpxUqdn7z_4STGcxrhplGgfsq1t8jg_NVmS261U10feMrMcqrImmBBOrhNtI8xcm-gITmikSxS7ZwYSbLaEEWate4nJokItvTz_s1t7eL28pv_utsYVIPjQ"/>
+<div class="flex-1">
+<div class="text-xs font-bold">Trade with Void_Walker</div>
+<div class="text-[0.6rem] text-gray-500">1 hour ago</div>
+</div>
+<div class="text-xs font-bold text-error">-1,200 G</div>
+</div>
+</div>
+<button class="w-full py-3 bg-gradient-to-r from-primary to-primary-dim text-on-primary font-headline font-bold text-xs uppercase tracking-widest rounded-lg shadow-lg shadow-primary/30 mt-4 transition-all hover:scale-[1.02] active:scale-[0.98]">OPEN P2P EXCHANGE</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Floating Action Button: Contextual -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-on-primary shadow-[0_0_30px_rgba(172,163,255,0.4)] hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</button>
+</body></html>

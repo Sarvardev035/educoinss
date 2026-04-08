@@ -1,0 +1,45 @@
+# EduCoin 2.0 - Product Requirements Document
+
+## Project Overview
+EduCoin 2.0 is a full-stack web platform where students earn digital coins by studying, and parents monitor and control their child's activity.
+
+## Tech Stack
+- **Frontend:** React 18, Vite, TailwindCSS, Framer Motion
+- **Backend:** Node.js, Express, TypeScript
+- **Database:** PostgreSQL, Prisma ORM
+- **Auth:** JWT (httpOnly cookies, separate roles)
+- **Realtime:** Socket.io (live leaderboard + parent alerts)
+- **AI/Camera:** TensorFlow.js + BlazeFace (local focus detection)
+- **Payments:** Stripe (parent coin top-up)
+
+## Core Features
+### For Students
+- **Study Dashboard:** Overview of coins, streaks, and progress.
+- **Focus Timer:** AI-powered session tracking with face detection.
+- **Store:** Unlock skins, badges, boosts, and real prizes.
+- **Leaderboard:** Global and friend-based rankings.
+- **Social:** Friend requests and activity feed.
+- **Achievements:** Rewards for milestones.
+
+### For Parents
+- **Parent Dashboard:** Real-time monitoring of all linked children.
+- **Child Profiles:** Detailed reports on study habits and focus.
+- **Engagement Tools:** Send tips and motivational messages.
+- **Controls:** Set study goals and restrict store access.
+- **Alerts:** Instant notifications for session flags, level-ups, and purchases.
+
+## Visual Identity (Dark Theme)
+- **Base Background:** #0F0F13
+- **Card Background:** #1A1A24
+- **Primary (Student):** Purple (#6C5CE7)
+- **Secondary (Parent):** Teal (#00CEC9)
+- **Accent:** Gold (#F9CA24)
+- **Typography:** Inter (Modern, Clean)
+
+## Database Schema (Prisma)
+- User, StudentProfile, ParentProfile
+- StudySession, CoinTransaction
+- StoreItem, StudentInventory
+- ParentTip, ParentAlert
+- Achievement, StudentAchievement
+- Friendship

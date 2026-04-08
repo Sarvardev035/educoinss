@@ -1,0 +1,128 @@
+<html class="dark" lang="en"><head></head><body class="bg-surface text-on-surface font-body selection:bg-primary/30">```html
+
+
+
+    <meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduCoin 2.0 | Student Hero Forge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#ffb2b9",
+                    "secondary-dim": "#46eae5",
+                    "primary-container": "#9e93ff",
+                    "primary-fixed-dim": "#8f83ff",
+                    "on-primary-fixed-variant": "#250094",
+                    "on-secondary-container": "#dafffc",
+                    "secondary-container": "#006a67",
+                    "on-primary": "#27009a",
+                    "on-secondary-fixed": "#004746",
+                    "inverse-primary": "#5948d3",
+                    "tertiary": "#ffe089",
+                    "on-tertiary-container": "#5a4700",
+                    "outline-variant": "#48474c",
+                    "error-dim": "#d73357",
+                    "tertiary-dim": "#efc117",
+                    "primary-dim": "#6f5fea",
+                    "error-container": "#a70138",
+                    "primary-fixed": "#9e93ff",
+                    "primary": "#aca3ff",
+                    "on-tertiary": "#644f00",
+                    "surface-container-high": "#1f1f24",
+                    "on-secondary-fixed-variant": "#006764",
+                    "surface-container-highest": "#25252b",
+                    "on-tertiary-fixed-variant": "#655000",
+                    "on-tertiary-fixed": "#433400",
+                    "surface-container-low": "#131317",
+                    "on-primary-container": "#1d007a",
+                    "on-surface": "#fcf8fe",
+                    "surface-dim": "#0e0e12",
+                    "on-background": "#fcf8fe",
+                    "surface-tint": "#aca3ff",
+                    "outline": "#76757a",
+                    "tertiary-fixed-dim": "#efc117",
+                    "error": "#ff6e84",
+                    "surface-container-lowest": "#000000",
+                    "on-surface-variant": "#acaab0",
+                    "surface": "#0e0e12",
+                    "inverse-surface": "#fcf8fe",
+                    "tertiary-fixed": "#ffcf2a",
+                    "on-error": "#490013",
+                    "surface-variant": "#25252b",
+                    "surface-container": "#19191e",
+                    "surface-bright": "#2c2b32",
+                    "secondary": "#5af9f3",
+                    "secondary-fixed-dim": "#46eae5",
+                    "tertiary-container": "#ffcf2a",
+                    "inverse-on-surface": "#555459",
+                    "secondary-fixed": "#5af9f3",
+                    "background": "#0e0e12",
+                    "on-secondary": "#005c59",
+                    "on-primary-fixed": "#000000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(25, 25, 30, 0.6);
+            backdrop-filter: blur(24px);
+        }
+        .glow-primary {
+            box-shadow: 0 0 30px rgba(172, 163, 255, 0.15);
+        }
+        .neon-border-teal {
+            border: 1px solid rgba(90, 249, 243, 0.2);
+        }
+    </style>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-8 py-4 max-w-[1920px] mx-auto shadow-[0_8px_32px_rgba(108,92,231,0.1)]">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold tracking-tighter text-violet-400 font-['Space_Grotesk']">EduCoin 2.0</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-slate-400 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 hover:text-violet-300 transition-all px-3 py-1 rounded-lg" href="#">Overview</a>
+<a class="text-violet-400 font-bold font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 hover:text-violet-300 transition-all px-3 py-1 rounded-lg" href="#">Market</a>
+<a class="text-slate-400 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 hover:text-violet-300 transition-all px-3 py-1 rounded-lg" href="#">Library</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-high rounded-full border border-primary/10">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-headline font-bold text-tertiary">2,450.00</span>
+</div>
+<button class="p-2 text-slate-400 hover:bg-slate-800/50 hover:text-violet-300 transition-all rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-slate-800/50 hover:text-violet-300 transition-all rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-primary flex items-center justify-center font-bold text-on-primary">JD</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 hidden xl:flex flex-col pt-24 pb-8 px-4 bg-[#131317] border-r border-violet-500/10 z-40">
+<div class="flex flex-col items-center mb-8 px-4">
+<div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-secondary p-1 mb-3">
+<div class="w-full h-full rounded-[0.85rem] bg-surface-dim flex items-center justify-center overflow-hidden">
+</div></div></div></aside></body></html>

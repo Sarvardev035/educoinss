@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HeroAcademy - Student Wardrobe</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2f2e43",
+                    "inverse-on-surface": "#f2efff",
+                    "on-tertiary-fixed-variant": "#2d4965",
+                    "on-surface": "#1a1a2e",
+                    "tertiary-fixed-dim": "#adc9eb",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "background": "#fcf8ff",
+                    "tertiary-fixed": "#d0e4ff",
+                    "surface": "#fcf8ff",
+                    "surface-container": "#efecff",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#fdfcff",
+                    "primary-fixed-dim": "#adc6ff",
+                    "tertiary-container": "#5c7796",
+                    "surface-container-high": "#e8e5ff",
+                    "surface-bright": "#fcf8ff",
+                    "on-secondary-fixed-variant": "#5516be",
+                    "surface-container-highest": "#e2e0fc",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "surface-tint": "#005ac2",
+                    "on-surface-variant": "#424754",
+                    "secondary-fixed": "#e9ddff",
+                    "outline-variant": "#c2c6d6",
+                    "error": "#ba1a1a",
+                    "outline": "#727785",
+                    "surface-dim": "#dad7f3",
+                    "on-error": "#ffffff",
+                    "on-background": "#1a1a2e",
+                    "surface-variant": "#e2e0fc",
+                    "on-secondary-container": "#fffbff",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#23005c",
+                    "on-primary-fixed": "#001a42",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#fefcff",
+                    "primary": "#0058be",
+                    "on-tertiary-fixed": "#001d35",
+                    "inverse-primary": "#adc6ff",
+                    "tertiary": "#435e7c",
+                    "surface-container-low": "#f5f2ff",
+                    "secondary": "#6b38d4",
+                    "primary-fixed": "#d8e2ff",
+                    "on-primary-fixed-variant": "#004395",
+                    "primary-container": "#2170e4",
+                    "secondary-container": "#8455ef",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #e9ddff 0%, #fcf8ff 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/60 backdrop-blur-3xl">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="text-xl font-bold tracking-tight text-slate-900">HeroAcademy</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 font-medium hover:text-blue-500 transition-colors" href="#">Dashboard</a>
+<a class="text-blue-600 font-bold border-b-2 border-blue-600" href="#">Gear</a>
+<a class="text-slate-500 font-medium hover:text-blue-500 transition-colors" href="#">Quests</a>
+<a class="text-slate-500 font-medium hover:text-blue-500 transition-colors" href="#">Profile</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-slate-900 transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-slate-900 transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<section class="lg:col-span-5 flex flex-col gap-6">
+<div class="bg-surface-container-lowest rounded-[1.5rem] p-8 shadow-[0_8px_40px_rgba(26,26,46,0.04)] hero-gradient overflow-hidden relative min-h-[500px] flex flex-col items-center justify-center">
+<div class="absolute top-6 left-6 z-10">
+<h2 class="text-[1.5rem] font-bold text-on-surface">Hero Preview</h2>
+<p class="text-[0.875rem] text-on-surface-variant leading-relaxed">Level 14 Trailblazer</p>
+</div>
+<div class="relative w-full h-full flex items-center justify-center">
+<img alt="friendly-human-hero" class="w-full h-full object-contain max-h-[450px]" data-alt="A friendly human child hero with short hair wearing casual adventure clothes, standing in a confident hero pose with a soft warm lighting glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhrIlHoZa36o17su3sAIuEL71ANKHVciU2FxqzxC94PJuZcAcomI2M6SH3Oh-BkABFh_IOrDauRL-bSp3OqcHy9VESrrmg2YmsW16bMFaB6zfTQ2RG6bh4kM5YNhKnt_7665RjrtmBOXlJfhiEytWxf4QA8v-4iqDXbXe56lPHpl9VJnHrG_1ZP5CNkgj6oyAb419Qi4Zcu1Ms7sNqOpUFeQdD5zepg9EyBb7znvlUQopq110KEWQ0QW0A1gNAZXREgxb7_WhGSQ"/>
+<div class="absolute bottom-4 flex gap-3">
+<div class="bg-white/80 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-blue-600" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-[0.75rem] font-bold">Legendary Set</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[1.5rem] p-6 shadow-[0_8px_40px_rgba(26,26,46,0.04)]">
+<h3 class="text-[0.875rem] font-bold text-on-surface uppercase tracking-wider mb-4">Current Stats</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-[0.875rem] text-on-surface-variant">Agility</span>
+<div class="w-2/3 h-2 bg-surface-container-low rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[75%] rounded-full"></div>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-[0.875rem] text-on-surface-variant">Focus</span>
+<div class="w-2/3 h-2 bg-surface-container-low rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[90%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="lg:col-span-7 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<div>
+<h1 class="text-[1.5rem] font-bold text-on-surface">Hero Wardrobe</h1>
+<p class="text-[0.875rem] text-on-surface-variant">Equip your best gear for the next quest</p>
+</div>
+<div class="flex bg-surface-container-low p-1 rounded-xl">
+<button class="bg-surface-container-lowest text-primary px-4 py-2 rounded-lg text-[0.75rem] font-bold shadow-sm">All</button>
+<button class="text-on-surface-variant px-4 py-2 rounded-lg text-[0.75rem] font-bold">Head</button>
+<button class="text-on-surface-variant px-4 py-2 rounded-lg text-[0.75rem] font-bold">Accessories</button>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-[1.5rem] shadow-[0_8px_40px_rgba(26,26,46,0.04)] border-2 border-primary transition-transform active:scale-95 group cursor-pointer">
+<div class="bg-surface-container-low w-full aspect-square rounded-xl mb-4 flex items-center justify-center relative overflow-hidden">
+<img alt="digital-glasses" class="w-full h-full object-cover" data-alt="Futuristic neon digital glasses with a sleek blue translucent frame and holographic lenses on a clean minimalist surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqheGXCBjmWCnzJ5IYCRw4GZ7-dvcnFI-4-2Js59z-_d6p82HFFyDtj3k06DL-oVV1B2pDsXL7dJry-vfzPPFgSXiVNqq637wqvymrqTd94k2aei6ZTTlkh_ZrLiSTCItXF0uoMSYhz9VwIhgSqSkdC1OSmOQ0QqBePqrQyFoWyHKt1H-83PIEv3EetOAbO1j4djBlPwMXp-DVXVUoqnTkujie84hSa3wXm2kqjSdGSiPdu3c-XfIDE5t9HuDwY2CkWFSq5CYHBw"/>
+<div class="absolute top-2 right-2 bg-primary text-white p-1 rounded-full leading-none">
+<span class="material-symbols-outlined text-[1rem]" data-icon="check">check</span>
+</div>
+</div>
+<h4 class="text-[0.875rem] font-bold text-on-surface">Digital Glasses</h4>
+<p class="text-[0.75rem] text-on-surface-variant">+15 Focus</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-[1.5rem] shadow-[0_8px_40px_rgba(26,26,46,0.04)] transition-transform active:scale-95 hover:bg-slate-50 cursor-pointer">
+<div class="bg-surface-container-low w-full aspect-square rounded-xl mb-4 flex items-center justify-center overflow-hidden">
+<img alt="cool-caps" class="w-full h-full object-cover" data-alt="A trendy modern blue baseball cap with a subtle geometric hero academy logo, premium soft fabric texture, studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAISNGuHuQ5dueaT-een2-t6cGAVTamP2Owfevep-JvutIB9hrTxWfWliuMEjQ0dm0L9dlaiTekR1AUD48A2MrCy6ro2UO4OOvKo-DgVOyS0o5BZcWFJczCj9FZvlSE4zPMTTtWbl30tyVE40sqjZIbk3k5Z9Ya4Q5ZnMIxeXCaugldSKcj7zGzMocq82utdCLn-_dY26R2YuxQlldzUZyRUVfUX3WZUwg1WsTG_YWHAjzWViyYj2J_z5iFOmQVjfRN0IOEADcJTQ"/>
+</div>
+<h4 class="text-[0.875rem] font-bold text-on-surface">Cool Caps</h4>
+<p class="text-[0.75rem] text-on-surface-variant">+8 Style</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-[1.5rem] shadow-[0_8px_40px_rgba(26,26,46,0.04)] transition-transform active:scale-95 hover:bg-slate-50 cursor-pointer">
+<div class="bg-surface-container-low w-full aspect-square rounded-xl mb-4 flex items-center justify-center overflow-hidden">
+<img alt="golden-bracelets" class="w-full h-full object-cover" data-alt="Elegant golden bracelets with glowing blue gemstones embedded, metallic sheen with professional soft focus studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAypMRiu6Mw_YspoGJ4vODE-xmQnrbroyUfjZhM4XbW_HwzWiLIk8VYVd1A_hwMGodjL_L0_6WdXqTqEZg1b2z7nPUDoJOdewFHMDlnMSkGvuOMJH_SwpWLD5j-aEBNggX2q3ueaEM-V69Nm5vVfwJXM3nDOoZFF0obXKuerknDrHpk21mbFgCA4NxOfXadh-qt441PBMVBCAN80sgtqH1XbuzV1n57MDCfsbg7zm-NSqyfE8oChWNaj27BfaBiCxdriAteDCZHag"/>
+</div>
+<h4 class="text-[0.875rem] font-bold text-on-surface">Golden Bracelets</h4>
+<p class="text-[0.75rem] text-on-surface-variant">+20 Power</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-[1.5rem] shadow-[0_8px_40px_rgba(26,26,46,0.04)] transition-transform active:scale-95 hover:bg-slate-50 cursor-pointer opacity-60">
+<div class="bg-surface-container-low w-full aspect-square rounded-xl mb-4 flex items-center justify-center grayscale">
+<span class="material-symbols-outlined text-[3rem] text-outline-variant" data-icon="lock">lock</span>
+</div>
+<h4 class="text-[0.875rem] font-bold text-on-surface">???</h4>
+<p class="text-[0.75rem] text-on-surface-variant">Unlock at Lvl 20</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-[1.5rem] shadow-[0_8px_40px_rgba(26,26,46,0.04)] transition-transform active:scale-95 hover:bg-slate-50 cursor-pointer opacity-60">
+<div class="bg-surface-container-low w-full aspect-square rounded-xl mb-4 flex items-center justify-center grayscale">
+<span class="material-symbols-outlined text-[3rem] text-outline-variant" data-icon="lock">lock</span>
+</div>
+<h4 class="text-[0.875rem] font-bold text-on-surface">???</h4>
+<p class="text-[0.75rem] text-on-surface-variant">Unlock at Lvl 25</p>
+</div>
+<div class="bg-surface-container-low border-2 border-dashed border-outline-variant p-6 rounded-[1.5rem] flex flex-col items-center justify-center text-center cursor-pointer hover:bg-white transition-colors">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-2 shadow-sm">
+<span class="material-symbols-outlined text-primary" data-icon="add">add</span>
+</div>
+<span class="text-[0.75rem] font-bold text-on-surface-variant">New Item Slot</span>
+</div>
+</div>
+<div class="mt-4 p-8 bg-gradient-to-r from-primary to-secondary rounded-[1.5rem] text-white flex items-center justify-between overflow-hidden relative">
+<div class="relative z-10">
+<h3 class="text-[1.25rem] font-bold mb-1">Quest Reward Available!</h3>
+<p class="text-[0.875rem] opacity-90 mb-4">Complete "Digital Detox" to unlock the Rare Visor.</p>
+<button class="bg-white text-primary px-6 py-2 rounded-xl text-[0.875rem] font-bold shadow-lg transition-transform active:scale-95">Go to Quests</button>
+</div>
+<span class="material-symbols-outlined text-[8rem] absolute -right-4 -bottom-4 opacity-20 rotate-12" data-icon="military_tech">military_tech</span>
+</div>
+</section>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-white/60 backdrop-blur-3xl md:hidden shadow-[0_-8px_40px_rgba(26,26,46,0.04)] rounded-t-[1.5rem]">
+<div class="flex flex-col items-center justify-center text-slate-500 px-4 py-1 hover:bg-slate-100 transition-all">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[0.75rem] font-semibold">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-50 text-blue-700 rounded-[0.75rem] px-4 py-1 transition-all scale-110">
+<span class="material-symbols-outlined" data-icon="apparel">apparel</span>
+<span class="text-[0.75rem] font-semibold">Gear</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 px-4 py-1 hover:bg-slate-100 transition-all">
+<span class="material-symbols-outlined" data-icon="swords">swords</span>
+<span class="text-[0.75rem] font-semibold">Quests</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 px-4 py-1 hover:bg-slate-100 transition-all">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[0.75rem] font-semibold">Profile</span>
+</div>
+</nav>
+</body></html>

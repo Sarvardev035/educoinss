@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#a70138",
+                    "outline-variant": "#48474c",
+                    "primary": "#aca3ff",
+                    "secondary-fixed": "#5af9f3",
+                    "inverse-primary": "#5948d3",
+                    "on-error-container": "#ffb2b9",
+                    "secondary": "#5af9f3",
+                    "inverse-surface": "#fcf8fe",
+                    "on-primary-container": "#1d007a",
+                    "error-dim": "#d73357",
+                    "secondary-fixed-dim": "#46eae5",
+                    "on-secondary": "#005c59",
+                    "on-tertiary-fixed-variant": "#655000",
+                    "on-tertiary-container": "#5a4700",
+                    "tertiary": "#ffe089",
+                    "surface-tint": "#aca3ff",
+                    "secondary-dim": "#46eae5",
+                    "surface-bright": "#2c2b32",
+                    "surface-container-lowest": "#000000",
+                    "outline": "#76757a",
+                    "surface": "#0e0e12",
+                    "surface-dim": "#0e0e12",
+                    "secondary-container": "#006a67",
+                    "primary-dim": "#6f5fea",
+                    "surface-container-low": "#131317",
+                    "inverse-on-surface": "#555459",
+                    "tertiary-container": "#ffcf2a",
+                    "primary-fixed-dim": "#8f83ff",
+                    "on-primary": "#27009a",
+                    "on-background": "#fcf8fe",
+                    "background": "#0e0e12",
+                    "on-tertiary": "#644f00",
+                    "on-secondary-fixed": "#004746",
+                    "tertiary-fixed": "#ffcf2a",
+                    "on-surface": "#fcf8fe",
+                    "tertiary-dim": "#efc117",
+                    "error": "#ff6e84",
+                    "on-secondary-container": "#dafffc",
+                    "on-error": "#490013",
+                    "on-primary-fixed": "#000000",
+                    "surface-container-highest": "#25252b",
+                    "on-primary-fixed-variant": "#250094",
+                    "primary-fixed": "#9e93ff",
+                    "on-tertiary-fixed": "#433400",
+                    "surface-variant": "#25252b",
+                    "surface-container-high": "#1f1f24",
+                    "tertiary-fixed-dim": "#efc117",
+                    "primary-container": "#9e93ff",
+                    "on-surface-variant": "#acaab0",
+                    "surface-container": "#19191e",
+                    "on-secondary-fixed-variant": "#006764"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "1rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #0e0e12; color: #fcf8fe; }
+        .font-headline { font-family: 'Space Grotesk', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary/30">
+<nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(108,92,231,0.1)] flex justify-between items-center px-8 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-indigo-400 font-['Space_Grotesk']">EduCoin Library</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-['Space_Grotesk'] tracking-tight text-indigo-400 border-b-2 border-indigo-500 pb-1" href="#">Discover</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-slate-400 hover:text-slate-200 transition-colors" href="#">My Shelf</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-slate-400 hover:text-slate-200 transition-colors" href="#">Lending</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-slate-400 hover:text-slate-200 transition-colors" href="#">Resources</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-4 py-2 bg-indigo-500/10 text-indigo-400 rounded-lg font-medium hover:bg-indigo-500/20 transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined text-sm">groups</span>
+                Start Session
+            </button>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-400 hover:bg-slate-800/50 rounded-lg transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-slate-800/50 rounded-lg transition-all">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/30 overflow-hidden ml-2">
+<img alt="User profile" data-alt="a friendly stylized 3d avatar of a young student with glasses wearing a purple hoodie against a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6DoOd9W3RPCEtyWzNAp4i-WfdfacVfQiytrM4bmjlKmO3h_leEfEyYj3fWXMLZHwqoRFHtxIUlwhEJyoqs_nYzlT79RpvkioqyZBdwFf8yrrV-xkeMoIk79B2mz-6lRufCP2AWVHqHR8E9O3_cUXudOl69W6NNWp7hCkmjQfDsx_cPLUx1xbMqqbp9fE15ak3HpfyeoL6ryqOBAiZQp4_JxrFlzNDruwp4dAUEUesFfym-fr5Mj9HddqO14MEDk49HRBp7U21Qg"/>
+</div>
+</div>
+</div>
+</nav>
+<div class="flex pt-16 min-h-screen">
+<aside class="hidden lg:flex flex-col h-[calc(100vh-4rem)] w-64 border-r border-slate-800/30 bg-slate-900/50 py-6 fixed left-0">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-8 h-8 rounded bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">blur_on</span>
+</div>
+<div>
+<p class="font-['Space_Grotesk'] uppercase tracking-widest text-[10px] text-indigo-300">Digital Observatory</p>
+<p class="text-xs text-slate-500">Academic Level 4</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-slate-800/40 transition-all duration-300 ease-in-out font-['Inter'] font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span> Home
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-slate-800/40 transition-all duration-300 ease-in-out font-['Inter'] font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span> Curriculum
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-indigo-500/10 text-indigo-400 border-r-4 border-indigo-500 transition-all duration-300 ease-in-out font-['Inter'] font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="local_library">local_library</span> Library
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-slate-800/40 transition-all duration-300 ease-in-out font-['Inter'] font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span> Family Hub
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-slate-800/40 transition-all duration-300 ease-in-out font-['Inter'] font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span> Achievements
+                </a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full py-3 bg-primary-dim text-on-primary font-bold rounded-lg mb-6 shadow-[0_0_20px_rgba(108,92,231,0.3)] active:scale-95 transition-transform">
+                    Redeem EduCoin
+                </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 text-xs transition-colors" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span> Settings
+                    </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 text-xs transition-colors" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="help_outline">help_outline</span> Support
+                    </a>
+</div>
+</div>
+</aside>
+<main class="flex-1 lg:ml-64 px-8 py-10 max-w-7xl mx-auto w-full">
+<header class="mb-12">
+<h1 class="text-4xl font-headline font-bold tracking-tight mb-2">Knowledge Nexus</h1>
+<p class="text-on-surface-variant max-w-2xl">Fuel your intellectual expansion with curated resources and collaborative intelligence.</p>
+</header>
+<section class="mb-16">
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low min-h-[400px] flex items-center group">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-low via-surface-container-low/80 to-transparent z-10"></div>
+<img class="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="futuristic digital library background with glowing holograms of complex data structures and floating geometric shapes in shades of deep indigo and cyan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2ubdRY7xy2lbR3u2Ac3KtSsAgy8ZnILhNn96O8JHZOUq3QGvxImkjocm6-hZW8p986_krOJfIHd0_gQ9B5aoCJ5x072PHs3TpBrz1pvK1Zr-cLd1No7sH8X4c6NCj8iyc_V3gzG0ZqWYSdARt9QOohn8H3ZBmnEC0tNnSlKcl7ZM7tTLYY9wcrjdoGz560FlMc9H11E_OqVVFmajB9vxLvDMO6VBI-XTUB76FYLQVsXK2y1c-hrVvU7T0-sAxtdJc71TfGYl_1g"/>
+</div>
+<div class="relative z-20 px-12 max-w-xl">
+<span class="inline-block px-3 py-1 bg-primary/20 text-primary-fixed text-[10px] font-bold uppercase tracking-widest rounded-full mb-4">Recommended for You</span>
+<h2 class="text-5xl font-headline font-bold mb-4 leading-tight">Quantum Computing Essentials</h2>
+<p class="text-on-surface-variant mb-8 text-lg">Master the fundamentals of qubits, entanglement, and the algorithms shaping the future of computation.</p>
+<div class="flex gap-4">
+<button class="px-8 py-3 bg-primary text-on-primary-fixed font-bold rounded-lg flex items-center gap-2 hover:shadow-[0_0_30px_rgba(172,163,255,0.4)] transition-all">
+<span class="material-symbols-outlined">play_circle</span>
+                                Start Module
+                            </button>
+<button class="px-8 py-3 bg-surface-bright/50 border border-outline-variant/30 text-on-surface font-bold rounded-lg backdrop-blur hover:bg-surface-bright transition-all">
+                                View Details
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-16">
+<div class="flex items-baseline justify-between mb-8">
+<h3 class="text-2xl font-headline font-semibold">Shared by Parent</h3>
+<a class="text-primary text-sm font-medium hover:underline flex items-center gap-1" href="#">
+                        View Assignment History <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<div class="bg-surface-container p-6 rounded-lg border border-outline-variant/10 hover:bg-surface-container-high transition-colors group">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 rounded-lg bg-secondary-container/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest bg-secondary/10 px-2 py-1 rounded">Finance</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-2 group-hover:text-primary transition-colors">Personal Wealth Strategies</h4>
+<p class="text-sm text-on-surface-variant mb-6">A deep dive into compound interest, market cycles, and portfolio diversification basics.</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-surface-container bg-surface-container-highest overflow-hidden">
+<img alt="Parent Avatar" data-alt="stylized 3d avatar of a professional adult with a warm expression and short hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBofwh_yDEBjNaJjGtJg7J7r8TAEz0naBkLlgItHnwjbW-rOl0UNx_e16sMycIN4nduE0MLeqaf7dcE5bU4trkvB9EcYTNeVxJClCbyf8IGf-j27L6EuU4Ci0JTZ7Nhq8glGgr0mIOlTP8kQhc0SDpYb_7tR1HxeSAspZU9FQQkIjjxok74iiAeovpHBQ97vNdu8a4q2ynRtndm19GQUoKoeg_wWi-AvkONMSz3sHTknyDE-ji50ac8lJeBylbT8IOR8s9BdVLlg"/>
+</div>
+</div>
+<span class="text-[10px] text-slate-500 font-medium">Assigned 2h ago</span>
+</div>
+</div>
+<div class="bg-surface-container p-6 rounded-lg border border-outline-variant/10 hover:bg-surface-container-high transition-colors group">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">biotech</span>
+</div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest bg-primary/10 px-2 py-1 rounded">Science</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-2 group-hover:text-primary transition-colors">Advanced CRISPR Ethics</h4>
+<p class="text-sm text-on-surface-variant mb-6">Exploring the moral boundaries and future implications of gene-editing technologies.</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-surface-container bg-surface-container-highest overflow-hidden">
+<img alt="Parent Avatar" data-alt="stylized 3d avatar of a professional adult with a warm expression and short hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUuBPrAsB5x0La5AoAbLp7DV9Totj69MyZP8gs897XamKEkDmvuuWy0mYpPc1FMhiZZpmJBB26wK2iw9GxqJ7z0i1DRNeqPVMq1_M5KLiRnYR2FLXe5SYbxijQ1eTHVKoG9H4tDs7TM0-NIV2sDNL9n_KGi3KJ-wHRA2WUVmEQWGq8wyeRQtPgRq4mAnEq5RrkcwzO-AU8phBa7UTyDWJSfEhEMZ2blQ0OqC4Fj9OwnO5wOBtPKZcTVH7LQsNFzZgMtSj4bYNt6g"/>
+</div>
+</div>
+<span class="text-[10px] text-slate-500 font-medium">Assigned 1d ago</span>
+</div>
+</div>
+<div class="bg-primary/5 p-6 rounded-lg border border-primary/20 flex flex-col items-center justify-center text-center group cursor-pointer hover:bg-primary/10 transition-all">
+<div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined">add</span>
+</div>
+<p class="font-headline font-bold text-primary">Request New Resource</p>
+<p class="text-xs text-on-surface-variant mt-2 px-6">Ask your parent to unlock a specific book or course for you.</p>
+</div>
+</div>
+</section>
+<section class="mb-16">
+<h3 class="text-2xl font-headline font-semibold mb-8">Resource Categories</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="aspect-square relative rounded-xl overflow-hidden group cursor-pointer">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="microscopic view of biological cells glowing with neon purple and teal fluorescent light in a dark laboratory setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgIHIpaJyYi2GAs33wOFHtHFZQ0BRRQ2dzj1q0L66NO9BZGq8leXxNT0gw-IUrDzLcm5XRjDkravooEKOE9XjSZd_xWUw5oBEh5RmYLeZId13-LeWWCnXeHK1pdsgoUDMiMEy_yibfVw3xc_zKPnfDlM0nj7uvHAE8yQpFDgNiFpISjwrtjR1WZQ-W0e0EX4R61Fn0WITwXlCw_pnoDcN9g-NLfMCm4GPdqZOtVhOVf6WprifKm55DbJJVyR2oLUueCqioJx2kiA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-80"></div>
+<div class="absolute bottom-6 left-6">
+<p class="text-xs font-bold text-primary tracking-widest uppercase mb-1">Explore</p>
+<h4 class="text-xl font-headline font-bold">Science</h4>
+</div>
+</div>
+<div class="aspect-square relative rounded-xl overflow-hidden group cursor-pointer">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="close-up of complex server motherboard circuitry with glowing blue data paths and futuristic hardware components" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-BSEcxDilzOHA9lWpLI0N-XPOiZ0zmBZSrdJF0J3svoKxDeRlVpng1PGgTcDWrGA1u_e9FX21Tq4MzKhYcHYcM5IhQAn8rY3xsZgvNWYFNvzRXV2Ny9LuP0KjuNCcgQqDHPVmscOvmlDYQ1KpuGvjNTeW4CkkmTVGzNuwuowaLvlwA9fvDPz694T_oxy400SEq36sXYeMdLR_aK9EK4GV1SMdr96tgM6t61IhZ3w6ZImeQxGVGwDsmzE4S6VgHh1pHyp6x97jUw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-80"></div>
+<div class="absolute bottom-6 left-6">
+<p class="text-xs font-bold text-secondary-fixed tracking-widest uppercase mb-1">Develop</p>
+<h4 class="text-xl font-headline font-bold">Tech</h4>
+</div>
+</div>
+<div class="aspect-square relative rounded-xl overflow-hidden group cursor-pointer">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="abstract financial data visualization with rising neon lines and floating currency symbols in a sleek dark interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOj4mrmUkbjno-NzIeQBc7ZXaPL0fcgZ4tjMPZzQIa478rh0SH_RneMG0CAg113zAqOeHJ8V7JmVu32hkIvDvDDMP_UGn1b6RiL6igyTGRsJBCihEOG5LMst8YS9InKbiZWbb5trUVSotRxEpd57bbHce9ID0dEvCyTGzvjDRGT7vJM2Y17hMY8czxJmr_1SeUnmICFAcLULTmSGcmkMj8rjHs6xceVWilRqF7l_6Bu6STrSA7QxX2t8fW0znnzDOzM-sRdM7UHA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-80"></div>
+<div class="absolute bottom-6 left-6">
+<p class="text-xs font-bold text-tertiary tracking-widest uppercase mb-1">Growth</p>
+<h4 class="text-xl font-headline font-bold">Finance</h4>
+</div>
+</div>
+<div class="aspect-square relative rounded-xl overflow-hidden group cursor-pointer">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="artistic representation of human brain neural networks glowing with interconnected points of light on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmFMnLPiCBsedizracXLXg_T_QJmkwps6jfo8LIHG8f1dsVPKBXHirIOzl_PZc4wdRIH_Mnes_C7sqBWPwuHD4grkPwpskgxUuNKQw9psumX8UraZWYiJl8ltfWxipBOltiyEe2n9I63_jGHh8kVPHw5cFFj-k8wtwX5KOodG8vEOsxLh6QJuCRlfhj2C6ax2EFmx2W9yEtjHNv12FJt-lJLsmhjIccjk9SS_PNwptvoUyX-uK8yP8lFbnOLOAwit40j1W2vlqtQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-80"></div>
+<div class="absolute bottom-6 left-6">
+<p class="text-xs font-bold text-on-surface-variant tracking-widest uppercase mb-1">General</p>
+<h4 class="text-xl font-headline font-bold">Philosophy</h4>
+</div>
+</div>
+</div>
+</section>
+<div class="bg-surface-container-high rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 border border-outline-variant/10 shadow-2xl">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary relative">
+<span class="material-symbols-outlined text-3xl">forum</span>
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full border-2 border-surface-container-high animate-pulse"></div>
+</div>
+<div>
+<h3 class="text-2xl font-headline font-bold">Start Collaborative Session</h3>
+<p class="text-on-surface-variant">4 friends are currently active in the 'Robotics' study group.</p>
+</div>
+</div>
+<button class="w-full md:w-auto px-10 py-4 bg-gradient-to-r from-primary to-primary-dim text-on-primary font-bold rounded-lg shadow-[0_10px_40px_rgba(108,92,231,0.3)] hover:scale-105 active:scale-95 transition-all">
+                    Join Room Now
+                </button>
+</div>
+</main>
+</div>
+<div class="fixed bottom-8 right-8 z-50">
+<button class="w-14 h-14 rounded-full bg-primary text-on-primary shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all group">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="absolute right-full mr-4 px-3 py-2 bg-surface-container-highest text-xs text-on-surface rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                Quick Actions
+            </span>
+</button>
+</div>
+</body></html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduCoin 2.0 | The Observatory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#5948d3",
+                        "tertiary-fixed": "#ffcf2a",
+                        "surface-bright": "#2c2b32",
+                        "on-primary": "#27009a",
+                        "on-error-container": "#ffb2b9",
+                        "error-dim": "#d73357",
+                        "primary-container": "#9e93ff",
+                        "surface-container-lowest": "#000000",
+                        "primary-fixed": "#9e93ff",
+                        "primary-fixed-dim": "#8f83ff",
+                        "on-primary-fixed-variant": "#250094",
+                        "surface-variant": "#25252b",
+                        "on-tertiary-container": "#5a4700",
+                        "surface-tint": "#aca3ff",
+                        "surface-container-high": "#1f1f24",
+                        "on-background": "#fcf8fe",
+                        "on-secondary-fixed": "#004746",
+                        "on-secondary": "#005c59",
+                        "tertiary": "#ffe089",
+                        "surface-dim": "#0e0e12",
+                        "background": "#0e0e12",
+                        "surface-container-highest": "#25252b",
+                        "error": "#ff6e84",
+                        "outline": "#76757a",
+                        "surface": "#0e0e12",
+                        "tertiary-dim": "#efc117",
+                        "outline-variant": "#48474c",
+                        "error-container": "#a70138",
+                        "secondary-container": "#006a67",
+                        "on-tertiary-fixed": "#433400",
+                        "inverse-surface": "#fcf8fe",
+                        "on-tertiary-fixed-variant": "#655000",
+                        "secondary-dim": "#46eae5",
+                        "on-surface": "#fcf8fe",
+                        "on-error": "#490013",
+                        "primary": "#aca3ff",
+                        "secondary": "#5af9f3",
+                        "primary-dim": "#6f5fea",
+                        "secondary-fixed": "#5af9f3",
+                        "on-primary-container": "#1d007a",
+                        "tertiary-container": "#ffcf2a",
+                        "inverse-on-surface": "#555459",
+                        "on-primary-fixed": "#000000",
+                        "secondary-fixed-dim": "#46eae5",
+                        "on-secondary-fixed-variant": "#006764",
+                        "tertiary-fixed-dim": "#efc117",
+                        "surface-container": "#19191e",
+                        "surface-container-low": "#131317",
+                        "on-tertiary": "#644f00",
+                        "on-surface-variant": "#acaab0",
+                        "on-secondary-container": "#dafffc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(25, 25, 30, 0.7);
+            backdrop-filter: blur(24px);
+        }
+        .achievement-glow {
+            box-shadow: 0 0 40px -10px rgba(172, 163, 255, 0.3);
+        }
+        .neon-border-glow {
+            box-shadow: inset 0 0 15px rgba(172, 163, 255, 0.1);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #131317;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #48474c;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30 min-h-screen flex">
+<!-- SideNavBar (The Anchor) -->
+<aside class="hidden md:flex h-screen w-64 bg-slate-900 flex-col py-6 sticky top-0 z-40">
+<div class="px-6 mb-10">
+<h1 class="font-['Space_Grotesk'] text-indigo-400 font-bold text-xl tracking-tight">The Observatory</h1>
+<p class="text-[10px] text-slate-500 uppercase tracking-[0.2em] mt-1 font-medium">Academic Console</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 text-slate-500 hover:text-slate-300 transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="font-['Inter'] font-medium text-sm">Overview</span>
+</a>
+<a class="flex items-center px-6 py-3 text-slate-500 hover:text-slate-300 transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined mr-3">shopping_bag</span>
+<span class="font-['Inter'] font-medium text-sm">Store</span>
+</a>
+<a class="flex items-center px-6 py-3 text-slate-500 hover:text-slate-300 transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined mr-3">account_balance</span>
+<span class="font-['Inter'] font-medium text-sm">Treasury</span>
+</a>
+<a class="flex items-center px-6 py-3 bg-indigo-500/10 text-indigo-400 border-r-4 border-indigo-500 transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined mr-3" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-['Inter'] font-medium text-sm">Classes</span>
+</a>
+<a class="flex items-center px-6 py-3 text-slate-500 hover:text-slate-300 transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined mr-3">military_tech</span>
+<span class="font-['Inter'] font-medium text-sm">Leaderboard</span>
+</a>
+</nav>
+<div class="px-6 mt-auto space-y-4">
+<button class="w-full py-3 bg-primary text-on-primary rounded-lg font-bold text-sm tracking-wide shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+                Earn Rewards
+            </button>
+<div class="pt-6 space-y-1">
+<a class="flex items-center py-2 text-slate-500 hover:text-slate-300 text-sm transition-all duration-300" href="#">
+<span class="material-symbols-outlined mr-3 text-lg">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center py-2 text-slate-500 hover:text-slate-300 text-sm transition-all duration-300" href="#">
+<span class="material-symbols-outlined mr-3 text-lg">help</span>
+                    Support
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-w-0 h-screen overflow-y-auto custom-scrollbar">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-0 md:left-64 z-50 bg-slate-950/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(108,92,231,0.1)]">
+<div class="flex justify-between items-center px-8 h-20 w-full max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold bg-gradient-to-r from-indigo-500 to-purple-400 bg-clip-text text-transparent font-['Space_Grotesk'] tracking-tight">EduCoin 2.0</span>
+<nav class="hidden lg:flex gap-6">
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-['Space_Grotesk'] tracking-tight" href="#">Dashboard</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-['Space_Grotesk'] tracking-tight" href="#">Market</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-['Space_Grotesk'] tracking-tight" href="#">Treasury</a>
+<a class="text-indigo-400 border-b-2 border-indigo-500 pb-1 font-['Space_Grotesk'] tracking-tight" href="#">Community</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-lg transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-lg transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</button>
+<img alt="User avatar" class="w-10 h-10 rounded-full border border-outline-variant/30" data-alt="close-up portrait of a young man with a friendly expression in high-quality professional lighting with subtle bokeh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjibhgvYbBM1aeSkeUMTrkdTg749OuYLTRRvvci8zwmq6bAMEbhSV2z4k7uXjeHgG9RSXqVon2dVbcb-Pa7t6YfIQW2RmDAGxkPNXJSYJi13XsgdxjT08FD1xC4qypZcybqjHC4eIr3WWNGHynVQ1-hccHObJhI0Om5934KBwsbNUtfm-U7O_FV_BdOXp9852rN0_NqYmMdxoOvOfw9qePcnVweaKVIiPENePDwclSOrvPvfhQHn1kamVT6T1bZRU5aj0nPoIzOw"/>
+</div>
+</div>
+</header>
+<!-- Content Spacer for Header -->
+<div class="h-24"></div>
+<!-- Dashboard Content -->
+<section class="px-8 pb-24 max-w-screen-2xl mx-auto w-full grid grid-cols-12 gap-6">
+<!-- Left Column: Your Collective & Live Class -->
+<div class="col-span-12 xl:col-span-8 space-y-6">
+<!-- Hero Header -->
+<div class="bg-surface-container-low rounded-xl p-8 flex justify-between items-end relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-headline text-3xl font-bold text-on-background mb-2">The Quantum Lab</h2>
+<p class="text-on-surface-variant max-w-md">Your primary collective is currently dissecting Advanced Astrophysics. Synchronize with your peers to maximize EduCoin yield.</p>
+<div class="mt-6 flex gap-4">
+<button class="px-6 py-2 bg-primary rounded-lg text-on-primary font-bold active:scale-95 transition-transform">Enter Study Room</button>
+<button class="px-6 py-2 bg-surface-container-high text-on-surface rounded-lg font-medium hover:bg-surface-bright transition-colors">Resources</button>
+</div>
+</div>
+<div class="hidden md:block achievement-glow rounded-full p-4 bg-tertiary-container relative z-10">
+<span class="material-symbols-outlined text-4xl text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<!-- Decorative Element -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -mr-32 -mt-32"></div>
+</div>
+<!-- Bento Grid Sections -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Progress Comparisons -->
+<div class="bg-surface-container rounded-xl p-6 border-outline-variant/10">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-bold text-lg">Class Benchmark</h3>
+<span class="text-xs font-label uppercase tracking-widest text-primary">+12% vs Avg</span>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-xs mb-2">
+<span class="text-on-surface-variant">Your Velocity</span>
+<span class="text-primary font-bold">880 EC/hr</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[88%]" style="box-shadow: 0 0 10px rgba(172, 163, 255, 0.4);"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-2">
+<span class="text-on-surface-variant">Class Average</span>
+<span class="text-secondary font-bold">710 EC/hr</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full w-[71%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/10 text-center">
+<p class="text-sm text-on-surface-variant">You are ranked <span class="text-on-surface font-bold">#4</span> out of 42 peers.</p>
+</div>
+</div>
+<!-- Peer Achievements Activity Feed -->
+<div class="bg-surface-container rounded-xl p-6 flex flex-col">
+<h3 class="font-headline font-bold text-lg mb-6">Activity Feed</h3>
+<div class="space-y-4 overflow-y-auto max-h-[220px] pr-2 custom-scrollbar">
+<div class="flex items-center gap-3">
+<img alt="Peer 1" class="w-8 h-8 rounded-full" data-alt="close-up portrait of a woman with high-tech glasses in soft neon purple studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmbNQdYxYfNE5Np1eBVT1wCPD0oDOHADmoA-ODSX0hPvPdzGs1pGWShIT_h0tO536cKWJYYWwNnq4b5N-hRSua52iZBm1VSSH2pdiApiZjGb6-PKNGMfGQAvxgFhBas6Loc2j6uwLL-XxqwwVNQbRwxzuwXK_iGNs8Q_Qz8XRc3wCDr5-aPybeIjxMqcFbF_Sj1NZ4xtv_vja1QPGKvwjmT1NHqFhWrqU8yrKlTKlVpl38PlDpNWCwjzXtdGAKEOrRLgKYWloK-w"/>
+<div>
+<p class="text-xs"><span class="font-bold text-on-surface">Elena V.</span> earned <span class="text-tertiary">Gold Tier</span></p>
+<p class="text-[10px] text-on-surface-variant">2 mins ago</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<img alt="Peer 2" class="w-8 h-8 rounded-full" data-alt="professional headshot of a smiling young man in a clean modern office setting with natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi31PggRhvqxQ3XwmdEyuL9VtABaLZFrRhFIDiB0R-t2U_FyfZKWAdvpCcgmkNNUqjGlU7jY4bDBey_NPgMcPTOS0m5psrrFiW0Ig32XqNtHmn2RJMFDBdYoPz2PNRjepH7pcQKRYgdH1IvdTiy5j_IaWhdmuiGbu2MVmoPXM5hY3GfTuYlZAjvdNM6_T55cPFeSA-Q5I7rW-3OuBkJ1sOnqvcad4WaXYcwk1asneb_wvBs_HX3pwXM86YLYs1meD4ljMiS9QBkQ"/>
+<div>
+<p class="text-xs"><span class="font-bold text-on-surface">Marcus T.</span> joined <span class="text-secondary">Study Sprint</span></p>
+<p class="text-[10px] text-on-surface-variant">15 mins ago</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<img alt="Peer 3" class="w-8 h-8 rounded-full" data-alt="portrait of a focused professional woman in a tech environment with subtle blue lighting accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALBUwUeeRnY4Dk1I6LI5hB1ldTrKmo6-oBlpOtfnaCKIqMDsdd-t7T9aie8X-Ky-H3FCelVuWOVlBB3tHgIXsVwt1m3n0n2PMJDBgLTsaB1SPPFt0WeVwk_l08OlYh74fyk78E2k1nLQ2JeVaCByZGfLlYyjJS0Erzul55QL7JZ4qoWYVJabeh12zoQXwsXOzpO3vUlD6jqDlBqLcsW8xYxYy7bZE_bHrNj2tL10I8g0XTm2ayCvBNEu9nMh80jXZIcIx9WHmdSg"/>
+<div>
+<p class="text-xs"><span class="font-bold text-on-surface">Sarah J.</span> hit a <span class="text-primary font-bold">7-day streak</span></p>
+<p class="text-[10px] text-on-surface-variant">1 hour ago</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Join New Class Marketplace -->
+<div class="bg-surface-container-low rounded-xl p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-bold text-xl">Discover New Collectives</h3>
+<a class="text-primary text-sm font-medium hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-surface-container rounded-xl p-4 border border-outline-variant/10 hover:border-primary/50 transition-colors group cursor-pointer">
+<div class="h-24 w-full rounded-lg mb-4 bg-slate-800 overflow-hidden relative">
+<img alt="Cybersecurity Class" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="abstract digital connection network with flowing glowing data particles and deep blue grid lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn-uJ0pRgV2vSAolZPU_3DApJTMfH8NZBM_ej9X-CznfApapgvTHsd0h5nXShSCMWqGTndTUIS2zeKN_xE15N3dbBRfe0qRxLnLGBh6QUGQWjuOnuFSsKXz4wNnkZw7ACEJ3EZ2A2zqDTzpXBDiM8r5uk1pozKLYGAVp-Q_1h3SoGiFKaOW-KJ4kIaG3hS335pI2_i7VLuAvUHihOo1ahA7lgUwSMUU1mcMO6eBglMznKWPEggkk9_HlkTjN5fJpNokU85Qh5E0w"/>
+<span class="absolute top-2 right-2 bg-slate-950/80 backdrop-blur text-[10px] px-2 py-1 rounded text-secondary font-bold">LIVE</span>
+</div>
+<h4 class="font-bold text-sm mb-1">Cybersecurity Systems</h4>
+<p class="text-[10px] text-on-surface-variant mb-3">158 Members • High Yield</p>
+<button class="w-full py-2 bg-surface-container-highest text-on-surface text-xs font-bold rounded hover:bg-primary hover:text-on-primary transition-all">Join Group</button>
+</div>
+<div class="bg-surface-container rounded-xl p-4 border border-outline-variant/10 hover:border-primary/50 transition-colors group cursor-pointer">
+<div class="h-24 w-full rounded-lg mb-4 bg-slate-800 overflow-hidden relative">
+<img alt="Bio Genetics Class" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="microscopic view of glowing DNA double helix structure with neon purple and teal lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0fEcFMn3d6Zjy6RZAh42Ug0aMNgZOipyOE0FqjdD3vHgzU_Or89s1YC9Ix3wy7sP7tKFZ8hzfRRoEKEuxw7mQpRddXxUctmeZczkheBNz1WmoH6yElZQXzhgu27QZ-PYulLJVTTpHiHYV9LPmS6I6fvYVgJw_fquQhaJWqWaXxeZ-qA6DEGsl8_qMRHFbb-vCOZ653fKTlRFGp1tGPIScGtAbyNg94Cm5yJW8nfDWZRvI-ZdSxXb0OI0CddfeuQMSDMAMKzFz7w"/>
+<span class="absolute top-2 right-2 bg-slate-950/80 backdrop-blur text-[10px] px-2 py-1 rounded text-primary font-bold">STREAK</span>
+</div>
+<h4 class="font-bold text-sm mb-1">Bio-Genetics Workshop</h4>
+<p class="text-[10px] text-on-surface-variant mb-3">82 Members • 500 EC Entry</p>
+<button class="w-full py-2 bg-surface-container-highest text-on-surface text-xs font-bold rounded hover:bg-primary hover:text-on-primary transition-all">Join Group</button>
+</div>
+<div class="bg-surface-container rounded-xl p-4 border border-outline-variant/10 hover:border-primary/50 transition-colors group cursor-pointer">
+<div class="h-24 w-full rounded-lg mb-4 bg-slate-800 overflow-hidden relative">
+<img alt="AI Class" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="close-up of server blinking lights in a dark data center with cool blue ambient light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQZOtejyrT-02ycnJdBtUpOL6pgHVzBbYn8jC46vKMfRa9VjXJFiIPqszc-FcY8HZJ4NdxYSHrIKzWJIeUCoWkhhP1syOAFKJDGGEN5hJSRb4m-JTAIXY20Z-zFB3dpisL_LnsZUWb-kSL9k7vwQ14xgiJzPfn4xQxF1CDYo1Pc0bZDYbcrpidPW_o2mhUzXXv0vgYMzuA53gbvK13jnsH21R1wefgfzhJOSr33jmjFoJB_1u8NMz8zgmjFwNsV5dGazfs5tjrQQ"/>
+<span class="absolute top-2 right-2 bg-slate-950/80 backdrop-blur text-[10px] px-2 py-1 rounded text-tertiary font-bold">PREMIUM</span>
+</div>
+<h4 class="font-bold text-sm mb-1">AI Ethics &amp; Logic</h4>
+<p class="text-[10px] text-on-surface-variant mb-3">210 Members • Professional</p>
+<button class="w-full py-2 bg-surface-container-highest text-on-surface text-xs font-bold rounded hover:bg-primary hover:text-on-primary transition-all">Join Group</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Leaderboard & Chat -->
+<div class="col-span-12 xl:col-span-4 space-y-6">
+<!-- Live Leaderboard -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/5">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-secondary">military_tech</span>
+<h3 class="font-headline font-bold text-lg">Quantum Lab Rank</h3>
+</div>
+<div class="space-y-3">
+<!-- Top 3 -->
+<div class="flex items-center justify-between p-3 bg-surface-container-high rounded-lg neon-border-glow">
+<div class="flex items-center gap-3">
+<span class="font-headline font-bold text-tertiary">1</span>
+<img alt="Rank 1" class="w-8 h-8 rounded-full border border-tertiary/30" data-alt="headshot of a stylish young woman with cool lighting and urban aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABAaJ9-BWDmeKTpT7Hxq-rAo2T8Z84JX1iB0cjwh5lxkAn2_HzKllKrowaLSNNcgPrYCK_dfyTg8msX8FT63dZef-3I-72m7IPDRuc4WbxMxKSogFtU4fsxjIqF23TyD-PaMvBzgY_Kr89TAijOTn-4vtYY7jokEm3fhqeLU0XxCIITcF-rz-LmdfmgNKwWo4i1Fwj_w-BumHlJUf63TTLojJI76tmjgvZN4q4kW4kwSuaXSkOu9W1pVVDth2Uyfi2KFD9yXUvMg"/>
+<span class="text-sm font-medium">Alex Chen</span>
+</div>
+<span class="text-xs font-bold">12.4k EC</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container rounded-lg">
+<div class="flex items-center gap-3">
+<span class="font-headline font-bold text-on-surface-variant">2</span>
+<img alt="Rank 2" class="w-8 h-8 rounded-full" data-alt="candid portrait of a young man with a slight smile in a modern minimalist interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALrQJAjxNqTnWMCwFPyw5YceUZxNgrxvGpERi9MyPCdnhPxvjIVq039KHyIwisVdzx4B-LP7d_UR8PDk5zQ0OCkvGbMjRuMShtDKkYmr3E7iTg-QMcInXrLDeXWQnyhNSA86Ed4aj6SLeoOgs-ephdqYKCeXAI7W_Lc7kuNNntmaOA2NkvITsc13KfdML0Nr0Wlx1BtdUX9gAQwGRBgMrrleEm6xy85l_NPRZnNjPrZpplgBxO-8VzU2qjZ0gOPKBuLZvjdXXPTg"/>
+<span class="text-sm font-medium">Jordan Rao</span>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">10.1k EC</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container rounded-lg">
+<div class="flex items-center gap-3">
+<span class="font-headline font-bold text-on-surface-variant">3</span>
+<img alt="Rank 3" class="w-8 h-8 rounded-full" data-alt="lifestyle portrait of a young woman standing outdoors in a city with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOQrbRlKOBMQom8hbCb8fadfzy_RZVzhFWXNV2mbXVx9DoHMdmIEXST7D_IlGsz1Z7ruB0UGY77X30DnNmqso37ZmW7c9p6FNf2n1W-G4_26rJ8FXdnGdw78Z27OnF30yuBnZXLPdAbYDd-a6SeEB8knMleWCIJUE0EW5VLGFJDHKVhLxUcCFaxEsHDAhvQtmOhT7OI9kYq6v36y3O3Ua2zFrkiOZN92yvydcUzRzO44We3SFPc01Ga1Wwd3E93I3HtKjkJyf10w"/>
+<span class="text-sm font-medium">Maya Bell</span>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">9.8k EC</span>
+</div>
+<!-- Current User -->
+<div class="pt-4 mt-4 border-t border-outline-variant/10">
+<div class="flex items-center justify-between p-3 bg-primary/10 rounded-lg border border-primary/20">
+<div class="flex items-center gap-3">
+<span class="font-headline font-bold text-primary">4</span>
+<span class="text-sm font-bold text-on-surface">You (The Explorer)</span>
+</div>
+<span class="text-xs font-bold text-primary">8.9k EC</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Class Chat / Discussion -->
+<div class="bg-surface-container rounded-xl flex flex-col h-[500px]">
+<div class="p-6 border-b border-outline-variant/10 flex justify-between items-center">
+<h3 class="font-headline font-bold text-lg">Class Comms</h3>
+<span class="flex items-center gap-1.5 text-[10px] text-secondary font-bold animate-pulse">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                            12 ACTIVE
+                        </span>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
+<div class="flex flex-col gap-1 max-w-[85%]">
+<span class="text-[10px] text-on-surface-variant ml-2">Alex Chen • 12:45</span>
+<div class="bg-surface-container-high p-3 rounded-tr-xl rounded-br-xl rounded-bl-xl text-xs leading-relaxed">
+                                Has anyone finished the module on Quark Dynamics? Stuck on the third sim.
+                            </div>
+</div>
+<div class="flex flex-col gap-1 max-w-[85%] self-end items-end">
+<span class="text-[10px] text-on-surface-variant mr-2">You • 12:47</span>
+<div class="bg-primary p-3 rounded-tl-xl rounded-br-xl rounded-bl-xl text-xs leading-relaxed text-on-primary font-medium">
+                                Check the observatory logs from last Tuesday. There's a shortcut to the logic loop there!
+                            </div>
+</div>
+<div class="flex flex-col gap-1 max-w-[85%]">
+<span class="text-[10px] text-on-surface-variant ml-2">Maya Bell • 12:50</span>
+<div class="bg-surface-container-high p-3 rounded-tr-xl rounded-br-xl rounded-bl-xl text-xs leading-relaxed">
+                                Thanks! Just got a 200 EC bonus from that. Legend.
+                            </div>
+</div>
+<div class="flex items-center justify-center py-4">
+<span class="text-[10px] text-outline uppercase tracking-widest bg-surface-container p-1 px-3 rounded-full border border-outline-variant/10">Earlier Messages</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low border-t border-outline-variant/10">
+<div class="flex items-center bg-surface-container-highest rounded-full px-4 py-2 gap-2">
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-sm py-1 placeholder:text-outline/50" placeholder="Type a message..." type="text"/>
+<button class="p-1 text-primary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pt-2 pb-8 bg-slate-950/90 backdrop-blur-2xl border-t border-white/5 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-slate-500 px-6 py-2 hover:text-indigo-300 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-['Inter'] uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-6 py-2 hover:text-indigo-300 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">stars</span>
+<span class="text-[10px] font-['Inter'] uppercase tracking-widest mt-1">Earn</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-6 py-2 hover:text-indigo-300 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="text-[10px] font-['Inter'] uppercase tracking-widest mt-1">Vault</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-indigo-600/20 text-indigo-400 rounded-2xl px-6 py-2 shadow-[0_0_15px_rgba(108,92,231,0.3)] active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">forum</span>
+<span class="text-[10px] font-['Inter'] uppercase tracking-widest mt-1">Social</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduCoin 2.0 | Profile Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#1d007a",
+                      "on-primary-fixed-variant": "#250094",
+                      "on-error-container": "#ffb2b9",
+                      "secondary-dim": "#46eae5",
+                      "primary-container": "#9e93ff",
+                      "on-primary-fixed": "#000000",
+                      "secondary": "#5af9f3",
+                      "primary": "#aca3ff",
+                      "on-secondary-fixed": "#004746",
+                      "on-tertiary": "#644f00",
+                      "background": "#0e0e12",
+                      "surface-dim": "#0e0e12",
+                      "surface-container-high": "#1f1f24",
+                      "on-error": "#490013",
+                      "surface-container-highest": "#25252b",
+                      "primary-fixed": "#9e93ff",
+                      "on-surface-variant": "#acaab0",
+                      "on-secondary": "#005c59",
+                      "tertiary-fixed-dim": "#efc117",
+                      "on-surface": "#fcf8fe",
+                      "error-dim": "#d73357",
+                      "surface-container-low": "#131317",
+                      "on-tertiary-fixed": "#433400",
+                      "on-secondary-fixed-variant": "#006764",
+                      "surface-tint": "#aca3ff",
+                      "on-tertiary-fixed-variant": "#655000",
+                      "error-container": "#a70138",
+                      "on-tertiary-container": "#5a4700",
+                      "surface": "#0e0e12",
+                      "surface-container": "#19191e",
+                      "outline-variant": "#48474c",
+                      "inverse-on-surface": "#555459",
+                      "outline": "#76757a",
+                      "on-secondary-container": "#dafffc",
+                      "surface-variant": "#25252b",
+                      "surface-bright": "#2c2b32",
+                      "surface-container-lowest": "#000000",
+                      "error": "#ff6e84",
+                      "tertiary-dim": "#efc117",
+                      "inverse-surface": "#fcf8fe",
+                      "secondary-container": "#006a67",
+                      "on-background": "#fcf8fe",
+                      "tertiary-fixed": "#ffcf2a",
+                      "on-primary": "#27009a",
+                      "tertiary": "#ffe089",
+                      "inverse-primary": "#5948d3",
+                      "secondary-fixed-dim": "#46eae5",
+                      "secondary-fixed": "#5af9f3",
+                      "primary-dim": "#6f5fea",
+                      "primary-fixed-dim": "#8f83ff",
+                      "tertiary-container": "#ffcf2a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "1rem",
+                      "xl": "1.5rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Space Grotesk"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-mesh {
+            background-image: radial-gradient(at 0% 0%, rgba(172, 163, 255, 0.05) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(90, 249, 243, 0.05) 0px, transparent 50%);
+        }
+      </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 min-h-screen pb-24 md:pb-0 md:pl-64">
+<!-- SideNavBar (Authority Source: JSON) -->
+<aside class="hidden md:flex flex-col py-8 gap-4 bg-slate-900/50 h-screen w-64 fixed left-0 top-0 font-['Inter'] font-medium text-sm transition-transform duration-300 ease-in-out">
+<div class="px-6 mb-8">
+<span class="text-indigo-400 font-bold text-xl tracking-tighter">EduCoin</span>
+</div>
+<div class="flex flex-col items-center px-6 mb-6">
+<div class="w-16 h-16 rounded-full overflow-hidden mb-3 border-2 border-indigo-500/20">
+<img alt="User profile" data-alt="Close-up portrait of a young man with a friendly expression, soft cinematic studio lighting against a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJoSE-VKhyFMPFLtDL7LF6wGAyRhtX1VJyHTzCZWvSClDleqkaAwp9YQSgGQzMVwfzjuL3-LGaviSS2wP9gH-9YFSGAxQA4DLZ5SpsMhaE73hAPYfZh4H7uG6myS2TfKrfcU2b-mZ8YYOJhYtnQbeHnyQRBFGc_on-pukalqLhBIj4eBqo83NMyAiEDAtRpl2OePP0Q4wTJ7cV4ZK3pBbnGtTF4xcNyONr-aiYclL6S2UCa998QZ-PUyqWZUQAXR7dnQMFVf15NQ"/>
+</div>
+<h3 class="text-on-surface font-headline font-bold">Alex Rivera</h3>
+<p class="text-slate-500 text-xs">Level 42 Scholar</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="chat_bubble">chat_bubble</span>
+                Messages
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="group">group</span>
+                Contacts
+            </a>
+<a class="flex items-center px-6 py-3 text-indigo-400 bg-indigo-500/10 rounded-r-full transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="person_outline">person_outline</span>
+                Profile
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="shield">shield</span>
+                Security
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="mt-auto px-6 space-y-4">
+<button class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold transition-all active:scale-95">
+                Earn EduCoin
+            </button>
+<div class="pt-4 border-t border-white/5 space-y-1">
+<a class="flex items-center py-2 text-slate-500 hover:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="help_outline">help_outline</span>
+                    Help
+                </a>
+<a class="flex items-center py-2 text-slate-500 hover:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="logout">logout</span>
+                    Logout
+                </a>
+</div>
+</div>
+</aside>
+<main class="max-w-5xl mx-auto px-6 pt-12 md:pt-20">
+<!-- Hero Section: Profile Header -->
+<header class="mb-12">
+<h1 class="text-4xl md:text-5xl font-headline font-bold text-on-surface tracking-tight mb-2">Profile Editor</h1>
+<p class="text-on-surface-variant">Customize your digital identity within the EduCoin ecosystem.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-12">
+<!-- Left Column: Image Editor -->
+<section class="lg:col-span-4 space-y-6">
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col items-center text-center">
+<div class="relative group cursor-pointer mb-6">
+<div class="w-48 h-48 rounded-full overflow-hidden border-4 border-surface-container-highest shadow-2xl shadow-primary/20">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="Close-up portrait of a young man with a friendly expression, soft cinematic studio lighting against a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuhHuatXZiil6xYVdYDcU__GthWIDtKIFZfpmWeBD6UmBmsUxqWrBLmv0IdxxWgOhWGWk5JYvnjObBAYtzFFjPb4md3_poc5rDoqzfYH1GvlyD3xpdWYOni_QoJ9wGrckBgwbGn5Zs38IPMIrB06_lHCvlAzOWW5bkBN9NPH-eO1-FiC2M9H2Pda9CBwgJjShwcvn2r0VteZyg023MiZHqKiTVrxDeLrn64UTergJRBnibsZ620Soj441vUhLpn-DBbhG8Ao5gNg"/>
+</div>
+<div class="absolute inset-0 bg-black/40 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="photo_camera">photo_camera</span>
+</div>
+<button class="absolute bottom-2 right-2 p-3 bg-primary text-on-primary rounded-full shadow-lg hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+</div>
+<h2 class="text-xl font-headline font-bold mb-1">Avatar</h2>
+<p class="text-sm text-on-surface-variant mb-6">JPG, GIF or PNG. Max size of 2MB</p>
+<div class="flex gap-3 w-full">
+<button class="flex-1 py-2 bg-surface-container-highest hover:bg-surface-bright text-on-surface text-sm font-medium rounded-lg transition-colors">
+                            Change
+                        </button>
+<button class="px-3 py-2 bg-surface-container-highest hover:bg-error/10 hover:text-error text-on-surface text-sm font-medium rounded-lg transition-colors">
+<span class="material-symbols-outlined align-middle" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline font-bold text-lg">Quick Stats</h3>
+<span class="material-symbols-outlined text-tertiary" data-icon="military_tech">military_tech</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-sm text-on-surface-variant">Member since</span>
+<span class="text-sm font-medium">Oct 2023</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-on-surface-variant">Global Rank</span>
+<span class="text-sm font-medium text-secondary">#1,248</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Column: Settings Form -->
+<section class="lg:col-span-8 space-y-8">
+<!-- Profile Information Card -->
+<div class="bg-surface-container-low rounded-xl p-8">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="badge">badge</span>
+</div>
+<h3 class="text-xl font-headline font-bold">Public Profile</h3>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-widest text-on-surface-variant font-label font-bold" for="display-name">Display Name</label>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 focus:ring-1 focus:ring-primary text-on-surface transition-all outline-none" id="display-name" type="text" value="Alex Rivera"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-widest text-on-surface-variant font-label font-bold" for="username">@Username</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 pr-10 focus:ring-1 focus:ring-primary text-on-surface transition-all outline-none" id="username" type="text" value="arivera_edu"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-secondary text-lg" data-icon="check_circle">check_circle</span>
+</div>
+<p class="text-[10px] text-secondary">Username is available</p>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-widest text-on-surface-variant font-label font-bold" for="bio">Bio</label>
+<textarea class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 focus:ring-1 focus:ring-primary text-on-surface transition-all outline-none resize-none" id="bio" rows="4">Passionate learner focusing on blockchain technology and decentralized finance. Level 42 Scholar aiming for the top 100.</textarea>
+<p class="text-[10px] text-on-surface-variant text-right">142 / 250 characters</p>
+</div>
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-widest text-on-surface-variant font-label font-bold" for="country">Country</label>
+<select class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 focus:ring-1 focus:ring-primary text-on-surface transition-all outline-none appearance-none" id="country">
+<option>United States</option>
+<option>United Kingdom</option>
+<option>Germany</option>
+<option>Singapore</option>
+<option>Brazil</option>
+</select>
+</div>
+</form>
+</div>
+<!-- Privacy Settings Card -->
+<div class="bg-surface-container-low rounded-xl p-8">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="lock">lock</span>
+</div>
+<h3 class="text-xl font-headline font-bold">Privacy &amp; Visibility</h3>
+</div>
+<div class="space-y-8">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-medium">Show Study Status</span>
+<span class="text-sm text-on-surface-variant">Allow others to see what you are currently learning.</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-medium">Public Leaderboard</span>
+<span class="text-sm text-on-surface-variant">Display your rank and points on the global leaderboard.</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row items-center justify-end gap-4 pt-4 pb-20 md:pb-12">
+<button class="w-full sm:w-auto px-8 py-3 text-on-surface-variant hover:text-on-surface font-medium transition-colors">
+                        Discard Changes
+                    </button>
+<button class="w-full sm:w-auto px-10 py-3 bg-gradient-to-r from-primary to-primary-dim text-on-primary rounded-xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+                        Save Profile
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Authority Source: JSON) - Only visible on Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-slate-900/90 backdrop-blur-2xl rounded-t-3xl border-t border-white/5 shadow-[0_-8px_30px_rgb(0,0,0,0.12)]">
+<a class="flex flex-col items-center justify-center text-slate-500 px-5 py-2 font-['Inter'] text-[10px] uppercase tracking-widest hover:text-indigo-200 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+            Home
+        </a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-5 py-2 font-['Inter'] text-[10px] uppercase tracking-widest hover:text-indigo-200 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="message">message</span>
+            Chat
+        </a>
+<a class="flex flex-col items-center justify-center bg-indigo-500/20 text-indigo-300 rounded-2xl px-5 py-2 font-['Inter'] text-[10px] uppercase tracking-widest hover:text-indigo-200 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+            Profile
+        </a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-5 py-2 font-['Inter'] text-[10px] uppercase tracking-widest hover:text-indigo-200 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="settings_suggest">settings_suggest</span>
+            Settings
+        </a>
+</nav>
+<!-- TopNavBar (Authority Source: JSON) - Contextual elements integrated as header on mobile/sidebar on desktop -->
+<div class="fixed top-0 right-0 p-8 hidden md:flex items-center gap-6 z-40">
+<button class="w-12 h-12 flex items-center justify-center bg-surface-container-high rounded-full text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="flex items-center gap-3 bg-surface-container-high pl-2 pr-6 py-2 rounded-full border border-white/5">
+<div class="w-8 h-8 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-sm" data-icon="account_balance_wallet" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<span class="font-headline font-bold text-tertiary">2,450 EC</span>
+</div>
+</div>
+</body></html>

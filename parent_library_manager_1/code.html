@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduCoin Library - Parent Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#a70138",
+                    "outline-variant": "#48474c",
+                    "primary": "#aca3ff",
+                    "secondary-fixed": "#5af9f3",
+                    "inverse-primary": "#5948d3",
+                    "on-error-container": "#ffb2b9",
+                    "secondary": "#5af9f3",
+                    "inverse-surface": "#fcf8fe",
+                    "on-primary-container": "#1d007a",
+                    "error-dim": "#d73357",
+                    "secondary-fixed-dim": "#46eae5",
+                    "on-secondary": "#005c59",
+                    "on-tertiary-fixed-variant": "#655000",
+                    "on-tertiary-container": "#5a4700",
+                    "tertiary": "#ffe089",
+                    "surface-tint": "#aca3ff",
+                    "secondary-dim": "#46eae5",
+                    "surface-bright": "#2c2b32",
+                    "surface-container-lowest": "#000000",
+                    "outline": "#76757a",
+                    "surface": "#0e0e12",
+                    "surface-dim": "#0e0e12",
+                    "secondary-container": "#006a67",
+                    "primary-dim": "#6f5fea",
+                    "surface-container-low": "#131317",
+                    "inverse-on-surface": "#555459",
+                    "tertiary-container": "#ffcf2a",
+                    "primary-fixed-dim": "#8f83ff",
+                    "on-primary": "#27009a",
+                    "on-background": "#fcf8fe",
+                    "background": "#0e0e12",
+                    "on-tertiary": "#644f00",
+                    "on-secondary-fixed": "#004746",
+                    "tertiary-fixed": "#ffcf2a",
+                    "on-surface": "#fcf8fe",
+                    "tertiary-dim": "#efc117",
+                    "error": "#ff6e84",
+                    "on-secondary-container": "#dafffc",
+                    "on-error": "#490013",
+                    "on-primary-fixed": "#000000",
+                    "surface-container-highest": "#25252b",
+                    "on-primary-fixed-variant": "#250094",
+                    "primary-fixed": "#9e93ff",
+                    "on-tertiary-fixed": "#433400",
+                    "surface-variant": "#25252b",
+                    "surface-container-high": "#1f1f24",
+                    "tertiary-fixed-dim": "#efc117",
+                    "primary-container": "#9e93ff",
+                    "on-surface-variant": "#acaab0",
+                    "surface-container": "#19191e",
+                    "on-secondary-fixed-variant": "#006764"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "1rem",
+                    "xl": "1.25rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0e0e12;
+            color: #fcf8fe;
+            font-family: 'Inter', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(108,92,231,0.1)] flex justify-between items-center px-8 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-indigo-400 font-['Space_Grotesk']">EduCoin Library</span>
+<nav class="hidden md:flex gap-6 items-center font-['Space_Grotesk'] tracking-tight">
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Discover</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">My Shelf</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Lending</a>
+<a class="text-indigo-400 border-b-2 border-indigo-500 pb-1" href="#">Resources</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-lg transition-all text-slate-400">
+<span class="material-symbols-outlined text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 placeholder-slate-500" placeholder="Search resources..." type="text"/>
+</div>
+<button class="material-symbols-outlined p-2 hover:bg-slate-800/50 rounded-lg transition-all text-slate-400" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined p-2 hover:bg-slate-800/50 rounded-lg transition-all text-slate-400" data-icon="account_balance_wallet">account_balance_wallet</button>
+<button class="bg-indigo-500 hover:bg-indigo-600 text-on-primary-container px-4 py-2 rounded-lg font-medium text-sm transition-all active:scale-95 duration-200">Start Session</button>
+<img alt="User profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-indigo-500/30" data-alt="close-up portrait of a professional woman with a friendly smile, soft cinematic office lighting, modern minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxctK0opRdeoD0sGo7Ckwxc__xlpQ2HZMXrFOxq10v28n6B5gSCAzARpRREuWFfrGvPilsYgDQ98MqXvGpfYvlsNj1xAPSC_HCERPwbXsSuselj43aPM0AZSpmJNnaDsOsFPcex7q6mMt4tZOzcSSujdKkfu2HcWu2i-DPgAZlL0Bi-g7LcKpPmsdaqT4uvx3Enh7VaHKLS57f96EFIXaoGpBge5M4PbeEPnbqmioTPWGhAccbOpccitM_M5M0t3LfG6jvwLNu-A"/>
+</div>
+</header>
+<div class="flex pt-16 min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-[calc(100vh-64px)] w-64 bg-slate-900/50 border-r border-slate-800/30 py-6 sticky top-16">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-secondary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<p class="font-['Space_Grotesk'] uppercase tracking-widest text-[10px] text-indigo-300">Digital Observatory</p>
+<p class="text-xs text-slate-500 font-medium">Academic Level 4</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1 font-['Inter'] font-medium text-sm px-3">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-slate-800/40 rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span>Home</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-slate-800/40 rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span>Curriculum</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-slate-800/40 rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="local_library">local_library</span>
+<span>Library</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-indigo-500/10 text-indigo-400 border-r-4 border-indigo-500 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span>Family Hub</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-slate-800/40 rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+<span>Achievements</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-4">
+<button class="w-full bg-secondary-container text-on-secondary-container py-3 rounded-xl font-bold text-sm shadow-lg shadow-secondary/10 hover:brightness-110 transition-all active:scale-95">
+                    Redeem EduCoin
+                </button>
+<div class="pt-4 border-t border-slate-800/30 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 transition-all text-xs" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 transition-all text-xs" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="help_outline">help_outline</span>
+<span>Support</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-8 lg:p-12 bg-surface">
+<!-- Header Section -->
+<div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="font-headline text-4xl font-bold tracking-tight text-on-surface mb-2">Family Hub</h1>
+<p class="text-slate-400 font-body max-w-lg">Manage your children's educational progress, curate their digital library, and assign new challenges.</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container rounded-xl p-4 flex items-center gap-4 border border-outline-variant/15">
+<div class="w-12 h-12 bg-tertiary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Family Balance</p>
+<p class="font-headline text-xl text-tertiary">2,840 <span class="text-xs opacity-70">EC</span></p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Family Reading List (Large Card) -->
+<div class="md:col-span-8 bg-surface-container-low rounded-xl overflow-hidden relative group">
+<div class="p-6 border-b border-slate-800/30 flex justify-between items-center">
+<div>
+<h2 class="font-headline text-xl font-bold text-secondary">Family Reading List</h2>
+<p class="text-xs text-slate-500">Currently active sessions across all devices</p>
+</div>
+<button class="text-secondary text-xs font-bold uppercase tracking-widest hover:underline">View All</button>
+</div>
+<div class="p-6 space-y-4">
+<!-- Reading Item -->
+<div class="flex items-center gap-6 p-4 bg-surface-container rounded-xl hover:bg-surface-container-high transition-colors">
+<img alt="Quantum Physics for Kids" class="w-16 h-20 rounded-lg object-cover shadow-lg" data-alt="stylized vibrant book cover titled Quantum Physics for Kids with glowing subatomic particles on a dark blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOyz1BgYYdemJe1YIbJZgrSu01oGuGGACAbN8httzlFGH4wVZ9Vxbk5GM4btRv5F46Y5WakBbVOGCW33pfJk5eRz3XqbYjt5BTitUEFwfJkVgJvonCJjKwOhfWLgZ4UCMFAwd4D9E9SkU-YB-P0y6WuXr9qNnTdJhmWJGJznmz2aGqW5Jff7f1y3CciRRA4F3jmlMqtmyvH9oUg4V03iQlqoLx419WX053WFUrryWHWAfO82oQykvFELLjWhdu_BW7NgHFB76x_A"/>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="font-bold text-on-surface">Quantum Mechanics: The Basics</h4>
+<p class="text-xs text-slate-500">Assigned to: <span class="text-primary font-medium">Leo (Age 10)</span></p>
+</div>
+<span class="text-[10px] bg-secondary/10 text-secondary px-2 py-1 rounded font-bold uppercase tracking-wider">Chapter 4/12</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full shadow-[0_0_8px_rgba(90,249,243,0.5)]" style="width: 35%"></div>
+</div>
+</div>
+</div>
+<!-- Reading Item -->
+<div class="flex items-center gap-6 p-4 bg-surface-container rounded-xl hover:bg-surface-container-high transition-colors">
+<img alt="Ancient Rome History" class="w-16 h-20 rounded-lg object-cover shadow-lg" data-alt="dramatic historical book cover depicting the Roman Colosseum with a golden sunset background, cinematic digital art style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJw23kaMAD94q1GZEcDk5EGgu8T7RHxykeV9NBd-_2mGBJ4YgjYgOELyPjF-hxFvQYX9hfBn9cP3aHruUghH2SvsBdYrFTpRd0fEzdDm_Ci8gb2uevU8zJD9DlzyGo4c9eLkwVC7uyj6CTryYiRU19AjaH2Khos8Z7y0_p7OkcZdLW8Hxbz4gVqQLxpITAExZ9wigg09cvAVmxxzeJA8xKPLKXsC6vpxlqpepjsaDP7_4A-xAecTw6A7AlB__NVvhw5vcrBQoL0Q"/>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="font-bold text-on-surface">Empire of Glass: Ancient Rome</h4>
+<p class="text-xs text-slate-500">Assigned to: <span class="text-primary font-medium">Sofia (Age 12)</span></p>
+</div>
+<span class="text-[10px] bg-secondary/10 text-secondary px-2 py-1 rounded font-bold uppercase tracking-wider">Chapter 9/10</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full shadow-[0_0_8px_rgba(90,249,243,0.5)]" style="width: 90%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats (Small Card) -->
+<div class="md:col-span-4 bg-surface-container rounded-xl p-6 flex flex-col justify-between border border-outline-variant/15">
+<h2 class="font-headline text-lg font-bold text-on-surface mb-6">Top Categories</h2>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center text-indigo-400">
+<span class="material-symbols-outlined text-lg" data-icon="biotech">biotech</span>
+</div>
+<span class="text-sm font-medium">Science</span>
+</div>
+<span class="text-sm font-bold text-indigo-400">42%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg" data-icon="architecture">architecture</span>
+</div>
+<span class="text-sm font-medium">History</span>
+</div>
+<span class="text-sm font-bold text-secondary">28%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-tertiary/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-lg" data-icon="functions">functions</span>
+</div>
+<span class="text-sm font-medium">Mathematics</span>
+</div>
+<span class="text-sm font-bold text-tertiary">15%</span>
+</div>
+</div>
+<div class="mt-8 p-4 bg-surface-container-high rounded-xl border border-secondary/20">
+<p class="text-[10px] uppercase font-bold text-slate-500 mb-1">Parent Insight</p>
+<p class="text-xs text-slate-300 italic">"Leo's focus on Science has increased by 12% this week. Consider assigning more advanced Astrophysics modules."</p>
+</div>
+</div>
+<!-- Browse & Assign Resources (Full Width Grid) -->
+<div class="md:col-span-12 mt-4">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline text-2xl font-bold text-on-surface">Curate Library</h2>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-surface-container text-xs font-bold rounded-lg border border-outline-variant/15 hover:bg-surface-container-high transition-all">Trending</button>
+<button class="px-4 py-2 bg-secondary text-on-secondary text-xs font-bold rounded-lg hover:brightness-110 transition-all">New Arrivals</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Resource Card -->
+<div class="bg-surface-container-low rounded-xl p-4 group hover:bg-surface-container transition-all duration-300 relative">
+<div class="relative mb-4 overflow-hidden rounded-lg aspect-[3/4]">
+<img alt="Biology 101" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="vibrant educational illustration of a cell with detailed internal structures, neon colors on a dark background, scientific poster style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGBFZ__90ZoceTRqlNGSbLl_jjJwmrQ6zdwRAa2idOxrO7FoBnPUg23WEFfDR0O-n4gyq1X1cWLwjtgbJ96l_XJdQmuUN7IQblWoMdd3U_M25isZqfSUdorl-LQXj8XS-Q_GuuBcMVqtqStnTY_KPR0Y_rme1fZ6xbc8zYlRaveo6tLE9A-YudpPXVsVEPmrjNai0iJrAY4mZemgUvdKDS9xxx0JKmkxniJka5qTtBK2AsUy37sciHmULKnyvgOvc5lW7F8KHtXQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+<button class="w-full bg-secondary text-on-secondary font-bold py-2 rounded-lg text-sm">Preview</button>
+</div>
+</div>
+<h3 class="font-bold text-on-surface mb-1">Cellular Micro-Worlds</h3>
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-500">Biology • 45m</span>
+<span class="text-xs font-bold text-tertiary">120 EC Reward</span>
+</div>
+<button class="mt-4 w-full py-2.5 bg-surface-container-highest hover:bg-primary/20 hover:text-primary text-slate-300 text-xs font-bold rounded-lg transition-all border border-transparent hover:border-primary/30 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="person_add">person_add</span>
+                                Assign to Child
+                            </button>
+</div>
+<!-- Resource Card -->
+<div class="bg-surface-container-low rounded-xl p-4 group hover:bg-surface-container transition-all duration-300 relative">
+<div class="relative mb-4 overflow-hidden rounded-lg aspect-[3/4]">
+<img alt="Coding Basics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="minimalist 3D render of code blocks and binary digits floating in a dark digital void with soft purple glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmM5zKRQeGjNm8hT6wDEB0DWnUPJFkE-dIPzufuFfRZKhPLj10B2MJmvZdk9sb1WZyU-MUo5zUUaT1jy32DwV5duPI3voZQlNtFCvMtyKTa0R5DmK2VMwhqPSfNvAY-bNcsYjuXuXWx7gcCSGASPRqdFq369-uilHkzr-Xe9J7MGUUmPnDnalp0JZajeYsLfakrC7s5b2Bs_YJYmKmlyTCu-NbVEG1CzkRSfcG1IOpuDfa0HmavkI70se0D9E9fTEiPjM-v09Ofg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+<button class="w-full bg-secondary text-on-secondary font-bold py-2 rounded-lg text-sm">Preview</button>
+</div>
+</div>
+<h3 class="font-bold text-on-surface mb-1">Logic Gates &amp; Flow</h3>
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-500">CS • 60m</span>
+<span class="text-xs font-bold text-tertiary">200 EC Reward</span>
+</div>
+<button class="mt-4 w-full py-2.5 bg-surface-container-highest hover:bg-primary/20 hover:text-primary text-slate-300 text-xs font-bold rounded-lg transition-all border border-transparent hover:border-primary/30 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="person_add">person_add</span>
+                                Assign to Child
+                            </button>
+</div>
+<!-- Resource Card -->
+<div class="bg-surface-container-low rounded-xl p-4 group hover:bg-surface-container transition-all duration-300 relative">
+<div class="relative mb-4 overflow-hidden rounded-lg aspect-[3/4]">
+<img alt="Ancient Egypt" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="3D isometric view of a futuristic golden pyramid with glowing neon inscriptions, dark moody desert background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoGZV1AELCUhKOCpEwd3QSoP1CBO7w68-6IF7_8p5yKinCFtT4ZKqtpVMOZYkXtSZXMIPJV73NaKmyyEVcKX6USVn9arDX_efVqKbJtQgofNz0dI8P83Jqed6Jn6MDggFEzB7l93_z_6gvoudxWThKzmuSjmQfC_NNDWFZ4CVDvk1Pfz3TmK68sM4A4JHhpo25rWgBOASGpoB7xetih9sbcSVq7yBg_2Ts2hbzdPis0xLgJ0agwGsLxbT253U_1HfDaMsTrA-bJA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+<button class="w-full bg-secondary text-on-secondary font-bold py-2 rounded-lg text-sm">Preview</button>
+</div>
+</div>
+<h3 class="font-bold text-on-surface mb-1">Pharaohs of the Nile</h3>
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-500">History • 30m</span>
+<span class="text-xs font-bold text-tertiary">80 EC Reward</span>
+</div>
+<button class="mt-4 w-full py-2.5 bg-surface-container-highest hover:bg-primary/20 hover:text-primary text-slate-300 text-xs font-bold rounded-lg transition-all border border-transparent hover:border-primary/30 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="person_add">person_add</span>
+                                Assign to Child
+                            </button>
+</div>
+<!-- Resource Card -->
+<div class="bg-surface-container-low rounded-xl p-4 group hover:bg-surface-container transition-all duration-300 relative">
+<div class="relative mb-4 overflow-hidden rounded-lg aspect-[3/4]">
+<img alt="Creative Writing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="a vintage typewriter on a dark mahogany desk with a single ray of ethereal light illuminating falling papers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqOIO08xMqPFxH3I899C3Cdlkpmj-WQIs1z2ZZ0cZN0ksVtP3JqORjTuJt-uCk5Nq_PTz02LzQ0Alaqq4AwQvQoNdbpn2wm1z6oqNOX0-mb50aIzy4AwT0b7EgpAdMnIbw1v8dibIkAVjrM9jqkZ4iNeaDDyUr03Y-43pRAwSylkrY1ckR2arSdn1XBMKGnR1V3PKlSzHZ7cx16Fg_cJAbvQn8O5Y_feyLFqTJ5uSGtvv9IU_IcUX6-DZxhvKWdn2lKr6_PyWwww"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+<button class="w-full bg-secondary text-on-secondary font-bold py-2 rounded-lg text-sm">Preview</button>
+</div>
+</div>
+<h3 class="font-bold text-on-surface mb-1">World Building Basics</h3>
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-500">Arts • 50m</span>
+<span class="text-xs font-bold text-tertiary">150 EC Reward</span>
+</div>
+<button class="mt-4 w-full py-2.5 bg-surface-container-highest hover:bg-primary/20 hover:text-primary text-slate-300 text-xs font-bold rounded-lg transition-all border border-transparent hover:border-primary/30 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="person_add">person_add</span>
+                                Assign to Child
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- FAB (Suppressed on Details/Settings as per rule, but active on this Dashboard/Hub) -->
+<div class="fixed bottom-8 right-8 z-40">
+<button class="flex items-center gap-3 bg-primary text-on-primary-container px-6 py-4 rounded-full shadow-[0_0_30px_rgba(172,163,255,0.4)] hover:scale-105 transition-all active:scale-95 group">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-bold font-headline">New Assignment</span>
+</button>
+</div>
+<!-- Bottom Navigation for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-16 bg-slate-950/90 backdrop-blur-lg flex justify-around items-center px-4 z-50">
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined text-2xl" data-icon="home">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined text-2xl" data-icon="menu_book">menu_book</span>
+<span class="text-[10px] font-medium">Learn</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-indigo-400">
+<span class="material-symbols-outlined text-2xl" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="text-[10px] font-medium">Family</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined text-2xl" data-icon="local_library">local_library</span>
+<span class="text-[10px] font-medium">Library</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined text-2xl" data-icon="settings">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</button>
+</nav>
+</body></html>

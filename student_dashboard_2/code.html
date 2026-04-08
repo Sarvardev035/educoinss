@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduCoin 2.0 | Student Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#fcf8fe",
+                        "secondary-dim": "#46eae5",
+                        "primary": "#aca3ff",
+                        "tertiary-fixed-dim": "#efc117",
+                        "primary-container": "#9e93ff",
+                        "on-tertiary": "#644f00",
+                        "secondary": "#5af9f3",
+                        "tertiary-dim": "#efc117",
+                        "inverse-primary": "#5948d3",
+                        "on-primary-container": "#1d007a",
+                        "primary-dim": "#6f5fea",
+                        "inverse-surface": "#fcf8fe",
+                        "surface-container-low": "#131317",
+                        "surface-container-lowest": "#000000",
+                        "secondary-fixed": "#5af9f3",
+                        "primary-fixed": "#9e93ff",
+                        "on-secondary": "#005c59",
+                        "tertiary": "#ffe089",
+                        "surface-dim": "#0e0e12",
+                        "on-secondary-container": "#dafffc",
+                        "tertiary-container": "#ffcf2a",
+                        "surface-container-highest": "#25252b",
+                        "on-primary-fixed": "#000000",
+                        "on-surface-variant": "#acaab0",
+                        "secondary-container": "#006a67",
+                        "on-surface": "#fcf8fe",
+                        "error": "#ff6e84",
+                        "surface-bright": "#2c2b32",
+                        "on-primary": "#27009a",
+                        "surface-tint": "#aca3ff",
+                        "on-secondary-fixed": "#004746",
+                        "error-container": "#a70138",
+                        "on-primary-fixed-variant": "#250094",
+                        "on-secondary-fixed-variant": "#006764",
+                        "on-tertiary-fixed": "#433400",
+                        "inverse-on-surface": "#555459",
+                        "surface-container": "#19191e",
+                        "on-error-container": "#ffb2b9",
+                        "tertiary-fixed": "#ffcf2a",
+                        "surface": "#0e0e12",
+                        "on-tertiary-container": "#5a4700",
+                        "surface-container-high": "#1f1f24",
+                        "on-tertiary-fixed-variant": "#655000",
+                        "error-dim": "#d73357",
+                        "outline": "#76757a",
+                        "on-error": "#490013",
+                        "outline-variant": "#48474c",
+                        "primary-fixed-dim": "#8f83ff",
+                        "secondary-fixed-dim": "#46eae5",
+                        "surface-variant": "#25252b",
+                        "background": "#0e0e12"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0e0e12;
+            color: #fcf8fe;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .achievement-orb {
+            background: radial-gradient(circle at 30% 30%, #ffe089, #ffcf2a);
+            box-shadow: 0 0 40px rgba(255, 207, 42, 0.3);
+        }
+        .glass-header {
+            background: rgba(19, 19, 23, 0.8);
+            backdrop-filter: blur(24px);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary/30 min-h-screen">
+<!-- TopNavBar Component -->
+<nav class="bg-slate-950/80 backdrop-blur-xl docked full-width top-0 sticky z-50 bg-gradient-to-b from-slate-900/50 to-transparent shadow-[0_8px_32px_rgba(108,92,231,0.15)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-bold text-[#6C5CE7] dark:text-[#6C5CE7] font-['Space_Grotesk'] tracking-tight">EduCoin</span>
+<div class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] tracking-tight">
+<a class="text-[#6C5CE7] border-b-2 border-[#6C5CE7] pb-1 hover:text-white transition-colors duration-300 transform transition-all active:scale-95" href="#">Dashboard</a>
+<a class="text-slate-400 font-medium hover:text-white transition-colors duration-300 transform transition-all active:scale-95" href="{{DATA:SCREEN:SCREEN_14}}">Marketplace</a>
+<a class="text-slate-400 font-medium hover:text-white transition-colors duration-300 transform transition-all active:scale-95" href="#">Quests</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<img alt="Student profile picture" class="w-10 h-10 rounded-full border-2 border-primary/30" data-alt="close-up portrait of a cheerful teenager with modern tech aesthetics and soft neon ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAophJ9UrEHSBG7TDESHgyoBIxmNw_gT9u-gW1kOLqHI1bVJ-nuwm6NH6nU3LXgcK3GavfpFpY5A13-AgepWA3y6t5iQH8Bl_jJGqMi01q38-n-dO_LTU4DqmISp7uLXC55S78HVvYelqrsFEOKT1-nH0i6pZEWJN55IqKDij2SGR67-fbFezrSbgoon81L17WDzYCmkKrluc4eQFp3fukZyYpoStMybgQ22_MHTc6YVaNuhuhAjObR-auICQ0ErZ2wGqtk2od1nA"/>
+</div>
+</div>
+</nav>
+<div class="flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="hidden lg:flex flex-col h-screen w-64 sticky top-0 left-0 bg-[#131317] border-r border-white/5 p-4 gap-2 font-['Inter'] text-sm uppercase tracking-wider">
+<div class="mb-8 px-4 py-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 achievement-orb rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">generating_tokens</span>
+</div>
+<div>
+<h2 class="font-['Space_Grotesk'] text-xl font-black text-white normal-case tracking-normal">EduCoin</h2>
+<p class="text-[10px] text-slate-500 tracking-widest">THE DIGITAL OBSERVATORY</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 bg-[#19191e] text-[#6C5CE7] px-4 py-3 rounded-lg border-l-4 border-[#6C5CE7] transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span>Home</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-white/5 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">rocket_launch</span>
+<span>Missions</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-white/5 hover:text-white transition-all" href="{{DATA:SCREEN:SCREEN_49}}">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span>Treasury</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-white/5 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">history</span>
+<span>History</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-white/5 hover:text-white transition-all" href="{{DATA:SCREEN:SCREEN_51}}">
+<span class="material-symbols-outlined">group</span>
+<span>Connect</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-white/5 flex flex-col gap-2">
+<button class="bg-gradient-to-r from-primary to-primary-dim text-on-primary-fixed font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 mb-4 hover:shadow-[0_0_20px_rgba(172,163,255,0.3)] transition-all uppercase tracking-widest text-xs" onclick="window.location.href='{{DATA:SCREEN:SCREEN_3}}'">
+                    Launch Session
+                </button>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-white/5 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Help</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-white/5 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 p-6 md:p-12 max-w-[1400px] mx-auto w-full">
+<!-- Hero Bento Header -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
+<!-- Level Progress Card -->
+<div class="lg:col-span-8 bg-surface-container rounded-xl p-8 flex flex-col md:flex-row items-center gap-10 overflow-hidden relative group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-20 -mt-20 blur-3xl group-hover:bg-primary/10 transition-colors"></div>
+<div class="relative">
+<div class="w-32 h-32 rounded-full p-1 bg-gradient-to-tr from-primary to-secondary shadow-[0_0_40px_rgba(108,92,231,0.4)]">
+<img alt="Student avatar" class="w-full h-full rounded-full object-cover" data-alt="stylized 3D character avatar of a young student with trendy glasses and futuristic streetwear on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCriPigElfbCm3y11sfGEv5NV4DSLm0S0jl1sl1cJ1NJ9cUioZ_Tu5qnI1B_UP5tsSXvez0cZoNVyAaJyxoY5wjkcCRnR3pMXAtZ4l03VUKh8mq7fFw1jCO9a9Gga8M5Ii1Hj6iCVQwCamjslt1QPrxVuYSIIFGxOWV-WfuLb1vgr96s93usSXUKqPO5Np_mB1SVTpOK8qiVa1ps82TmcuOaW9Lsd6ZtpeMCA4bRSBmuPjdY9hW1VhGNXGeLxDIpX3F91dcC2-vA"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-tertiary-container text-on-tertiary-container text-[10px] font-black px-2 py-1 rounded-md shadow-lg font-headline uppercase tracking-tighter">LVL 4</div>
+</div>
+<div class="flex-1 w-full">
+<h1 class="font-headline text-3xl font-bold mb-2">Welcome back, Alex!</h1>
+<p class="font-body text-on-surface-variant mb-6 uppercase tracking-widest text-xs font-semibold">Current Rank: <span class="text-tertiary-dim">Coin Hunter</span></p>
+<div class="space-y-3">
+<div class="flex justify-between text-xs font-bold tracking-tight">
+<span class="text-on-surface-variant">NEXT LEVEL: 1,250 XP</span>
+<span class="text-primary">840 / 2,000 XP</span>
+</div>
+<div class="h-3 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full w-[42%] bg-gradient-to-r from-primary to-primary-dim rounded-full relative">
+<div class="absolute right-0 top-0 h-full w-2 bg-white/40 blur-sm"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions Card -->
+<div class="lg:col-span-4 bg-surface-container-low rounded-xl p-6 flex flex-col justify-between">
+<h3 class="font-headline text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">bolt</span>
+                        Quick Launch
+                    </h3>
+<div class="space-y-3">
+<button class="w-full py-4 bg-gradient-to-r from-primary to-primary-dim text-on-primary-fixed rounded-lg font-bold font-headline flex items-center justify-center gap-2 shadow-lg hover:shadow-primary/20 transition-all active:scale-[0.98]" onclick="window.location.href='{{DATA:SCREEN:SCREEN_3}}'">
+<span class="material-symbols-outlined">play_circle</span>
+                            Start Studying
+                        </button>
+<button class="w-full py-3 border border-outline-variant hover:bg-surface-bright transition-colors rounded-lg font-medium text-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">leaderboard</span>
+                            View Stats
+                        </button>
+<button class="w-full py-3 border border-outline-variant hover:bg-surface-bright transition-colors rounded-lg font-medium text-sm flex items-center justify-center gap-2" onclick="window.location.href='{{DATA:SCREEN:SCREEN_14}}'">
+<span class="material-symbols-outlined text-sm">shopping_bag</span>
+                            Visit Store
+                        </button>
+</div>
+</div>
+</section>
+<!-- Stat Cards Row -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+<!-- Coin Balance -->
+<div class="bg-surface-container p-6 rounded-xl relative overflow-hidden group">
+<p class="text-on-surface-variant text-[10px] uppercase font-bold tracking-[0.2em] mb-4">Coin Balance</p>
+<div class="flex items-end gap-3">
+<span class="font-headline text-4xl font-black text-tertiary-dim leading-none">2,450</span>
+<div class="achievement-orb w-8 h-8 rounded-full flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-on-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-8xl">account_balance_wallet</span>
+</div>
+</div>
+<!-- Study Streak -->
+<div class="bg-surface-container p-6 rounded-xl relative overflow-hidden group">
+<p class="text-on-surface-variant text-[10px] uppercase font-bold tracking-[0.2em] mb-4">Study Streak</p>
+<div class="flex items-end gap-3">
+<span class="font-headline text-4xl font-black text-error leading-none">12</span>
+<span class="material-symbols-outlined text-error text-3xl mb-1" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div class="mt-2 text-[10px] text-error font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span>
+                        KEEP IT UP!
+                    </div>
+</div>
+<!-- Weekly Hours -->
+<div class="bg-surface-container p-6 rounded-xl relative overflow-hidden group">
+<p class="text-on-surface-variant text-[10px] uppercase font-bold tracking-[0.2em] mb-4">Weekly Hours</p>
+<div class="flex items-end gap-3">
+<span class="font-headline text-4xl font-black text-secondary leading-none">18.5</span>
+<span class="font-headline text-lg font-medium text-on-surface-variant mb-1">hrs</span>
+</div>
+<div class="mt-2 text-[10px] text-on-surface-variant font-bold">TARGET: 20 HRS</div>
+</div>
+<!-- Global Rank -->
+<div class="bg-surface-container p-6 rounded-xl relative overflow-hidden group">
+<p class="text-on-surface-variant text-[10px] uppercase font-bold tracking-[0.2em] mb-4">Global Rank</p>
+<div class="flex items-end gap-3">
+<span class="font-headline text-4xl font-black text-primary leading-none">#42</span>
+<span class="material-symbols-outlined text-primary text-3xl mb-1">public</span>
+</div>
+<div class="mt-2 text-[10px] text-primary font-bold">TOP 5% WORLDWIDE</div>
+</div>
+</section>
+<!-- Parent Tips Banner -->
+<div class="bg-secondary-container/20 border-l-4 border-secondary p-4 rounded-r-xl mb-12 flex items-center gap-4">
+<div class="bg-secondary/20 p-2 rounded-full">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">tips_and_updates</span>
+</div>
+<p class="text-sm font-medium text-on-secondary-container">
+<span class="font-bold">Mom says:</span> "So proud of your 12-day streak! Take a 5-min walk between sessions today. 🌳✨"
+                </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Activity Chart Section -->
+<div class="lg:col-span-7">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline text-xl font-bold">Today's Activity</h2>
+<select class="bg-surface-container border-none text-xs font-bold rounded-lg text-on-surface-variant focus:ring-primary">
+<option>Last 24 Hours</option>
+<option>Last 7 Days</option>
+</select>
+</div>
+<div class="bg-surface-container p-8 rounded-xl h-[300px] flex items-end justify-between gap-2">
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-surface-container-highest rounded-t-md h-[40%] group-hover:bg-primary/40 transition-colors"></div>
+<span class="text-[10px] text-on-surface-variant font-bold">08:00</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-surface-container-highest rounded-t-md h-[10%] group-hover:bg-primary/40 transition-colors"></div>
+<span class="text-[10px] text-on-surface-variant font-bold">09:00</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-surface-container-highest rounded-t-md h-[60%] group-hover:bg-primary/40 transition-colors"></div>
+<span class="text-[10px] text-on-surface-variant font-bold">10:00</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-primary rounded-t-md h-[85%] relative shadow-[0_0_15px_rgba(172,163,255,0.4)]">
+<div class="absolute -top-1 left-0 w-full h-1 bg-white/40 blur-sm"></div>
+</div>
+<span class="text-[10px] text-primary font-bold">11:00</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-primary rounded-t-md h-[70%] shadow-[0_0_15px_rgba(172,163,255,0.2)]"></div>
+<span class="text-[10px] text-primary font-bold">12:00</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-surface-container-highest rounded-t-md h-[30%] group-hover:bg-primary/40 transition-colors"></div>
+<span class="text-[10px] text-on-surface-variant font-bold">13:00</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-surface-container-highest rounded-t-md h-[55%] group-hover:bg-primary/40 transition-colors"></div>
+<span class="text-[10px] text-on-surface-variant font-bold">14:00</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-surface-container-highest rounded-t-md h-[20%] group-hover:bg-primary/40 transition-colors"></div>
+<span class="text-[10px] text-on-surface-variant font-bold">15:00</span>
+</div>
+</div>
+</div>
+<!-- Recent Sessions Section -->
+<div class="lg:col-span-5">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline text-xl font-bold">Recent Sessions</h2>
+<a class="text-xs font-bold text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-high">
+<tr class="text-[10px] uppercase tracking-widest text-on-surface-variant">
+<th class="px-4 py-3 font-bold">Subject</th>
+<th class="px-4 py-3 font-bold">Dur</th>
+<th class="px-4 py-3 font-bold">Focus</th>
+<th class="px-4 py-3 font-bold text-right">Coins</th>
+</tr>
+</thead>
+<tbody class="text-sm divide-y divide-white/5">
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="px-4 py-4 font-bold">Mathematics</td>
+<td class="px-4 py-4 text-on-surface-variant">45m</td>
+<td class="px-4 py-4">
+<span class="text-secondary font-bold">98%</span>
+</td>
+<td class="px-4 py-4 text-right">
+<span class="text-tertiary-dim font-black">+120</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="px-4 py-4 font-bold">History</td>
+<td class="px-4 py-4 text-on-surface-variant">30m</td>
+<td class="px-4 py-4">
+<span class="text-on-surface-variant font-bold">82%</span>
+</td>
+<td class="px-4 py-4 text-right">
+<span class="text-tertiary-dim font-black">+45</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="px-4 py-4 font-bold">Quantum Physics</td>
+<td class="px-4 py-4 text-on-surface-variant">1h 15m</td>
+<td class="px-4 py-4">
+<span class="text-secondary font-bold">94%</span>
+</td>
+<td class="px-4 py-4 text-right">
+<span class="text-tertiary-dim font-black">+210</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="px-4 py-4 font-bold">Literature</td>
+<td class="px-4 py-4 text-on-surface-variant">20m</td>
+<td class="px-4 py-4">
+<span class="text-error font-bold">65%</span>
+</td>
+<td class="px-4 py-4 text-right">
+<span class="text-tertiary-dim font-black">+15</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-slate-950/90 backdrop-blur-xl border-t border-white/5 z-50">
+<div class="flex justify-around items-center py-4">
+<a class="flex flex-col items-center gap-1 text-[#6C5CE7]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">rocket_launch</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Missions</span>
+</a>
+<div class="relative -top-8">
+<button class="bg-gradient-to-r from-primary to-primary-dim p-4 rounded-full shadow-[0_0_20px_rgba(108,92,231,0.5)]">
+<span class="material-symbols-outlined text-on-primary-fixed text-3xl">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Treasury</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

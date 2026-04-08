@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hero Emporium | Digital Observatory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#ffe089",
+                        "on-secondary-fixed": "#004746",
+                        "on-secondary": "#005c59",
+                        "on-background": "#fcf8fe",
+                        "surface-tint": "#aca3ff",
+                        "surface-container-high": "#1f1f24",
+                        "surface-variant": "#25252b",
+                        "on-tertiary-container": "#5a4700",
+                        "secondary-container": "#006a67",
+                        "tertiary-dim": "#efc117",
+                        "outline-variant": "#48474c",
+                        "error-container": "#a70138",
+                        "outline": "#76757a",
+                        "surface": "#0e0e12",
+                        "surface-container-highest": "#25252b",
+                        "error": "#ff6e84",
+                        "background": "#0e0e12",
+                        "surface-dim": "#0e0e12",
+                        "primary-container": "#9e93ff",
+                        "on-error-container": "#ffb2b9",
+                        "error-dim": "#d73357",
+                        "surface-bright": "#2c2b32",
+                        "on-primary": "#27009a",
+                        "tertiary-fixed": "#ffcf2a",
+                        "inverse-primary": "#5948d3",
+                        "on-primary-fixed-variant": "#250094",
+                        "primary-fixed-dim": "#8f83ff",
+                        "surface-container-lowest": "#000000",
+                        "primary-fixed": "#9e93ff",
+                        "tertiary-fixed-dim": "#efc117",
+                        "on-secondary-fixed-variant": "#006764",
+                        "on-primary-fixed": "#000000",
+                        "secondary-fixed-dim": "#46eae5",
+                        "on-primary-container": "#1d007a",
+                        "tertiary-container": "#ffcf2a",
+                        "inverse-on-surface": "#555459",
+                        "on-secondary-container": "#dafffc",
+                        "on-surface-variant": "#acaab0",
+                        "on-tertiary": "#644f00",
+                        "surface-container-low": "#131317",
+                        "surface-container": "#19191e",
+                        "on-error": "#490013",
+                        "on-surface": "#fcf8fe",
+                        "on-tertiary-fixed-variant": "#655000",
+                        "secondary-dim": "#46eae5",
+                        "on-tertiary-fixed": "#433400",
+                        "inverse-surface": "#fcf8fe",
+                        "secondary-fixed": "#5af9f3",
+                        "primary-dim": "#6f5fea",
+                        "secondary": "#5af9f3",
+                        "primary": "#aca3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-glow {
+            box-shadow: 0 0 80px -10px rgba(172, 163, 255, 0.15);
+        }
+        .achievement-orb {
+            background: radial-gradient(circle at 30% 30%, #ffe089 0%, #efc117 100%);
+            box-shadow: 0 0 30px rgba(239, 193, 23, 0.3);
+        }
+        .cyber-panel {
+            background: linear-gradient(135deg, rgba(25, 25, 30, 0.8) 0%, rgba(19, 19, 23, 0.9) 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="bg-gray-900/80 backdrop-blur-xl font-['Space_Grotesk'] tracking-tight docked full-width top-0 z-50 shadow-[0_0_20px_rgba(108,92,231,0.1)] flex justify-between items-center px-8 h-16 w-full fixed">
+<div class="text-2xl font-black italic text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-400">
+            HERO HUB
+        </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-gray-400 hover:text-indigo-300 hover:bg-white/5 transition-all duration-300 ease-out" href="#">Dashboard</a>
+<a class="text-indigo-400 border-b-2 border-indigo-500 pb-1 hover:text-indigo-300 hover:bg-white/5 transition-all duration-300 ease-out" href="#">Market</a>
+<a class="text-gray-400 hover:text-indigo-300 hover:bg-white/5 transition-all duration-300 ease-out" href="#">Library</a>
+<a class="text-gray-400 hover:text-indigo-300 hover:bg-white/5 transition-all duration-300 ease-out" href="#">Community</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined text-gray-400 cursor-pointer group-hover:text-primary transition-colors">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full"></span>
+</div>
+<span class="material-symbols-outlined text-gray-400 cursor-pointer hover:text-primary transition-colors">settings</span>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-primary/20 bg-surface-container">
+<img alt="Hero Avatar" class="w-full h-full object-cover" data-alt="Close up portrait of a young digital student avatar with glowing purple headphones and modern eyewear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2h0bfvhx_DxA69wLbiGFqRJ8D4EeGeHwUvZ4qZsunBAQYFOeSBckD5khf_pV3qBp5_lPON9yDd7rAnpeO95rmXVVpOd5m59bAlIwLhXeUuxZLOKPvK0YkodpRL3aPaTM4zhXoquDi15zMJtj7243yeiBWqsCnSOABx-_OuFs5IeoOOk8xjCG_mNi_x7PT59-4NozbBAUoAuO76mMzFivDMKzF86BPqLsKevQAW2NGxY3v7j9DuZQtWaa0IoozfjeaOLLxCdiDiQ"/>
+</div>
+</div>
+</nav>
+<!-- Sidebar Wrapper -->
+<div class="flex min-h-screen pt-16">
+<!-- SideNavBar -->
+<aside class="bg-gray-900 docked left-0 h-[calc(100vh-4rem)] w-64 bg-gray-800/50 flat no shadows flex flex-col py-6 gap-4 border-r border-outline-variant/10 hidden lg:flex">
+<div class="px-6 mb-4">
+<div class="flex items-center gap-3 p-3 rounded-xl bg-surface-container">
+<div class="h-10 w-10 achievement-orb rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div>
+<p class="font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-bold text-indigo-400">Master Architect</p>
+<p class="text-[0.6rem] text-on-surface-variant">Level 99 Elite</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-4 px-6 py-3 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-bold text-gray-500 hover:bg-gray-800 hover:text-gray-200 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">hardware</span> Forge
+                </a>
+<a class="flex items-center gap-4 px-6 py-3 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-bold bg-indigo-500/10 text-indigo-400 border-r-4 border-indigo-500 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span> Inventory
+                </a>
+<a class="flex items-center gap-4 px-6 py-3 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-bold text-gray-500 hover:bg-gray-800 hover:text-gray-200 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">monitoring</span> Analysis
+                </a>
+<a class="flex items-center gap-4 px-6 py-3 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-bold text-gray-500 hover:bg-gray-800 hover:text-gray-200 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span> Treasury
+                </a>
+</nav>
+<div class="mt-auto px-6 space-y-4">
+<button class="w-full py-3 bg-gradient-to-r from-primary to-primary-dim text-on-primary font-headline font-bold rounded-lg shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
+                    SUMMON HERO
+                </button>
+<div class="pt-4 border-t border-outline-variant/10 space-y-1">
+<a class="flex items-center gap-4 py-2 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-bold text-gray-500 hover:text-gray-200" href="#">
+<span class="material-symbols-outlined">help</span> Support
+                    </a>
+<a class="flex items-center gap-4 py-2 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-bold text-gray-500 hover:text-gray-200" href="#">
+<span class="material-symbols-outlined">logout</span> Log Out
+                    </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 bg-surface relative overflow-hidden">
+<!-- Background Elements -->
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -mr-64 -mt-64"></div>
+<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] -ml-48 -mb-48"></div>
+<div class="max-w-7xl mx-auto p-8 relative z-10">
+<!-- Hero Display & Quick Trade Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start mb-16">
+<!-- Left: Trade Panel -->
+<div class="xl:col-span-3 space-y-6">
+<div class="bg-surface-container-low rounded-xl p-6 cyber-panel">
+<h3 class="font-headline text-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">swap_horiz</span>
+                                QUICK TRADE
+                            </h3>
+<div class="space-y-4">
+<div class="p-3 bg-surface-container rounded-lg group cursor-pointer hover:bg-surface-bright transition-colors">
+<div class="flex items-center gap-3">
+<div class="h-12 w-12 rounded-lg bg-tertiary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-2xl">workspace_premium</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-on-surface">Golden Bracelet</p>
+<p class="text-[0.65rem] text-on-surface-variant">+15 Architect Power</p>
+</div>
+<span class="material-symbols-outlined text-gray-600 text-sm">chevron_right</span>
+</div>
+</div>
+<div class="p-3 bg-surface-container rounded-lg group cursor-pointer hover:bg-surface-bright transition-colors">
+<div class="flex items-center gap-3">
+<div class="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl">comedy_mask</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-on-surface">Legendary Hat</p>
+<p class="text-[0.65rem] text-on-surface-variant">Rare Explorer Set</p>
+</div>
+<span class="material-symbols-outlined text-gray-600 text-sm">chevron_right</span>
+</div>
+</div>
+<div class="p-3 bg-surface-container rounded-lg group cursor-pointer hover:bg-surface-bright transition-colors">
+<div class="flex items-center gap-3">
+<div class="h-12 w-12 rounded-lg bg-secondary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-2xl">flare</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-on-surface">Cyber Aura</p>
+<p class="text-[0.65rem] text-on-surface-variant">Visual FX Upgrade</p>
+</div>
+<span class="material-symbols-outlined text-gray-600 text-sm">chevron_right</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-3 border border-outline-variant rounded-lg text-[0.7rem] font-bold tracking-widest text-on-surface-variant hover:bg-surface-bright transition-colors">
+                                OPEN MARKETPLACE
+                            </button>
+</div>
+<div class="bg-surface-container rounded-xl p-5 border border-primary/5">
+<p class="text-[0.6rem] font-bold text-primary tracking-widest mb-2">FRIEND ACTIVITY</p>
+<div class="flex -space-x-2">
+<img alt="Friend 1" class="w-8 h-8 rounded-full border-2 border-surface" data-alt="Vibrant 3D avatar of a boy with blue hair and futuristic headset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqhXgyJM3QSLIcRcDn6mgC3zoGzx7RhqKLWJlPlh79t35Qui0dVEN22njPwIVuFzTV_c196mcryvuVN91J25yOIH0dz_lY-ZaaotHE-iaq6CjaMCHvnCy-kHCLbabEtwrkH0EX8shEVSdU7uNvHo8y19-APc-3TZo13NF5xEhpnuUNF34MgOXRoTV45D2z2DwRlg9SqbKnBdyY1IhT7ENAACGSvRRquiEy66KfTfcROG4dCdpfUna4b7tGCDYYytraO4sjMLnVTw"/>
+<img alt="Friend 2" class="w-8 h-8 rounded-full border-2 border-surface" data-alt="Vibrant 3D avatar of a girl with pink hair and neon glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqHsg1JW16KQxpjNq-_aOzLRnSR-toc32KmeYvuhTgRrcRTx5XG1xuqf869wN349TU2vQgjFfJgXSsDqkftNCsouCvY3XAbyrSaFPW7kNWqIlVXg2SWffCYUxk-VdBg0YgDui2Pe_mI5tTwhgX_RwPIM5kKCys2MofzNLURrWzOyd9-v-W-Pb9g96f1m79o3FQzee64rSez-Fh2DmYNd65i3B6oGDaO6ReITX8N0HG9N_ThznQOK9j--dnKAwpMIPxIHGbk9nC_A"/>
+<img alt="Friend 3" class="w-8 h-8 rounded-full border-2 border-surface" data-alt="Vibrant 3D avatar of a smiling boy with a yellow cap and tech vest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7ejWK3VLQ8ZU_w3bBZD1Aj2Ny5uoo4n7VpwikrBcjFkAyn37NK1jnoCTqVGa_G1SrOgM9JligKPd_P0YikKiRv-oSuOfFDqDimJ7rstXUoxuQlQmKR_2C1CRvydClE5l8yOZc8lWvRktjTxtRxOksS3f9xAfbIrTqiu282exiVqhusB05llp894sGVL9trbFFoVtB-JSkpGfBAEXL6JGgNljdmOxPQeefTQ0Y24mI1ccKLc8xwBC1y2vd1zRaBkjMnShr04Q6gw"/>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-surface flex items-center justify-center text-[0.6rem] font-bold">+12</div>
+</div>
+</div>
+</div>
+<!-- Center: Hero Pedestal -->
+<div class="xl:col-span-6 flex flex-col items-center justify-center py-12 relative">
+<div class="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+<div class="w-[500px] h-[500px] border border-primary/30 rounded-full animate-pulse"></div>
+<div class="absolute w-[400px] h-[400px] border border-secondary/20 rounded-full"></div>
+</div>
+<div class="relative z-20 transition-all duration-700 hover:scale-105">
+<div class="w-72 h-72 md:w-96 md:h-96 relative mx-auto">
+<img alt="Featured Hero" class="w-full h-full object-contain filter drop-shadow-[0_20px_50px_rgba(172,163,255,0.4)]" data-alt="A friendly 3D human student avatar standing confidently, wearing futuristic street clothes with glowing neon accents and a sleek digital visor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgeQBSTlgXX2B8EWARpkT4kpect5zpzBKjk0fDHMMKxJBpv86iIWpgxH9QWYUuNGDo7hFxAcgQkVW5pe-xBDB17CapbnZxbvvpE_O2T8NVZ4YCkXjBpdDcFtLZG68GJ9Ai30OD1lCuEe-TIXYfYMfvVWSR5Hg7Nnp9GkOfnAX4CNLv3r-zxbo2aYcmOadEK8gwFzLJItYMWF-aAO9Y5KVZzYdtI0ftO4ESxOAci8RKUWYYtMHr7muri9_1YjCK2APiYzF-LIPxtw"/>
+</div>
+<!-- Pedestal -->
+<div class="w-64 h-8 bg-surface-container-highest rounded-[100%] mx-auto mt-[-20px] blur-sm opacity-50 hero-glow"></div>
+<div class="w-48 h-4 bg-primary/20 rounded-[100%] mx-auto mt-[-4px] blur-md"></div>
+</div>
+<div class="mt-8 text-center">
+<h2 class="font-headline text-3xl font-bold tracking-tight text-on-surface">Alex "Volt" Sterling</h2>
+<div class="flex items-center justify-center gap-4 mt-2">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[0.65rem] font-bold rounded-full tracking-wider">RANK: GOLD III</span>
+<span class="px-3 py-1 bg-secondary/10 text-secondary text-[0.65rem] font-bold rounded-full tracking-wider">POWER: 2,450</span>
+</div>
+</div>
+</div>
+<!-- Right: Inventory & Stats -->
+<div class="xl:col-span-3 space-y-6">
+<div class="bg-surface-container-low rounded-xl p-6 cyber-panel">
+<h3 class="font-headline text-lg font-bold mb-4">LOADOUT</h3>
+<div class="grid grid-cols-2 gap-3">
+<div class="aspect-square bg-surface-container rounded-xl flex items-center justify-center border border-outline-variant/10 group cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">headset</span>
+</div>
+<div class="aspect-square bg-surface-container rounded-xl flex items-center justify-center border border-outline-variant/10 group cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">watch</span>
+</div>
+<div class="aspect-square bg-primary/5 rounded-xl flex items-center justify-center border border-primary/20 group cursor-pointer">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+</div>
+<div class="aspect-square bg-surface-container rounded-xl flex items-center justify-center border border-outline-variant/10 group cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">add</span>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full w-3/4 bg-primary rounded-full relative">
+<div class="absolute right-0 top-0 bottom-0 w-2 bg-white blur-sm"></div>
+</div>
+</div>
+<div class="flex justify-between text-[0.6rem] font-bold tracking-widest text-on-surface-variant">
+<span>EXP LEVEL 42</span>
+<span>75%</span>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl p-6 border border-white/5 backdrop-blur-sm">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-tertiary">monetization_on</span>
+<span class="font-headline text-xl font-bold text-tertiary">4,280</span>
+</div>
+<p class="text-[0.65rem] font-medium text-on-surface/60">EDUCOIN BALANCE</p>
+<button class="mt-4 text-[0.7rem] font-bold text-secondary uppercase tracking-tighter hover:underline">Deposit Credits</button>
+</div>
+</div>
+</div>
+<!-- Featured Heroes Carousel -->
+<section>
+<div class="flex items-end justify-between mb-8">
+<div>
+<p class="text-secondary font-headline text-sm font-bold tracking-widest uppercase mb-1">MARKETPLACE TRENDS</p>
+<h2 class="text-2xl font-headline font-bold">Featured Heroes</h2>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg bg-surface-container-high hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container-high hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Hero Card 1 -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+<div class="h-48 bg-surface-container-highest relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent opacity-60"></div>
+<img alt="Skin 1" class="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform" data-alt="Stylized 3D portrait of a female student with holographic twin tails and a glowing tech jacket" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAiD9W1Ea3qGNql4R4sye7Lz2aMABLVUAF2JssVqeettx0TOjCqIcVWf5BJbPmV87eoOml6lm8zhHNy9QZZkYa2PRRogKm_3TB83nhrfjZWEZH7sW7VoIkgV1SLfMpaaf-Uvt8qCauuoejAYsytNTfc36L8fg68LhBnLJpKeo6NekdQXrbRDPeJ4ubvRsdpctOQCCXbk7S4CEnOzRMczyuPpdhdUM9mby87G_JX_ysdMx0IQVl-IT08FqzQnhdpEQCPPlQii31HA"/>
+<div class="absolute top-3 left-3 px-2 py-1 bg-surface/80 backdrop-blur-md rounded-md text-[0.6rem] font-black tracking-widest uppercase text-tertiary">EPIC</div>
+</div>
+<div class="p-5">
+<h4 class="font-bold text-sm mb-1">Cyber Kitsune</h4>
+<p class="text-[0.65rem] text-on-surface-variant mb-4">Visual override with particle effects</p>
+<div class="flex items-center justify-between">
+<span class="text-primary font-headline font-bold">1,200 <span class="text-[0.6rem]">EC</span></span>
+<button class="px-3 py-1.5 bg-surface-container-high rounded-lg text-[0.65rem] font-bold hover:bg-primary hover:text-on-primary transition-colors">VIEW</button>
+</div>
+</div>
+</div>
+<!-- Hero Card 2 -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+<div class="h-48 bg-surface-container-highest relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent opacity-60"></div>
+<img alt="Skin 2" class="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform" data-alt="A male avatar in tactical 3D gear with a sleek black armor and glowing cyan highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX6IzbM8CoQfbBtWSEXubRymYGDDcgzvWzRWa4XrDxhiAhkMVgKFnR4HCRwQPd2SB3sXLqc6fjUtY7_RE5AzOiYCg7ViXGWizzk_2SKFvfP2gwwl1VicpK1TRt2babrHMmXNYF6YaRaThaWGiF-P5deunpIIx-ryaUVBlDH5EFdvO-yjY3qNARP40Ja6DcqYTw65H36UqnH9J7ns0pOdsMBOLCv8oU3z3xqA2FEOg7SgUgzi5GX1XP2HBevTTXhu8IpA6RB0FspQ"/>
+<div class="absolute top-3 left-3 px-2 py-1 bg-surface/80 backdrop-blur-md rounded-md text-[0.6rem] font-black tracking-widest uppercase text-secondary">RARE</div>
+</div>
+<div class="p-5">
+<h4 class="font-bold text-sm mb-1">Deep Sea Scout</h4>
+<p class="text-[0.65rem] text-on-surface-variant mb-4">Complete aquatic tactical gear</p>
+<div class="flex items-center justify-between">
+<span class="text-primary font-headline font-bold">850 <span class="text-[0.6rem]">EC</span></span>
+<button class="px-3 py-1.5 bg-surface-container-high rounded-lg text-[0.65rem] font-bold hover:bg-primary hover:text-on-primary transition-colors">VIEW</button>
+</div>
+</div>
+</div>
+<!-- Hero Card 3 -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+<div class="h-48 bg-surface-container-highest relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent opacity-60"></div>
+<img alt="Skin 3" class="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform" data-alt="A 3D character with bright red streetwear and a tech-backpack emitting golden sparks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJLVUy5fGCN6BH7UywgFERGNHeShqMqn0X2vMAaQzC-NebVQ3obfXK-pSFdwiDs9YmaDMu076F_a0pPQ3iOaH95Cv0EDQx_Hdd06LMefG8sbdsdRtNbo9WgJSW9_c7KEcrAVkrcOO-0wKN5wReCATEdBTMPsq5WcPmMwdpc5zPUO8Q7reP6ivsWrNhb-FDftE7SFiVODe0eH1qaicikhDCIgEmXyLR1kZlLbKNFXg6WmY8KzCyKmNqMWz2qxhEeAEFduJEuxuGWw"/>
+<div class="absolute top-3 left-3 px-2 py-1 bg-surface/80 backdrop-blur-md rounded-md text-[0.6rem] font-black tracking-widest uppercase text-primary">LEGENDARY</div>
+</div>
+<div class="p-5">
+<h4 class="font-bold text-sm mb-1">Solar Flare</h4>
+<p class="text-[0.65rem] text-on-surface-variant mb-4">Limited edition solar eclipse set</p>
+<div class="flex items-center justify-between">
+<span class="text-primary font-headline font-bold">3,500 <span class="text-[0.6rem]">EC</span></span>
+<button class="px-3 py-1.5 bg-surface-container-high rounded-lg text-[0.65rem] font-bold hover:bg-primary hover:text-on-primary transition-colors">VIEW</button>
+</div>
+</div>
+</div>
+<!-- Hero Card 4 -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+<div class="h-48 bg-surface-container-highest relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent opacity-60"></div>
+<img alt="Skin 4" class="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform" data-alt="A futuristic student avatar with a floating digital companion and sleek silver accessories" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADGKnPVeC5-U8HnwF-AFy4_Pu_pNnNYOkzMfRtM7JBrwk0hAcqqZGxhIj0a40bgkCDmTQVgq7PjhMfR4d4vCaKbaie5FXpAMVUNeTFnl8DqNd74QMFldW7pFdLTexVW3Mzrz9LfU6ik_1F61vsb90-X6l66SKGdkg4yn0OBHQfKE_HcfX3KnNUXxFSLebR8t96QMI28lTyTnO6J-2uoeTw02N4UduIiHd-rcReJtZmwifnVczMLDh5XBoVG8MUVDfQo9ZR4TwGRw"/>
+<div class="absolute top-3 left-3 px-2 py-1 bg-surface/80 backdrop-blur-md rounded-md text-[0.6rem] font-black tracking-widest uppercase text-on-surface-variant">COMMON</div>
+</div>
+<div class="p-5">
+<h4 class="font-bold text-sm mb-1">Cloud Walker</h4>
+<p class="text-[0.65rem] text-on-surface-variant mb-4">Minimalist floating companion pack</p>
+<div class="flex items-center justify-between">
+<span class="text-primary font-headline font-bold">300 <span class="text-[0.6rem]">EC</span></span>
+<button class="px-3 py-1.5 bg-surface-container-high rounded-lg text-[0.65rem] font-bold hover:bg-primary hover:text-on-primary transition-colors">VIEW</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- BottomNavBar for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-gray-900/90 backdrop-blur-xl flex items-center justify-around px-4 border-t border-outline-variant/10 z-50">
+<a class="flex flex-col items-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[0.6rem] font-bold uppercase tracking-tighter">Dash</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-indigo-400" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="text-[0.6rem] font-bold uppercase tracking-tighter">Market</span>
+</a>
+<div class="w-12 h-12 -mt-10 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/40 border-4 border-surface">
+<span class="material-symbols-outlined text-on-primary" style="font-variation-settings: 'wght' 700;">add</span>
+</div>
+<a class="flex flex-col items-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-[0.6rem] font-bold uppercase tracking-tighter">Social</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[0.6rem] font-bold uppercase tracking-tighter">Profile</span>
+</a>
+</nav>
+</body></html>

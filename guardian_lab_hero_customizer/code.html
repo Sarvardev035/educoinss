@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guardian Lab - Hero Forge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#ffe089",
+                        "on-secondary-fixed": "#004746",
+                        "on-secondary": "#005c59",
+                        "on-background": "#fcf8fe",
+                        "surface-tint": "#aca3ff",
+                        "surface-container-high": "#1f1f24",
+                        "surface-variant": "#25252b",
+                        "on-tertiary-container": "#5a4700",
+                        "secondary-container": "#006a67",
+                        "tertiary-dim": "#efc117",
+                        "outline-variant": "#48474c",
+                        "error-container": "#a70138",
+                        "outline": "#76757a",
+                        "surface": "#0e0e12",
+                        "surface-container-highest": "#25252b",
+                        "error": "#ff6e84",
+                        "background": "#0e0e12",
+                        "surface-dim": "#0e0e12",
+                        "primary-container": "#9e93ff",
+                        "on-error-container": "#ffb2b9",
+                        "error-dim": "#d73357",
+                        "surface-bright": "#2c2b32",
+                        "on-primary": "#27009a",
+                        "tertiary-fixed": "#ffcf2a",
+                        "inverse-primary": "#5948d3",
+                        "on-primary-fixed-variant": "#250094",
+                        "primary-fixed-dim": "#8f83ff",
+                        "surface-container-lowest": "#000000",
+                        "primary-fixed": "#9e93ff",
+                        "tertiary-fixed-dim": "#efc117",
+                        "on-secondary-fixed-variant": "#006764",
+                        "on-primary-fixed": "#000000",
+                        "secondary-fixed-dim": "#46eae5",
+                        "on-primary-container": "#1d007a",
+                        "tertiary-container": "#ffcf2a",
+                        "inverse-on-surface": "#555459",
+                        "on-secondary-container": "#dafffc",
+                        "on-surface-variant": "#acaab0",
+                        "on-tertiary": "#644f00",
+                        "surface-container-low": "#131317",
+                        "surface-container": "#19191e",
+                        "on-error": "#490013",
+                        "on-surface": "#fcf8fe",
+                        "on-tertiary-fixed-variant": "#655000",
+                        "secondary-dim": "#46eae5",
+                        "on-tertiary-fixed": "#433400",
+                        "inverse-surface": "#fcf8fe",
+                        "secondary-fixed": "#5af9f3",
+                        "primary-dim": "#6f5fea",
+                        "secondary": "#5af9f3",
+                        "primary": "#aca3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(25, 25, 30, 0.6);
+            backdrop-filter: blur(24px);
+        }
+        .stasis-glow {
+            box-shadow: 0 0 80px -20px rgba(172, 163, 255, 0.3);
+        }
+        .hologram-border {
+            border: 1px solid rgba(172, 163, 255, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="bg-gray-900/80 backdrop-blur-xl font-['Space_Grotesk'] tracking-tight shadow-[0_0_20px_rgba(108,92,231,0.1)] docked full-width top-0 z-50 flex justify-between items-center px-8 h-16 w-full fixed">
+<div class="text-2xl font-black italic text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-400">HERO HUB</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-gray-400 hover:text-indigo-300 hover:bg-white/5 transition-all duration-300 ease-out" href="#">Dashboard</a>
+<a class="text-gray-400 hover:text-indigo-300 hover:bg-white/5 transition-all duration-300 ease-out" href="#">Market</a>
+<a class="text-gray-400 hover:text-indigo-300 hover:bg-white/5 transition-all duration-300 ease-out" href="#">Library</a>
+<a class="text-gray-400 hover:text-indigo-300 hover:bg-white/5 transition-all duration-300 ease-out" href="#">Community</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-gray-400 hover:text-indigo-300 transition-all">notifications</button>
+<button class="material-symbols-outlined text-gray-400 hover:text-indigo-300 transition-all">settings</button>
+<div class="h-10 w-10 rounded-full border border-primary/20 p-0.5 overflow-hidden">
+<img alt="Hero Avatar" class="w-full h-full object-cover" data-alt="close-up portrait of a futuristic young hero with glowing purple cybernetic eye and sleek metallic tech gear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDorYh63dWqINFF9BM4qyaeQ-S2jnKRNoy4V1_snStIQEhEUQRTEFdDT_X7rkKbA1oFEFCnuqi6UD-rsfvqg8xa-sSZiHKpftnxQBhfBOyhr9uRkJ8J8I5JitURTc2tUW1aJFXfZkGORoY7G8czGk0KwAwHKEpMUyzT_vLbt3cNJTFYpRuAH0XVCx5EU01agCK7zyLap638T4Pi_-NZksbDFqG1jfQxQnZDoW4l5NM26LvI9PcT5IVAxDMCthdhnCNnralMD5dXxg"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="bg-gray-900 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-bold docked left-0 h-full w-64 hidden lg:flex flex-col py-6 gap-4 fixed top-16 border-r border-gray-800/50">
+<div class="px-6 mb-4 flex items-center gap-3">
+<div class="w-10 h-10 bg-indigo-500/20 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-indigo-400" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<div>
+<p class="text-on-surface leading-none">Master Architect</p>
+<p class="text-indigo-400 text-[0.6rem]">Level 99 Elite</p>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<a class="bg-indigo-500/10 text-indigo-400 border-r-4 border-indigo-500 flex items-center px-6 py-4 gap-4 transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hardware</span>
+                Forge
+            </a>
+<a class="text-gray-500 hover:bg-gray-800 hover:text-gray-200 flex items-center px-6 py-4 gap-4 transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+                Inventory
+            </a>
+<a class="text-gray-500 hover:bg-gray-800 hover:text-gray-200 flex items-center px-6 py-4 gap-4 transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+                Analysis
+            </a>
+<a class="text-gray-500 hover:bg-gray-800 hover:text-gray-200 flex items-center px-6 py-4 gap-4 transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+                Treasury
+            </a>
+</div>
+<div class="px-6 mt-auto flex flex-col gap-2">
+<button class="bg-gradient-to-r from-primary to-primary-dim text-on-primary py-3 rounded-lg flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(172,163,255,0.3)] hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined">bolt</span>
+                SUMMON HERO
+            </button>
+<div class="pt-4 border-t border-gray-800/50 flex flex-col gap-1">
+<a class="text-gray-500 flex items-center gap-4 py-2 hover:text-gray-200" href="#"><span class="material-symbols-outlined">help</span> Support</a>
+<a class="text-gray-500 flex items-center gap-4 py-2 hover:text-gray-200" href="#"><span class="material-symbols-outlined">logout</span> Log Out</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-24 px-6 pb-12 min-h-screen">
+<div class="max-w-7xl mx-auto grid grid-cols-12 gap-8">
+<!-- Hero Header -->
+<div class="col-span-12 flex justify-between items-end mb-4">
+<div>
+<h1 class="font-headline text-4xl font-bold tracking-tight mb-2">Guardian Lab</h1>
+<p class="text-on-surface-variant font-body">Synthesizing Neural Combat Protocols... <span class="text-primary">System Online</span></p>
+</div>
+<div class="flex gap-4">
+<div class="surface-container-low px-4 py-2 rounded-xl flex items-center gap-3 border border-outline-variant/10">
+<span class="text-tertiary-fixed text-sm font-bold uppercase tracking-widest">Nano-Credits</span>
+<span class="font-headline text-xl text-tertiary">24,500</span>
+</div>
+</div>
+</div>
+<!-- Left Panel: Inventory Modules -->
+<div class="col-span-12 lg:col-span-3 flex flex-col gap-6">
+<div class="surface-container-low p-6 rounded-2xl hologram-border">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-bold text-sm uppercase tracking-widest text-primary">Modular Gear</h3>
+<span class="material-symbols-outlined text-outline">filter_list</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Gear Item 1 -->
+<div class="surface-container-highest p-3 rounded-xl hover:bg-surface-bright transition-colors cursor-pointer group">
+<div class="aspect-square bg-surface-container rounded-lg mb-2 flex items-center justify-center border border-outline-variant/15 relative overflow-hidden">
+<img alt="Golden Bracelets" class="w-12 h-12" data-alt="stylized 3D icon of glowing gold celestial bracelets with floating energy particles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwdPpwkDuyVz8O3mQPfvfwiAudlxgCd9xEu1m-vnf3WC563m4yi9Utn3OHRTr6f5V3JJP4VfdqmEB-cymahoyCwBma9yS0CA40Xk5uDgg_LZZTETLxIko2-3F00TqwpK19bTaejsY8Ve3oD0BIpXxMDipDnMsHZBoRejn3vlOPJ56ArCL_uyBu06yyChZRHFsitzOJoO9l2xsyvQNUpBcQzySxE8vYGq3m-MLwFKemw0_gX4SbL-9XABjXXtcP3RpQWslKmkL52Q"/>
+<div class="absolute bottom-1 right-1 h-2 w-2 bg-tertiary rounded-full shadow-[0_0_8px_#ffe089]"></div>
+</div>
+<p class="text-[0.7rem] font-bold text-center text-on-surface-variant truncate">Golden Bracelets</p>
+</div>
+<!-- Gear Item 2 -->
+<div class="surface-container-highest p-3 rounded-xl hover:bg-surface-bright transition-colors cursor-pointer group">
+<div class="aspect-square bg-surface-container rounded-lg mb-2 flex items-center justify-center border border-outline-variant/15 relative">
+<img alt="Tech-Glasses" class="w-12 h-12" data-alt="holographic blue tactical visor icon with data scan lines and digital interface elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVhUWRKqhFCF8f6CiDzBxqrrIL24pBvh-kVvhgLYuYN30uxoMpAnU1SwnpEdMnEelvxyO3ouagAaUmQ3sFSAf8-sthAMC0xfXw2TrGJG0mHZdefio250D17z7M08hDn54t6bBd3DS80Oe35_MT3x8jV2A7ZFHQO-5HieuBX6wW8HZThV3ymQE9Z8KsAztVn4YYi0lbYrq5f3loXvs9Wo4A5GVT9uRWHmtMuNXlvHTIY-22URthINP-I7dqIy5nAEmkmDABEcu21w"/>
+<div class="absolute bottom-1 right-1 h-2 w-2 bg-primary rounded-full shadow-[0_0_8px_#aca3ff]"></div>
+</div>
+<p class="text-[0.7rem] font-bold text-center text-on-surface-variant truncate">Tech-Glasses</p>
+</div>
+<!-- Gear Item 3 -->
+<div class="surface-container-highest p-3 rounded-xl hover:bg-surface-bright transition-colors cursor-pointer group">
+<div class="aspect-square bg-surface-container rounded-lg mb-2 flex items-center justify-center border border-outline-variant/15 relative">
+<img alt="Power-Capes" class="w-12 h-12" data-alt="majestic flowing energy cape icon with nebula patterns and lightning sparks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw-rkr9Rcs8VI65uRJX2dgb7N0knk7FWjqXjDtOPnmmYTnBL3mlWX9KUiwx7nYPOx839y_wKD9MVdS7b3SO8i97IbWyKLeSc3Q2ON2w4Zj9pnw95OAv0QZ_rSoSu7xmdBO1HcFh8nfiWXOR5veu1FHdiQMoHhshFhWmRHa49N6Ugu8sIHJGnIJUm6aINsjOD-XVnC2o-G_18acZ5IDNT7LPDXwa-rCxdmE6VltZSSLTNkiO87V1XgIg8wnAeecnjQyZG4DPLD2TA"/>
+<div class="absolute bottom-1 right-1 h-2 w-2 bg-primary rounded-full shadow-[0_0_8px_#aca3ff]"></div>
+</div>
+<p class="text-[0.7rem] font-bold text-center text-on-surface-variant truncate">Power-Capes</p>
+</div>
+<!-- Gear Item 4 -->
+<div class="surface-container-highest p-3 rounded-xl border border-primary/30 flex items-center justify-center opacity-50">
+<span class="material-symbols-outlined text-outline">add</span>
+</div>
+</div>
+</div>
+<div class="surface-container rounded-2xl p-6 border-l-4 border-primary shadow-lg">
+<h3 class="font-headline font-bold text-sm uppercase tracking-widest text-on-surface mb-2">Synthesis Chamber</h3>
+<p class="text-xs text-on-surface-variant mb-4">Combine 3 low-tier modules to create a superior Hero Core.</p>
+<button class="w-full py-2 bg-surface-bright border border-outline-variant/30 rounded-lg text-xs font-bold text-primary hover:bg-primary/10 transition-colors uppercase tracking-widest">Open Synthesis UI</button>
+</div>
+</div>
+<!-- Middle Panel: The Stasis Chamber -->
+<div class="col-span-12 lg:col-span-6 flex flex-col items-center justify-center min-h-[600px] relative">
+<!-- Stasis Chamber Background Glow -->
+<div class="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
+<div class="w-[400px] h-[600px] bg-primary/5 rounded-full blur-[100px]"></div>
+</div>
+<!-- The Chamber UI -->
+<div class="w-full h-full glass-panel rounded-3xl p-4 stasis-glow relative border border-primary/20 flex flex-col items-center justify-center overflow-hidden">
+<!-- Scanning HUD Elements -->
+<div class="absolute top-8 left-8 flex flex-col gap-1">
+<div class="w-24 h-1 bg-primary/40 rounded-full"></div>
+<div class="w-16 h-1 bg-primary/20 rounded-full"></div>
+<p class="text-[0.6rem] font-label font-bold text-primary tracking-widest mt-2 uppercase">Integrity: 98.4%</p>
+</div>
+<div class="absolute bottom-8 right-8 text-right">
+<p class="text-[0.6rem] font-label font-bold text-on-surface-variant tracking-widest uppercase mb-1">Target Identity</p>
+<p class="font-headline text-lg font-bold">XENON-7 ALPHA</p>
+</div>
+<!-- Hero Visualizer -->
+<div class="relative z-10 w-full max-w-sm">
+<div class="aspect-[3/4] rounded-2xl overflow-hidden relative border border-white/5 group shadow-2xl">
+<img alt="Hero in Chamber" class="w-full h-full object-cover" data-alt="cinematic full body shot of a young man in a futuristic glass stasis pod being scanned by blue laser lines in a dark high-tech laboratory" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS_OOPYRrHpkO0UMeJE5EXF-u83U1xoTzQHv9MLnUDeuEKkBJ5CzNDFnSk7ITe4VqiBXdtAnuPFxsQdg0pyrlKFC6NSvBdGJAWn9zELCyc-dlS8KLK2A-Z-40ATNWddj97qwKeXFA-au77cEi80gUpEz789tFqpaUKhRaFkmWozApWcEHB1OtPN51KrviXyZSJ7kham1VDiH0vTJlZQYVdsDBNCm5dPWo56r_D6mA9vNDO1tbgyU1cqEaEkuwmLjirhW4Jbs0X4g"/>
+<!-- Overlay Holograms -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60"></div>
+<div class="absolute inset-0 border-[20px] border-transparent group-hover:border-primary/5 transition-all duration-500"></div>
+<!-- Floating Data Points -->
+<div class="absolute top-1/4 right-6 p-2 glass-panel rounded-lg border border-primary/30 backdrop-blur-md">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div class="absolute bottom-1/3 left-6 p-2 glass-panel rounded-lg border border-secondary/30 backdrop-blur-md">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+</div>
+</div>
+<!-- Action HUD -->
+<div class="mt-8 flex gap-6">
+<div class="flex flex-col items-center">
+<button class="w-16 h-16 rounded-full bg-surface-container-high border-2 border-primary shadow-[0_0_20px_rgba(172,163,255,0.4)] flex items-center justify-center group hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">auto_fix_high</span>
+</button>
+<p class="text-[0.6rem] font-bold tracking-widest uppercase mt-3 text-primary">Upgrade</p>
+</div>
+<div class="flex flex-col items-center">
+<button class="w-16 h-16 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:border-on-surface transition-all">
+<span class="material-symbols-outlined text-3xl">sync_alt</span>
+</button>
+<p class="text-[0.6rem] font-bold tracking-widest uppercase mt-3 text-on-surface-variant">Switch</p>
+</div>
+<div class="flex flex-col items-center">
+<button class="w-16 h-16 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-error hover:border-error transition-all">
+<span class="material-symbols-outlined text-3xl">power_settings_new</span>
+</button>
+<p class="text-[0.6rem] font-bold tracking-widest uppercase mt-3 text-on-surface-variant">Eject</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Panel: Analysis & Stats -->
+<div class="col-span-12 lg:col-span-3 flex flex-col gap-6">
+<div class="surface-container-low p-6 rounded-2xl hologram-border">
+<h3 class="font-headline font-bold text-sm uppercase tracking-widest text-secondary mb-6">Combat Analysis</h3>
+<div class="space-y-6">
+<!-- Stat 1 -->
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="text-[0.7rem] font-bold text-on-surface-variant uppercase tracking-wider">Neural Speed</span>
+<span class="font-headline text-lg text-secondary">88%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[88%] rounded-full shadow-[0_0_10px_rgba(90,249,243,0.5)]"></div>
+</div>
+</div>
+<!-- Stat 2 -->
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="text-[0.7rem] font-bold text-on-surface-variant uppercase tracking-wider">Power Density</span>
+<span class="font-headline text-lg text-primary">64%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[64%] rounded-full shadow-[0_0_10px_rgba(172,163,255,0.5)]"></div>
+</div>
+</div>
+<!-- Stat 3 -->
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="text-[0.7rem] font-bold text-on-surface-variant uppercase tracking-wider">Durability</span>
+<span class="font-headline text-lg text-error">42%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error w-[42%] rounded-full shadow-[0_0_10px_rgba(255,110,132,0.5)]"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 p-4 bg-secondary/5 rounded-xl border border-secondary/20">
+<p class="text-[0.65rem] text-secondary leading-relaxed italic">"Optimal gear combination detected: Tech-Glasses + Golden Bracelets boost Neural Speed by 12%."</p>
+</div>
+</div>
+<div class="surface-container-low p-6 rounded-2xl hologram-border flex flex-col items-center">
+<h3 class="font-headline font-bold text-sm uppercase tracking-widest text-on-surface mb-4 w-full">Hero Synthesis</h3>
+<div class="w-24 h-24 rounded-full bg-gradient-to-br from-tertiary-container to-tertiary-dim p-1 flex items-center justify-center mb-4 relative">
+<div class="absolute inset-0 animate-pulse bg-tertiary-fixed rounded-full blur-xl opacity-20"></div>
+<div class="w-full h-full bg-surface rounded-full flex items-center justify-center border-2 border-surface">
+<span class="material-symbols-outlined text-tertiary text-4xl" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+</div>
+<p class="text-[0.7rem] font-bold text-on-surface text-center mb-1">LEGENDARY CORE READY</p>
+<p class="text-[0.6rem] text-on-surface-variant text-center uppercase tracking-widest">99.9% Success Rate</p>
+<button class="mt-4 w-full py-3 bg-tertiary text-on-tertiary-container font-black rounded-xl hover:scale-[1.02] transition-transform">FORGE NOW</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Only for Hero Forge Main) -->
+<div class="fixed bottom-8 right-8 flex flex-col gap-4">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-2xl flex items-center justify-center hover:rotate-90 transition-all duration-300 group">
+<span class="material-symbols-outlined text-3xl group-hover:scale-125 transition-transform">add_moderator</span>
+</button>
+</div>
+</body></html>

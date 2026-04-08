@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduCoin 2.0 | EduSkeleton Customizer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#ffb2b9",
+                    "secondary-dim": "#46eae5",
+                    "primary-container": "#9e93ff",
+                    "primary-fixed-dim": "#8f83ff",
+                    "on-primary-fixed-variant": "#250094",
+                    "on-secondary-container": "#dafffc",
+                    "secondary-container": "#006a67",
+                    "on-primary": "#27009a",
+                    "on-secondary-fixed": "#004746",
+                    "inverse-primary": "#5948d3",
+                    "tertiary": "#ffe089",
+                    "on-tertiary-container": "#5a4700",
+                    "outline-variant": "#48474c",
+                    "error-dim": "#d73357",
+                    "tertiary-dim": "#efc117",
+                    "primary-dim": "#6f5fea",
+                    "error-container": "#a70138",
+                    "primary-fixed": "#9e93ff",
+                    "primary": "#aca3ff",
+                    "on-tertiary": "#644f00",
+                    "surface-container-high": "#1f1f24",
+                    "on-secondary-fixed-variant": "#006764",
+                    "surface-container-highest": "#25252b",
+                    "on-tertiary-fixed-variant": "#655000",
+                    "on-tertiary-fixed": "#433400",
+                    "surface-container-low": "#131317",
+                    "on-primary-container": "#1d007a",
+                    "on-surface": "#fcf8fe",
+                    "surface-dim": "#0e0e12",
+                    "on-background": "#fcf8fe",
+                    "surface-tint": "#aca3ff",
+                    "outline": "#76757a",
+                    "tertiary-fixed-dim": "#efc117",
+                    "error": "#ff6e84",
+                    "surface-container-lowest": "#000000",
+                    "on-surface-variant": "#acaab0",
+                    "surface": "#0e0e12",
+                    "inverse-surface": "#fcf8fe",
+                    "tertiary-fixed": "#ffcf2a",
+                    "on-error": "#490013",
+                    "surface-variant": "#25252b",
+                    "surface-container": "#19191e",
+                    "surface-bright": "#2c2b32",
+                    "secondary": "#5af9f3",
+                    "secondary-fixed-dim": "#46eae5",
+                    "tertiary-container": "#ffcf2a",
+                    "inverse-on-surface": "#555459",
+                    "secondary-fixed": "#5af9f3",
+                    "background": "#0e0e12",
+                    "on-secondary": "#005c59",
+                    "on-primary-fixed": "#000000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(25, 25, 30, 0.6);
+            backdrop-filter: blur(24px);
+        }
+        .glow-primary {
+            box-shadow: 0 0 30px rgba(172, 163, 255, 0.15);
+        }
+        .neon-border-teal {
+            border: 1px solid rgba(90, 249, 243, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-8 py-4 max-w-[1920px] mx-auto shadow-[0_8px_32px_rgba(108,92,231,0.1)]">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold tracking-tighter text-violet-400 font-['Space_Grotesk']">EduCoin 2.0</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-slate-400 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 hover:text-violet-300 transition-all px-3 py-1 rounded-lg" href="#">Overview</a>
+<a class="text-violet-400 font-bold font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 hover:text-violet-300 transition-all px-3 py-1 rounded-lg" href="#">Market</a>
+<a class="text-slate-400 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 hover:text-violet-300 transition-all px-3 py-1 rounded-lg" href="#">Library</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-high rounded-full border border-primary/10">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-headline font-bold text-tertiary">2,450.00</span>
+</div>
+<button class="p-2 text-slate-400 hover:bg-slate-800/50 hover:text-violet-300 transition-all rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-slate-800/50 hover:text-violet-300 transition-all rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-primary flex items-center justify-center font-bold text-on-primary">JD</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 hidden xl:flex flex-col pt-24 pb-8 px-4 bg-[#131317] border-r border-violet-500/10 z-40">
+<div class="flex flex-col items-center mb-8 px-4">
+<div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-secondary p-1 mb-3">
+<div class="w-full h-full rounded-[0.85rem] bg-surface-dim flex items-center justify-center overflow-hidden">
+<img alt="Avatar" data-alt="Stylized 3D digital skeleton avatar with glowing purple eyes and sleek robotic details on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCfBZeeHOCIPDzLUyP2XzPUcrzB-rOpwftlChKk7RHHg1BQHLhP588k5uP4XTAM6v6FQUo_0ovVZFgdltcaytKJyakbxdaIY7Surk4pEeFNCCFhPX-AJsE7p66TySTUsEkw-eDAxpoKZ0hjJMke2yrhXByPFN8AF5th_5b8p8s4cDcY3r49NR2fGRsF50fKFpw_2R-qWUnMKckEIQjnNlHsNk9NTnHTW4t_vUESjPVLVe0CckvE9Tu35NdUnHl4snks-5yxYG4sw"/>
+</div>
+</div>
+<h3 class="text-violet-400 font-['Space_Grotesk'] font-bold text-lg">EduCoin 2.0</h3>
+<p class="font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-semibold text-slate-500">Lvl 42 Explorer</p>
+<button class="mt-4 w-full py-2 px-4 bg-violet-500/10 text-violet-400 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-semibold rounded-lg hover:bg-slate-800/40 transition-colors active:translate-x-1 duration-150">
+                Customize Avatar
+            </button>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:text-slate-300 hover:bg-slate-800/40 transition-colors font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-semibold group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-violet-500/10 text-violet-400 border-r-2 border-violet-500 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-semibold" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span>Market</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:text-slate-300 hover:bg-slate-800/40 transition-colors font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-semibold group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">local_library</span>
+<span>Library</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:text-slate-300 hover:bg-slate-800/40 transition-colors font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-semibold group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">group</span>
+<span>Community</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:text-slate-300 hover:bg-slate-800/40 transition-colors font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-semibold group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">person_outline</span>
+<span>Profile</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-white/5 pt-6 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-semibold" href="#">
+<span class="material-symbols-outlined text-[1.2rem]">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-semibold" href="#">
+<span class="material-symbols-outlined text-[1.2rem]">help_outline</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="xl:pl-64 pt-24 pb-12 px-6 lg:px-12 min-h-screen">
+<div class="max-w-[1600px] mx-auto grid grid-cols-12 gap-8">
+<!-- Header Section -->
+<header class="col-span-12 mb-4">
+<div class="flex items-center gap-4 mb-2">
+<span class="px-3 py-1 rounded-full bg-secondary-container/30 text-secondary-dim text-xs font-bold uppercase tracking-widest border border-secondary/20">Customizer Hub</span>
+<span class="h-px flex-1 bg-gradient-to-r from-secondary/20 to-transparent"></span>
+</div>
+<h1 class="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-on-surface">The <span class="text-primary-dim">EduSkeleton</span> Forge</h1>
+</header>
+<!-- 3D Preview Canvas (Central) -->
+<section class="col-span-12 lg:col-span-7 xl:col-span-8 relative group">
+<div class="aspect-[16/10] rounded-3xl bg-surface-container-low overflow-hidden relative border border-white/5 glow-primary">
+<!-- Background Depth -->
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(108,92,231,0.15)_0%,_transparent_70%)]"></div>
+<div class="absolute bottom-0 w-full h-32 bg-gradient-to-t from-surface-dim to-transparent"></div>
+<!-- Avatar Layer -->
+<div class="absolute inset-0 flex items-center justify-center">
+<img alt="3D Skeleton Avatar" class="h-[90%] object-contain" data-alt="Full body 3D render of a futuristic skeleton avatar with glowing cyan neon lights integrated into bones, wearing sleek purple tactical gear against a dark observatory backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeWJv1_RTpXM_QQsCY7QHWv7FWW73XrJibUtowIbxk9a3mEK9e7HeW_ZB_mBu8McpP86OLnUTJHgAnhGJ0u-KIfLkrGSzyhD1jAra5Xhmkcih7-0cfxKPEA6J_j0pc-uqKEHUzJyTql3SSC_MtCU1WJ0bQouakn-duNoHc7uOLorzfrMGgS-ZADBevb3_2Q8i4OiqOa5HspplGiFOqsTGWcb-5PtKB20bghXwr90BxE372qVX9LP8PHvtk_b7y5wkByux9Hb66nw"/>
+</div>
+<!-- HUD Overlays -->
+<div class="absolute top-8 left-8 p-4 glass-panel rounded-xl border border-white/10">
+<p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Current Skin</p>
+<h4 class="font-headline text-xl text-secondary-dim font-bold">Neon Hacker v2.4</h4>
+<div class="flex items-center gap-2 mt-2">
+<span class="w-2 h-2 rounded-full bg-secondary-dim animate-pulse"></span>
+<span class="text-[10px] text-on-surface-variant font-medium">LEGENDARY RANK</span>
+</div>
+</div>
+<div class="absolute bottom-8 right-8 flex gap-4">
+<button class="w-12 h-12 rounded-full glass-panel border border-white/10 flex items-center justify-center text-on-surface hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined">videocam</span>
+</button>
+<button class="w-12 h-12 rounded-full glass-panel border border-white/10 flex items-center justify-center text-on-surface hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+</div>
+</div>
+<!-- Action Bar Under Preview -->
+<div class="mt-6 flex flex-wrap gap-4">
+<button class="flex-1 min-w-[200px] bg-gradient-to-r from-primary to-primary-dim text-on-primary py-4 px-8 rounded-xl font-headline font-bold text-lg hover:scale-[1.02] transition-transform active:scale-95 shadow-lg shadow-primary/20 flex items-center justify-center gap-3">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+                        Buy New Skin
+                    </button>
+<button class="px-8 py-4 rounded-xl bg-surface-container text-on-surface font-headline font-bold hover:bg-surface-bright transition-colors border border-white/5 flex items-center gap-3">
+<span class="material-symbols-outlined">swap_horizontal_circle</span>
+                        Trade with Friend
+                    </button>
+<button class="px-8 py-4 rounded-xl bg-surface-container-high text-error font-headline font-bold hover:bg-error/10 transition-colors border border-error/20 flex items-center gap-3">
+<span class="material-symbols-outlined">currency_exchange</span>
+                        Sell to System
+                    </button>
+</div>
+</section>
+<!-- Equipped Gear & Market (Side) -->
+<aside class="col-span-12 lg:col-span-5 xl:col-span-4 flex flex-col gap-6">
+<!-- Equipped Gear -->
+<div class="p-6 rounded-3xl bg-surface-container-low border border-white/5">
+<h3 class="font-headline text-lg font-bold mb-6 flex items-center justify-between">
+                        Equipped Gear
+                        <span class="text-[10px] text-slate-500 uppercase tracking-widest bg-surface-container-high px-2 py-1 rounded">4/4 Slots</span>
+</h3>
+<div class="grid grid-cols-2 gap-4">
+<!-- Gear Item -->
+<div class="p-4 rounded-2xl bg-surface-container border border-primary/10 hover:border-primary/40 transition-all cursor-pointer group">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">skull</span>
+<span class="text-[10px] text-primary/60 font-bold">100%</span>
+</div>
+<p class="text-[10px] text-slate-500 font-bold uppercase mb-1">Skull</p>
+<p class="text-sm font-bold truncate">Hacker Visor</p>
+</div>
+<!-- Gear Item -->
+<div class="p-4 rounded-2xl bg-surface-container border border-primary/10 hover:border-primary/40 transition-all cursor-pointer group">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">medical_mask</span>
+<span class="text-[10px] text-primary/60 font-bold">92%</span>
+</div>
+<p class="text-[10px] text-slate-500 font-bold uppercase mb-1">Ribcage</p>
+<p class="text-sm font-bold truncate">Kinetic Mesh</p>
+</div>
+<!-- Gear Item -->
+<div class="p-4 rounded-2xl bg-surface-container border border-primary/10 hover:border-primary/40 transition-all cursor-pointer group">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">accessibility_new</span>
+<span class="text-[10px] text-primary/60 font-bold">88%</span>
+</div>
+<p class="text-[10px] text-slate-500 font-bold uppercase mb-1">Limbs</p>
+<p class="text-sm font-bold truncate">Neon Strut</p>
+</div>
+<!-- Gear Item -->
+<div class="p-4 rounded-2xl bg-surface-container border border-secondary/20 hover:border-secondary transition-all cursor-pointer group bg-gradient-to-br from-surface-container to-secondary-container/10">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-secondary group-hover:scale-110 transition-transform">auto_awesome</span>
+<span class="text-[10px] text-secondary font-bold">Rare</span>
+</div>
+<p class="text-[10px] text-slate-500 font-bold uppercase mb-1">Aura</p>
+<p class="text-sm font-bold truncate text-secondary">Static Glitch</p>
+</div>
+</div>
+</div>
+<!-- Market Module -->
+<div class="p-6 rounded-3xl bg-surface-container border border-white/5">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline text-lg font-bold">Market Analysis</h3>
+<span class="material-symbols-outlined text-secondary animate-pulse">query_stats</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center p-3 rounded-xl bg-surface-container-high border-l-4 border-primary">
+<span class="text-sm text-on-surface-variant font-medium">Estimated Value</span>
+<div class="text-right">
+<p class="font-headline font-bold text-xl text-primary">1,240 EC</p>
+<p class="text-[10px] text-secondary-dim font-bold">+12.4% vs last week</p>
+</div>
+</div>
+<div class="flex justify-between items-center p-3 rounded-xl bg-surface-container-high">
+<span class="text-sm text-on-surface-variant font-medium">Last Traded Price</span>
+<div class="text-right">
+<p class="font-headline font-bold text-on-surface">1,150 EC</p>
+<p class="text-[10px] text-slate-500 font-bold">2 hours ago</p>
+</div>
+</div>
+</div>
+</div>
+<!-- P2P Financials -->
+<div class="p-6 rounded-3xl bg-gradient-to-br from-surface-container-high to-surface-container-low border border-primary/20 relative overflow-hidden">
+<!-- Decor -->
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-8xl">payments</span>
+</div>
+<h3 class="font-headline text-lg font-bold mb-4">P2P Treasury</h3>
+<div class="space-y-3 relative z-10">
+<div class="flex gap-2">
+<button class="flex-1 py-3 px-2 bg-surface-bright rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-primary hover:text-on-primary transition-all flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">call_split</span>
+                                Split Coins
+                            </button>
+<button class="flex-1 py-3 px-2 bg-surface-bright rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-secondary-container hover:text-on-secondary-container transition-all flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">favorite</span>
+                                Gratitude Tip
+                            </button>
+</div>
+<div class="p-3 bg-surface-container-lowest rounded-xl border border-white/5 flex items-center gap-4">
+<img alt="Parent Avatar" class="w-10 h-10 rounded-full bg-slate-800" data-alt="Profile avatar of a man with spectacles in a clean flat illustration style with a soft blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPoKEPgURl3xC1HY25iN6rtn4orKr8sjWO8Wq1k-4p19EHbSEcSvU1yZuwDre8yT9gHWaZAOP2rNB5DIdMWw6T2owD7CinzKEQGLk_0e0JNS5zNueAhdzQdYUPS_V_3Nb1lHPzndeFAhnQmujwah_3jvfcg0wkxJBF8p0psDOmzwCo43rCHGaMhjIUstateiIKGkIP6Yrxvuz1B0c0Hf8heGLyZ8tXx_f1oEWm6DzjWViQMb0m7zZYVqfCx8H1Lug8HMhghN6kNw"/>
+<div class="flex-1">
+<p class="text-[10px] text-slate-500 font-bold uppercase">Connected Parent</p>
+<p class="text-sm font-bold">Supervising: Dad</p>
+</div>
+<button class="w-8 h-8 rounded-lg bg-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-lg">send</span>
+</button>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- Marketplace Bento Grid (Lower Section) -->
+<section class="max-w-[1600px] mx-auto mt-12">
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-headline text-2xl font-bold tracking-tight">Marketplace <span class="text-secondary-dim font-light">Trending Skins</span></h2>
+<a class="text-sm font-bold text-primary hover:underline flex items-center gap-2" href="#">
+                    View Full Hub
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+<!-- Skin Card -->
+<div class="group bg-surface-container rounded-3xl overflow-hidden border border-white/5 hover:border-primary/30 transition-all">
+<div class="aspect-square bg-surface-container-high relative overflow-hidden">
+<img alt="Obsidian Bone Skin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Macro 3D detail of obsidian black robotic bone plating with deep purple light leaking through the cracks in a dark cinematic lighting style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCno5LOyoYIU8fby3eqSv8nzsbg9fXM_wPCN3fLCh_h7euwwQ4wY75AfAFSsALtmUC689kYHE6KrzhtAKsCDDzYk904GuZzV5-FINT7zyrq6fIEJ6yhVF79uQSTrTBqEktdjA04LYxQSyIhHnIRvUS-jLFda_J2Xm867PKfPkXjR1-RVAEGFDfHOD8FWt-JWoxDnqQRZ-bCGNt3h9DeuR2S6t2Xb7n4Q85r4P9hIgobGZsnX3wooD4oQ2xWqpVwh_83OzATI7UKig"/>
+<div class="absolute top-4 right-4 bg-primary px-3 py-1 rounded-full text-[10px] font-black uppercase text-on-primary shadow-lg">New</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline font-bold text-lg">Obsidian Bone</h4>
+<span class="text-primary font-bold">850 EC</span>
+</div>
+<p class="text-xs text-on-surface-variant line-clamp-2 mb-4">Stealth-focused plating with light-absorbing properties. Perfect for high-stakes exams.</p>
+<button class="w-full py-2 bg-surface-bright rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all">Quick Purchase</button>
+</div>
+</div>
+<!-- Skin Card -->
+<div class="group bg-surface-container rounded-3xl overflow-hidden border border-white/5 hover:border-secondary/30 transition-all">
+<div class="aspect-square bg-surface-container-high relative overflow-hidden">
+<img alt="Binary Ghost Skin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Stylized 3D skeleton ribs and spine glowing with white and teal binary code patterns, floating data particles in a digital void" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXk0dpzToDTHIx2NQn8LxxHGiTQpsgWGg9HdeQrG9xkcwvCHjrIWBNh2hnzt7GhjYqL4pGUAI3Ul_MFWlm7sPspPyQrhhaC1GCljQIpOr-Y2m4KSeBHV9VkHaovcwpjTJ_cTDYxldxSAwG4xUOWTWJ-e1spbqO4aAHhA0KEl2VwFPyhskAuafb9LkRO5lyL3zvnZVDjPNiF1Sdi3sJSMFLq2BvTDLpphmCLMN67t0g9ik1kIvDGPXcvgQqad3DhcYzXULijimhhA"/>
+<div class="absolute top-4 right-4 bg-secondary-container px-3 py-1 rounded-full text-[10px] font-black uppercase text-on-secondary-container shadow-lg">Trending</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline font-bold text-lg">Binary Ghost</h4>
+<span class="text-secondary font-bold">1,200 EC</span>
+</div>
+<p class="text-xs text-on-surface-variant line-clamp-2 mb-4">Translucent mesh pulsed with raw data streams. A favorite for code-breakers.</p>
+<button class="w-full py-2 bg-surface-bright rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-secondary-container hover:text-on-secondary-container transition-all">Quick Purchase</button>
+</div>
+</div>
+<!-- Skin Card -->
+<div class="group bg-surface-container rounded-3xl overflow-hidden border border-white/5 hover:border-tertiary/30 transition-all">
+<div class="aspect-square bg-surface-container-high relative overflow-hidden">
+<img alt="Solar Gold Skin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="High gloss 24k gold plated skeleton hand and forearm with intricate micro-circuitry engraving under bright studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP0t4cSU1CE6ohbNmcZaWqtcysBvOUGOrh3s2iQbKOreEDnwbMMGrHzxX4q8lbw6v5jcjewQVSvfXSvYdLiwfHH0xwqM5ZAm82uUGmZMOHvXR1nOT9YCeuUiD4zRqIYVnFYKh_ucG0qtL59LPoK4QP8TezY3v_h9ULK5_BmpdslYBYVARVVzINVtTLOCh6vVrxm5_r6TTzKxCAchnO8VBCNuwEmYAXJZm0g__jo4oAtuN_ZfA_48R6dO4ukfjCOQOBJat3z4ztJQ"/>
+<div class="absolute top-4 right-4 bg-tertiary px-3 py-1 rounded-full text-[10px] font-black uppercase text-on-tertiary shadow-lg">Exotic</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline font-bold text-lg">Solar Gilded</h4>
+<span class="text-tertiary font-bold">3,500 EC</span>
+</div>
+<p class="text-xs text-on-surface-variant line-clamp-2 mb-4">24-carat educational prestige. For those who top the global leaderboards.</p>
+<button class="w-full py-2 bg-surface-bright rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-tertiary hover:text-on-tertiary transition-all">Quick Purchase</button>
+</div>
+</div>
+<!-- Skin Card -->
+<div class="group bg-surface-container rounded-3xl overflow-hidden border border-white/5 hover:border-primary/30 transition-all">
+<div class="aspect-square bg-surface-container-high relative overflow-hidden">
+<img alt="Cyber Pulse Skin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Vibrant magenta and violet holographic skeleton torso with light trails and energy waves radiating from the core" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWBm4iUe6UXpTopZhBM-654MJxO_ioSBCrJs2GTMlGUYliP1EZ7a0zOxqyHw6N4w1QJz_mD7txDznKo09rLmj99r9auB8majeXNn1y-X2-dWROFZlzPZku0deHEg7M3N4Noc1jEikPGEhjZn7AbrKtFqeKMpqOudr_pkA7rv1MW5JrfrF9x1iYK5sVyhKXiz7aRk3iVzVX8BtOXuXwJVxZLS0tKuM10qjes0XkgPx8r8LnWGh6sKPgwjIImXTYJKRESLihikpFqg"/>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline font-bold text-lg">Cyber Pulse</h4>
+<span class="text-primary font-bold">550 EC</span>
+</div>
+<p class="text-xs text-on-surface-variant line-clamp-2 mb-4">Expressive neon oscillations that change color based on your learning speed.</p>
+<button class="w-full py-2 bg-surface-bright rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all">Quick Purchase</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-slate-950/90 backdrop-blur-xl flex justify-around items-center py-4 px-6 z-50 border-t border-white/10">
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold uppercase">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-violet-400">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="text-[10px] font-bold uppercase">Market</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">local_library</span>
+<span class="text-[10px] font-bold uppercase">Library</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">person_outline</span>
+<span class="text-[10px] font-bold uppercase">Me</span>
+</button>
+</nav>
+</body></html>

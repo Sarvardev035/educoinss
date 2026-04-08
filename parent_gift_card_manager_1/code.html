@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ff6e84",
+                        "background": "#0e0e12",
+                        "error-dim": "#d73357",
+                        "inverse-primary": "#5948d3",
+                        "on-secondary": "#005c59",
+                        "on-surface": "#fcf8fe",
+                        "on-primary-fixed": "#000000",
+                        "outline": "#76757a",
+                        "tertiary-container": "#ffcf2a",
+                        "surface-container-high": "#1f1f24",
+                        "tertiary-dim": "#efc117",
+                        "on-tertiary-fixed-variant": "#655000",
+                        "on-tertiary": "#644f00",
+                        "on-tertiary-container": "#5a4700",
+                        "on-error-container": "#ffb2b9",
+                        "secondary": "#5af9f3",
+                        "primary": "#aca3ff",
+                        "on-background": "#fcf8fe",
+                        "on-surface-variant": "#acaab0",
+                        "outline-variant": "#48474c",
+                        "surface": "#0e0e12",
+                        "on-primary-fixed-variant": "#250094",
+                        "on-error": "#490013",
+                        "surface-container-low": "#131317",
+                        "on-secondary-fixed-variant": "#006764",
+                        "surface-container-highest": "#25252b",
+                        "primary-container": "#9e93ff",
+                        "surface-container": "#19191e",
+                        "primary-fixed": "#9e93ff",
+                        "on-secondary-container": "#dafffc",
+                        "primary-dim": "#6f5fea",
+                        "surface-dim": "#0e0e12",
+                        "on-tertiary-fixed": "#433400",
+                        "inverse-on-surface": "#555459",
+                        "tertiary-fixed": "#ffcf2a",
+                        "surface-container-lowest": "#000000",
+                        "inverse-surface": "#fcf8fe",
+                        "secondary-fixed-dim": "#46eae5",
+                        "surface-tint": "#aca3ff",
+                        "secondary-container": "#006a67",
+                        "tertiary": "#ffe089",
+                        "secondary-fixed": "#5af9f3",
+                        "secondary-dim": "#46eae5",
+                        "tertiary-fixed-dim": "#efc117",
+                        "surface-bright": "#2c2b32",
+                        "on-primary": "#27009a",
+                        "error-container": "#a70138",
+                        "primary-fixed-dim": "#8f83ff",
+                        "on-secondary-fixed": "#004746",
+                        "on-primary-container": "#1d007a",
+                        "surface-variant": "#25252b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0e0e12;
+            color: #fcf8fe;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-effect {
+            backdrop-filter: blur(16px);
+        }
+        .text-glow-secondary {
+            text-shadow: 0 0 10px rgba(90, 249, 243, 0.4);
+        }
+    </style>
+</head>
+<body class="min-h-screen overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl bg-gradient-to-b from-indigo-500/5 to-transparent shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center justify-between px-8 h-16 w-full transition-all duration-300 ease-out">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold tracking-tighter text-indigo-400 font-['Space_Grotesk']">EduCoin 2.0</span>
+<div class="hidden md:flex gap-6 font-['Space_Grotesk'] tracking-tight">
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Dashboard</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Vault</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Requests</a>
+<a class="text-indigo-400 border-b-2 border-indigo-500 pb-1" href="#">Gifts</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<input class="bg-slate-800/50 border-none rounded-full px-4 py-1.5 text-sm focus:ring-2 focus:ring-indigo-500/50 text-slate-200 w-64" placeholder="Search accounts..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-slate-400 hover:bg-slate-800/50 p-2 rounded-full transition-all">notifications</button>
+<button class="material-symbols-outlined text-slate-400 hover:bg-slate-800/50 p-2 rounded-full transition-all">settings</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-indigo-500/30">
+<img alt="User profile avatar" data-alt="close-up of a professional man in his 40s with a friendly expression, soft studio lighting, blurred office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJD-rqXmefvC_iuayiwp_ZUy9FfO1OA8fJ4fzpTKXvOkSSoVKZ7GOSh-jXyE714UTjXrOLtXGc3BchEjsjm9TihQVjD1unEbUVHvFbVwWPVeTIyPnWibU43G7U_v-IXGncptiCTy0RA9do2WmtskSZmgEp13SBkDtx8NTlDceMemtfdeTPp6BBMP8aR0H-hjpJuwQG9RrXgUWEh8RwxebUVU86v2ze2GVEbY6Y0CJ3QXz4NpAvSehlF2HKSVJFDfvAx-DxAoa_0g"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col py-6 h-screen w-64 fixed left-0 top-0 bg-slate-900 border-r border-slate-800/50 font-['Inter'] text-sm z-40 pt-20">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-secondary/10 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">visibility</span>
+</div>
+<div>
+<h2 class="font-['Space_Grotesk'] font-bold text-indigo-400 text-base leading-none">The Observatory</h2>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Financial Hub</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1 px-4">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-slate-800 transition-transform scale-95 active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-indigo-500/10 text-indigo-400 font-semibold border-r-4 border-indigo-500 transition-transform scale-95 active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined">credit_card</span>
+<span>Card Link</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-slate-800 transition-transform scale-95 active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Requests</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-slate-800 transition-transform scale-95 active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined">history</span>
+<span>Activity</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-slate-800 transition-transform scale-95 active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined">redeem</span>
+<span>Rewards</span>
+</a>
+</nav>
+<div class="px-4 mb-6">
+<button class="w-full bg-secondary text-on-secondary font-bold py-3 rounded-xl shadow-[0_0_20px_rgba(90,249,243,0.3)] hover:brightness-110 transition-all">
+                Send Gift
+            </button>
+</div>
+<div class="px-4 border-t border-slate-800/50 pt-6 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 transition-transform scale-95 active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 transition-transform scale-95 active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-24 pb-32 px-6 lg:px-12 max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-4xl lg:text-5xl font-['Space_Grotesk'] font-bold tracking-tight text-glow-secondary mb-2">Vault Manager</h1>
+<p class="text-on-surface-variant max-w-xl">Centralize your funding sources and manage gift requests from your children's EduCoin accounts.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-surface-container border border-outline-variant/15 px-6 py-3 rounded-2xl flex flex-col items-end">
+<span class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Primary Fund</span>
+<span class="text-xl font-headline text-secondary font-bold">$4,850.00</span>
+</div>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Card Management (Bento Column) -->
+<section class="lg:col-span-5 space-y-8">
+<!-- Card Section Header -->
+<div class="flex items-center justify-between">
+<h2 class="text-xl font-headline font-semibold text-on-surface">Card Settings</h2>
+<button class="text-secondary text-sm font-semibold hover:underline">Add New</button>
+</div>
+<!-- Main Funding Card (Visual centerpiece) -->
+<div class="relative group">
+<div class="absolute inset-0 bg-secondary/10 blur-3xl opacity-20 rounded-full"></div>
+<div class="relative bg-gradient-to-br from-secondary/20 to-surface-container-high border border-secondary/20 p-8 rounded-3xl overflow-hidden shadow-2xl">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-4xl text-secondary">contactless</span>
+<div class="flex flex-col items-end">
+<span class="text-xs text-slate-400 uppercase tracking-widest">Active Limit</span>
+<span class="text-lg font-headline text-on-surface">$500 / month</span>
+</div>
+</div>
+<div class="mb-8">
+<p class="text-2xl font-headline tracking-[0.2em] text-on-surface">•••• •••• •••• 8824</p>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Card Holder</p>
+<p class="text-sm font-semibold uppercase">Jonathan Reeves</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Expires</p>
+<p class="text-sm font-semibold">08/26</p>
+</div>
+<div class="h-10 w-16 bg-slate-800/50 rounded-lg flex items-center justify-center">
+<span class="text-xs font-black italic text-slate-500">VISA</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Management Options -->
+<div class="bg-surface-container rounded-2xl p-2 space-y-1">
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container-high rounded-xl transition-colors text-left group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-secondary transition-colors">lock</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Security Freeze</p>
+<p class="text-xs text-slate-500">Temporarily disable funding</p>
+</div>
+</div>
+<div class="w-10 h-5 bg-slate-800 rounded-full relative p-1">
+<div class="w-3 h-3 bg-slate-600 rounded-full"></div>
+</div>
+</button>
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container-high rounded-xl transition-colors text-left group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-secondary transition-colors">trending_up</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Spending Limits</p>
+<p class="text-xs text-slate-500">Manage monthly threshold</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-600">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Right Column: Incoming Requests & History -->
+<section class="lg:col-span-7 space-y-8">
+<!-- Incoming Requests Section -->
+<div>
+<h2 class="text-xl font-headline font-semibold text-on-surface mb-6 flex items-center gap-2">
+                        Incoming Gift Requests
+                        <span class="px-2 py-0.5 bg-error/20 text-error text-[10px] rounded-full font-bold">2 PENDING</span>
+</h2>
+<div class="space-y-4">
+<!-- Request Card 1 -->
+<div class="bg-surface-container-high border-l-4 border-secondary p-6 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all hover:translate-x-1">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-secondary/30">
+<img alt="Alex's avatar" data-alt="close-up of a young girl with bright eyes and a happy smile, soft daylight, blurred outdoor garden background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsTYMZwRQLw_ZIxiXd0JqKKdgkta2GaZsUSGwCeCjSCZu1X0HIhbBIVUvSYHuJPIFhcXteMNByYOz6ZzQd1FnTVkYtE_EbzA-jbmYFBbytbjaDTKqECPwV0Cw_EzHQp5e1QN-zW39lPl_dHoi3mIenE2a9z6xQIHOvqyJymGzOQ7HjQca_L3p6MGim7TWJ1l2p_6RaUP0m0Ny-OcIDfVOzi3oh6mdeVc-nTExEcLn3hgpUAlOQdpEpdKnNRpFZV9qvKDZ68xKmlg"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-surface rounded-full p-1">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-on-surface">Alex requested <span class="text-secondary">$10.00</span></h3>
+<p class="text-sm text-slate-400">"Funds for the upcoming Book Fair on Friday."</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-wider mt-1">Sent 2 hours ago</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 text-sm font-bold text-error border border-error/20 hover:bg-error/10 rounded-xl transition-colors">Decline</button>
+<button class="px-4 py-2 text-sm font-bold bg-secondary text-on-secondary rounded-xl shadow-lg shadow-secondary/20 hover:brightness-110 transition-all">Approve &amp; Send</button>
+</div>
+</div>
+<!-- Request Card 2 -->
+<div class="bg-surface-container-high border-l-4 border-secondary p-6 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all hover:translate-x-1">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-secondary/30">
+<img alt="Leo's avatar" data-alt="portrait of a young boy with curly hair looking curiosly at the camera, neutral studio background, warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7MJgqxYzU8KFMoVs93SpWUuaC6ow8SHas_IXK64d1XOmpwwHMUklufWVDSAMbQQgviH8FQQk7NE9eDSDM05nlv1U1y2GZQK6axssTOZqsUjZkB1CuPIYDZXFw2damnT2vTmYNGDn7Nu91LlkPTRLNuhSCaBhcbIbJFQtyG4odD43UnifaXwlU5rXIP0xQXXI1HvbcrFgxRVKwnWCxue1D3UrJp1mhmqQIm1jikmZSXkZl_p36o5L8f8-4r5Tb6uLzB3BJ9wO2qA"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-surface rounded-full p-1">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-on-surface">Leo requested <span class="text-secondary">500 Coins</span></h3>
+<p class="text-sm text-slate-400">"Reward for finishing my Science project early!"</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-wider mt-1">Sent 5 hours ago</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 text-sm font-bold text-error border border-error/20 hover:bg-error/10 rounded-xl transition-colors">Decline</button>
+<button class="px-4 py-2 text-sm font-bold bg-secondary text-on-secondary rounded-xl shadow-lg shadow-secondary/20 hover:brightness-110 transition-all">Approve &amp; Send</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent History Section -->
+<div>
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-headline font-semibold text-on-surface">Recent History</h2>
+<button class="text-slate-500 text-sm hover:text-slate-300">View All</button>
+</div>
+<div class="bg-surface-container rounded-3xl overflow-hidden border border-outline-variant/10">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-highest/50">
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest text-slate-500 font-bold">Recipient</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest text-slate-500 font-bold">Type</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest text-slate-500 font-bold">Date</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest text-slate-500 font-bold text-right">Amount</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-bright/20 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-xs font-bold text-indigo-400">A</div>
+<span class="text-sm font-medium">Alex Reeves</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-400">Manual Gift</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-400">Oct 24, 2023</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="text-sm font-headline font-bold text-secondary">+$25.00</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-bright/20 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-xs font-bold text-indigo-400">L</div>
+<span class="text-sm font-medium">Leo Reeves</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-400">A+ Performance Tip</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-400">Oct 22, 2023</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="text-sm font-headline font-bold text-secondary">100 Coins</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-bright/20 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-xs font-bold text-indigo-400">A</div>
+<span class="text-sm font-medium">Alex Reeves</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-400">Allowance Sync</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-400">Oct 20, 2023</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="text-sm font-headline font-bold text-secondary">+$15.00</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-slate-950/90 backdrop-blur-2xl flex justify-around items-center px-4 pb-6 pt-3 rounded-t-3xl border-t border-indigo-500/20 shadow-[0_-10px_40px_rgba(108,92,231,0.15)] transition-all">
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-indigo-400 active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-indigo-400 active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest mt-1">Wallet</span>
+</a>
+<div class="flex flex-col items-center justify-center bg-indigo-500/20 text-indigo-300 rounded-2xl px-6 py-2 active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">featured_seasonal_and_gifts</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest mt-1">Gifts</span>
+</div>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-indigo-400 active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button (FAB) - Contextual for primary screen action -->
+<button class="fixed right-6 bottom-24 lg:bottom-12 bg-secondary text-on-secondary w-16 h-16 rounded-full flex items-center justify-center shadow-2xl shadow-secondary/40 hover:scale-110 active:scale-90 transition-all z-40">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'wght' 700;">add</span>
+</button>
+</body></html>

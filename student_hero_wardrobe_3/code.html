@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wardrobe | The Observatory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#FF7043", // Rust Orange
+                        "secondary": "#42A5F5", // Muted Electric Blue
+                        "background": "#121212", // Deeper charcoal for base
+                        "surface": "#212121", // Dark charcoal
+                        "surface-container": "#2c2c2c",
+                        "surface-container-high": "#3d3d3d",
+                        "surface-container-highest": "#4d4d4d",
+                        "outline": "#616161", // Steel grey
+                        "on-surface": "#E0E0E0",
+                        "on-surface-variant": "#9E9E9E",
+                        "primary-dim": "#D84315",
+                        "on-primary": "#FFFFFF",
+                        "on-primary-container": "#FFFFFF"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px", // Industrial sharp edges
+                        "lg": "2px",
+                        "xl": "4px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">body {
+    font-family: "Inter", sans-serif;
+    background-color: #1a1a1a
+    }
+.font-headline {
+    font-family: "Space Grotesk", sans-serif
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.industrial-border {
+    border: 1px solid #424242;
+    position: relative
+    }
+.industrial-border::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    background: #616161
+    }
+.rust-glow {
+    box-shadow: 0 0 15px rgba(255, 112, 67, 0.15)
+    }
+.steel-texture {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDIa3nBV9N8jVqcdPn_3lAW9eNBYhN7DKseUilFKgch8C_pVQ6JGRx__QCvASEo94XlAHHkGL2c4Q-Hem1vcnwJBval3jYCKJeiWN1jWxu-_wcpDvvqZCRdN2Ntw2h4Qno0LdSc4T5eZziiwOPGBeWczciWy5XqkhveZRC1SDWe19ymEkcSEhD09kCs3kGovFsMoolwADN0LyVdS_fZdtxb0KNXfvfnK15BdKnow6X62iNApTbsffVWe2jSqeJ2TGjf0h72ysYihQ)
+    }</style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary/30">
+<nav class="fixed top-0 w-full z-50 bg-[#1a1a1a]/95 border-b border-[#333] backdrop-blur-md flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold text-outline tracking-widest font-headline uppercase">The Observatory</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 bg-surface px-4 py-2 border border-outline/30">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">toll</span>
+<span class="text-on-surface font-bold font-headline tracking-tight">2,450 EduCoins</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-outline hover:text-primary transition-colors p-2">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-outline hover:text-primary transition-colors p-2">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<img alt="Student avatar" class="w-10 h-10 rounded-none border border-outline/50 grayscale contrast-125" data-alt="Close up of a gritty pilot with a weathered helmet and scarred metal interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVqMJ-2p-1qps_4KaJQ_3w0gCV68nDldQYgSFDF7iOifL9TGUEKbcB9BWFq6r2tH_XUslCCR_DV9SjY_4vkzrRYCxrbDXpHhQv7NWVucU8z1_vGr6KXTF2gmIs5dmDYAoqxmhNyZWozovLcO1szfPJQ5JRopJMIOxKO8NulvYpz0z5ER_LsXAfh-_Hi0m98l1zudWnm46Aoxnay2W64Sz_d9aavshG_6h13ACtUM8oArgZjv7oTzVg_v1rkyaDzzU0Dspfm6x8GA"/>
+</div>
+</div>
+</nav>
+<aside class="fixed left-0 top-0 h-full w-64 bg-surface flex flex-col py-8 z-40 hidden md:flex pt-24 border-r border-outline/20">
+<div class="px-6 mb-8 flex items-center gap-4">
+<div class="w-12 h-12 border border-outline/50 p-1">
+<div class="w-full h-full bg-background flex items-center justify-center overflow-hidden">
+<img alt="Student pilot profile" class="w-full h-full object-cover grayscale" data-alt="Gritty portrait of a combat technician with carbon fiber headgear and low-key industrial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzBCNIfYHJoRzxbiyPz5bA4Rho_1GJGJceKCBhRjISB4UP55oJZdgx0AKheLSci0UsBt4620jHFJSu-rjFn4bOnWWi88J1QxFsWFHpYbR_iCsAysmidoOSUH7xoyh7LC3Lp-srbuUJarcBwxH7HDiJQGaHe9N1eVOYl8ScazqE81fgnWsOKT7DgjwhPCCndWEofoKSZNBEzs5Zc4WhYwScPBJ5kkisKnsoNLPOpjP9Xo1dyqwqBaGcN_MQBeKEcqNnC_uTjq1Qyg"/>
+</div>
+</div>
+<div>
+<p class="text-on-surface font-headline font-bold text-sm tracking-tight">Alex Rivera</p>
+<p class="text-outline text-xs font-bold uppercase tracking-tighter">Unit 14 Operator</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-outline hover:text-on-surface hover:bg-surface-container transition-all font-body text-xs font-bold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="dashboard">grid_view</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-outline hover:text-on-surface hover:bg-surface-container transition-all font-body text-xs font-bold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="school">settings_accessibility</span>
+<span>Academy</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-primary bg-primary/5 border-l-2 border-primary transition-all font-body text-xs font-bold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="checkroom">inventory_2</span>
+<span>Wardrobe</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-outline hover:text-on-surface hover:bg-surface-container transition-all font-body text-xs font-bold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="rocket_launch">precision_manufacturing</span>
+<span>Missions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-outline hover:text-on-surface hover:bg-surface-container transition-all font-body text-xs font-bold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="account_balance_wallet">database</span>
+<span>Treasury</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-2">
+<div class="bg-surface-container-high p-4 border border-outline/20 mb-6">
+<p class="text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-2">System Upgrade</p>
+<button class="w-full bg-primary text-white font-bold py-2 text-xs uppercase tracking-widest hover:bg-primary-dim transition-colors">Initialize Pro</button>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 text-outline hover:text-on-surface transition-all text-xs font-bold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="settings">build</span>
+<span>Settings</span>
+</a>
+</div>
+</aside>
+<main class="md:ml-64 pt-24 min-h-screen">
+<div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-8 space-y-8">
+<header class="border-l-4 border-primary pl-6">
+<h1 class="text-4xl font-bold font-headline tracking-tighter text-on-surface mb-2 uppercase italic">Wardrobe</h1>
+<p class="text-on-surface-variant font-body text-sm uppercase tracking-wider">Configure tactical loadout for active deployments.</p>
+</header>
+<div class="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-6 py-2 bg-primary text-white font-bold text-xs uppercase tracking-widest border border-primary">All Items</button>
+<button class="px-6 py-2 bg-surface-container border border-outline/20 hover:border-outline text-outline font-bold text-xs uppercase tracking-widest transition-colors">Headwear</button>
+<button class="px-6 py-2 bg-surface-container border border-outline/20 hover:border-outline text-outline font-bold text-xs uppercase tracking-widest transition-colors">Apparel</button>
+<button class="px-6 py-2 bg-surface-container border border-outline/20 hover:border-outline text-outline font-bold text-xs uppercase tracking-widest transition-colors">Accessories</button>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+<div class="bg-surface border border-primary/60 p-4 relative group hover:border-primary transition-all">
+<div class="relative aspect-square mb-4 bg-black border border-outline/30 overflow-hidden flex items-center justify-center">
+<img alt="Neon Runners" class="w-full h-full object-cover contrast-125 brightness-75 grayscale hover:grayscale-0 transition-all duration-500" data-alt="Heavy-duty reinforced tactical boots with carbon fiber plating and mud-stained heavy canvas textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjRGoGcqjs2EVcDrXbFKe5PqtF1oimHMfe9DMND95Shqo9OCYzrz_aaGe-ITnihtZfe6IqS2lr5TsxioxxtHIWwS80abzF-zCxPFq0mujarZiVcuCb7RMut7Qlo5C8R-xpYSiydGBYqDkGb0-iq26fVBNXpR2ytrK3mFjfHzXiI-wx7vtQrKSFwfVHc-NB6YD3tac50yopCIp-bIHU5tjgcPYInJ0kblaK_7No5Zr_0kAMcOsTiudpVz-CihE8r05RR5mL8LaBmg"/>
+<span class="absolute top-2 right-2 bg-primary text-white text-[10px] font-black px-2 py-0.5 uppercase tracking-tighter">Epic</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface text-xs uppercase tracking-wider mb-3">Neon Pulse Runners</h3>
+<div class="flex items-center justify-between">
+<button class="w-full bg-primary/20 text-primary border border-primary/50 py-2 text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified</span>
+                            Equipped
+                        </button>
+</div>
+</div>
+<div class="bg-surface border border-outline/20 p-4 relative group hover:border-secondary transition-all">
+<div class="relative aspect-square mb-4 bg-black border border-outline/30 overflow-hidden flex items-center justify-center">
+<img alt="Holo Visor" class="w-full h-full object-cover contrast-110 brightness-90" data-alt="Tactical heads-up display visor with scratched polycarbonate lens and distressed magnesium alloy frame" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuhPj2q3N79o9exj9pmNDQ3Emihtmo5V79a5P4vQ2GVh3snonsgKjoFQ-bF2Pm_hUMNDiF1RQcZ80Erkx_insvVEhOkZuEtQMsLkAmxJyLvxmkitBBeLLXPes7Jmb8cdKxp6yzj49b_kOjDSsukJzkuQJFLPJrw3rWr8e20oScNZcd6jGKkgr0vL1vyCZ8tvxXbfUbrGLsLMAEXYWxx-dvVuo_D6wOe5_IJFq5QnO754f_NyFRQ49LMT_KwQZkGDdkpAyMSd4ubg"/>
+<span class="absolute top-2 right-2 bg-secondary text-white text-[10px] font-black px-2 py-0.5 uppercase tracking-tighter">Legendary</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface text-xs uppercase tracking-wider mb-3">Prism Holo-Visor</h3>
+<div class="flex items-center justify-between">
+<button class="w-full bg-surface-container-highest hover:bg-secondary hover:text-white transition-all py-2 text-[10px] font-black uppercase tracking-widest border border-outline/30">Equip</button>
+</div>
+</div>
+<div class="bg-surface border border-outline/20 p-4 relative group hover:border-outline transition-all">
+<div class="relative aspect-square mb-4 bg-black border border-outline/30 overflow-hidden flex items-center justify-center">
+<img alt="Tech Hoodie" class="w-full h-full object-cover grayscale contrast-125" data-alt="Rugged dark grey combat hoodie made of ballistic nylon with weathered seams and reinforced elbow patches" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2OsDEVP0S9HwcV6QIq3A6srnPTegkH5SR2fES7XFjJGHtFglzZv7HPzUQk2A9I-kKAfuTrDbsFM2v6upSAOTNet8MfqPfCvLUfQ1S9zOIayHNW2rnLMWpz-VeSwo_Pt_qdDofFw_cAfBpGt19IUQ3qw1N16wcA4oV9PPH8tOYKlgncy9uOY-ReWn2rzNfdt5omzW2FwqfS9H0bLtPPrJ1QtT-ZHaWwCBTxXDLGT26Vz69rtsys_zL3k15IqmJZs2OcRDfk7fkfQ"/>
+<span class="absolute top-2 right-2 bg-outline text-white text-[10px] font-black px-2 py-0.5 uppercase tracking-tighter text-black">Common</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface text-xs uppercase tracking-wider mb-3">Crimson Tech-Hood</h3>
+<div class="flex items-center justify-between">
+<button class="w-full bg-surface-container-highest hover:bg-outline hover:text-black transition-all py-2 text-[10px] font-black uppercase tracking-widest border border-outline/30">Equip</button>
+</div>
+</div>
+<div class="bg-surface border border-outline/20 p-4 relative group hover:border-primary/50 transition-all">
+<div class="relative aspect-square mb-4 bg-black border border-outline/30 overflow-hidden flex items-center justify-center">
+<img alt="Chronos Watch" class="w-full h-full object-cover brightness-75 contrast-150" data-alt="Industrial analog watch with an exposed brass and steel mechanism, heavy leather strap, and cracked mineral glass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSjC2KujT5mQVTHbokitgPLWJvVMXJHCJLtCNiMorXmCs9CJPsytIDQL3RXDC-cvV50OA9PaWVuqkxkv_L6kGkGfgoNRus8z5fjVS-TFCsDsi8tk7Zv6l3Y-PVz31WuPp8G5ZgvCJD5Hp1RSmCjRlFCx0v-lYoty6aQ68vRvi0Kt_1q7xI2xqAmZcaZWYKi4rrKJvs7b-HPUdqkTAUhtseCMBrqMG6yBZ9FkolaeiA8FwR5z8cjWhYFzhQztCoBAfN_nJZN8YfFg"/>
+<span class="absolute top-2 right-2 bg-yellow-600 text-white text-[10px] font-black px-2 py-0.5 uppercase tracking-tighter">Rare</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface text-xs uppercase tracking-wider mb-3">Chronos Phase Watch</h3>
+<div class="flex items-center justify-between">
+<button class="w-full bg-surface-container-highest hover:bg-primary hover:text-white transition-all py-2 text-[10px] font-black uppercase tracking-widest border border-outline/30">Equip</button>
+</div>
+</div>
+<div class="bg-surface border border-primary/60 p-4 relative group hover:border-primary transition-all">
+<div class="relative aspect-square mb-4 bg-black border border-outline/30 overflow-hidden flex items-center justify-center">
+<img alt="Chrome Puffer" class="w-full h-full object-cover grayscale brightness-50 contrast-125" data-alt="Heavy ballistic armor plate carrier with integrated storage pouches and oil-stained black metal finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASLP-UL7OVFCH5Ef_6MQUfBNtN7qaKJXWpZtCIIlXJzCs1oY6cQnqV6F2FI-dYVgIrtq_8WVNFvXV3O-Mla1Jjla3lD4splV3XvfJcVnvOEvPZXMwj_30OrNBQ6jQ1DopAHmLxF05JB2IphSY6TpsJu643lbXQw-ZNa6GxzWx76fdqZYFR3QnQbRFzFWB1VxCRIF_R_pIHIt8omZuUPRPITn1PbnUPu4cf_QSA-wZi39l3Xz5s8Z-FrdZaVPCmLIDygBlDgsy9wA"/>
+<span class="absolute top-2 right-2 bg-primary text-white text-[10px] font-black px-2 py-0.5 uppercase tracking-tighter">Epic</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface text-xs uppercase tracking-wider mb-3">Obsidian Void Jacket</h3>
+<div class="flex items-center justify-between">
+<button class="w-full bg-primary/20 text-primary border border-primary/50 py-2 text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified</span>
+                            Equipped
+                        </button>
+</div>
+</div>
+<div class="bg-surface border border-outline/20 p-4 relative group hover:border-outline transition-all">
+<div class="relative aspect-square mb-4 bg-black border border-outline/30 overflow-hidden flex items-center justify-center">
+<img alt="Utility Vest" class="w-full h-full object-cover contrast-110 brightness-75 grayscale" data-alt="Distressed modular tactical vest with frayed edges, multiple cargo pockets and heavy-duty rusted zippers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9a1r1lClxHqCdD5m3cYvvX-EAbAbmXk2NFWSNfMtDM2oQbuWV2PzaIBBgsZhWdEXyvMK-ocqUwUy-WqlkTkhXBqSOg5MzFm8dQgFqLfoV_Yv01-vLY65r0AqZPCliPhiivvsswXbRc2xpTQTZDDXoVjsNxHGPPpeB_npMOU4JpPtLRTZBgFZrB3dfb4spgUvun1ROxWN9O--UQkn-g3tl6ka6ZjuorrrK6ycQsK6WY-oRvj1dDQ1TrV8Cc75C0JSQqeJ7SdV4DA"/>
+<span class="absolute top-2 right-2 bg-outline text-white text-[10px] font-black px-2 py-0.5 uppercase tracking-tighter text-black">Common</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface text-xs uppercase tracking-wider mb-3">Cadet Modular Vest</h3>
+<div class="flex items-center justify-between">
+<button class="w-full bg-surface-container-highest hover:bg-outline hover:text-black transition-all py-2 text-[10px] font-black uppercase tracking-widest border border-outline/30">Equip</button>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 lg:sticky lg:top-24 h-fit">
+<div class="bg-black border border-outline/30 overflow-hidden relative shadow-2xl">
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#616161 1px, transparent 1px); background-size: 20px 20px;"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none"></div>
+<div class="aspect-[3/4] relative flex items-center justify-center p-8">
+<img alt="Humanoid Avatar Preview" class="relative z-10 w-full h-full object-contain grayscale brightness-90 contrast-125" data-alt="Stern, muscular humanoid character in a static front-facing pose, wearing heavy modular armor, a scratched blast-shield visor, and reinforced tactical boots in a dark industrial hangar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3mCSIP6pThG88tDqsNSScGOT9f3e_wjjzJcqNgtdVPNLpxYTaQ0XPXE1YiD3oVSZBIlu8zYo7FKxRL4y-CjvkclqNCpa1R6HKdhWVd8m6eypWTtVD0MCAwVDCFozgLH0IpuvjZK-zenxZvLxTAB1m4lpGX7RNwY2_CBUOoEVP_2ZNXMC7o6fzyal4Rp17bDMt0qNcQDqeU2t7oSSOM1IVGRAaiHeA2KQUaSBEJmKdIgSHhOQusIZpQBvtombkXR-yqIppBEUGTw"/>
+<div class="absolute top-6 left-6 z-20">
+<span class="bg-black/80 border border-primary/30 px-3 py-1 text-[9px] font-black text-primary flex items-center gap-2 tracking-[0.2em] uppercase">
+<span class="w-1.5 h-1.5 bg-primary rounded-none animate-pulse"></span>
+                            Live Feed
+                        </span>
+</div>
+<div class="absolute bottom-6 right-6 z-20 flex flex-col gap-2">
+<button class="p-2 bg-surface border border-outline/30 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">rebase_edit</span>
+</button>
+<button class="p-2 bg-surface border border-outline/30 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">search</span>
+</button>
+</div>
+</div>
+<div class="bg-surface p-6 border-t border-outline/30">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h2 class="text-xl font-headline font-black italic uppercase tracking-tighter">The Outlaw</h2>
+<p class="text-[10px] text-outline font-bold uppercase tracking-widest">Active Tactical Set</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-black text-primary uppercase tracking-widest">Style: +15%</p>
+<p class="text-[9px] text-outline font-bold uppercase">Mult: 1.5x</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 mb-6">
+<div class="bg-black/40 p-3 border border-outline/20">
+<p class="text-[9px] text-outline uppercase font-black tracking-widest mb-1">Combat Rating</p>
+<p class="text-lg font-headline font-bold text-on-surface">1,420</p>
+</div>
+<div class="bg-black/40 p-3 border border-outline/20">
+<p class="text-[9px] text-outline uppercase font-black tracking-widest mb-1">Loadout</p>
+<p class="text-lg font-headline font-bold text-on-surface">3 / 5</p>
+</div>
+</div>
+<button class="w-full bg-primary text-white font-black py-4 uppercase tracking-[0.3em] text-xs hover:bg-primary-dim transition-all rust-glow">
+                        Commit Changes
+                    </button>
+</div>
+</div>
+<div class="mt-6 bg-surface border-l-4 border-secondary p-4 flex items-center gap-4 relative overflow-hidden">
+<div class="w-10 h-10 bg-secondary/10 flex items-center justify-center border border-secondary/30 shrink-0">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<div>
+<p class="text-[10px] font-black text-secondary uppercase tracking-widest">Priority Intel</p>
+<p class="text-xs text-on-surface font-bold">Deploy to 'Algorithm Alpha' for Cyber-Cloak.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-black border-t border-outline/30 flex justify-around items-center py-3 px-2 z-50">
+<a class="flex flex-col items-center gap-1 text-outline" href="#">
+<span class="material-symbols-outlined text-xl">grid_view</span>
+<span class="text-[9px] font-bold uppercase">Dash</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-outline" href="#">
+<span class="material-symbols-outlined text-xl">settings_accessibility</span>
+<span class="text-[9px] font-bold uppercase">Acad</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="text-[9px] font-bold uppercase">Ward</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-outline" href="#">
+<span class="material-symbols-outlined text-xl">precision_manufacturing</span>
+<span class="text-[9px] font-bold uppercase">Miss</span>
+</a>
+</nav>
+
+</body></html>
