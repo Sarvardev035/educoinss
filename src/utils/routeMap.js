@@ -30,6 +30,8 @@ export const ROUTE_MAP = {
   'study-session-missions': '/study-session-2',
   'study-session-achievements': '/study-session-3',
   'study-session-history': '/study-session-4',
+  'enhanced-study-session': '/study-session-enhanced',
+  'study-with-camera': '/study-session-enhanced',
 
   // Parent Portal
   'parent-dashboard': '/parent/dashboard',

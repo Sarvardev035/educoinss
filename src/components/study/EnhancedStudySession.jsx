@@ -226,7 +226,7 @@ export default function EnhancedStudySession() {
       <audio
         ref={audioRef}
         loop
-        src={`/sounds/study-${currentSound}.mp3`}
+        src={`/sounds/study-${currentSound}.wav`}
         onError={() => console.warn('Background sound not found')}
       />
 
