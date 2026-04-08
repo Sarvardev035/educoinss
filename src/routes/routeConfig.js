@@ -26,6 +26,7 @@ const StudySession = lazy(() => import('../pages/student/StudySession'));
 const StudySession2 = lazy(() => import('../pages/student/StudySession2'));
 const StudySession3 = lazy(() => import('../pages/student/StudySession3'));
 const StudySession4 = lazy(() => import('../pages/student/StudySession4'));
+const EnhancedStudySession = lazy(() => import('../pages/student/EnhancedStudySession'));
 const GiftManager = lazy(() => import('../pages/parent/GiftManager'));
 const GiftManager2 = lazy(() => import('../pages/parent/GiftManager2'));
 const LibraryManager = lazy(() => import('../pages/parent/LibraryManager'));
@@ -82,6 +83,7 @@ const routes = [
   { path: '/study-session-2', component: () => <PageWrapper component={StudySession2} /> },
   { path: '/study-session-3', component: () => <PageWrapper component={StudySession3} /> },
   { path: '/study-session-4', component: () => <PageWrapper component={StudySession4} /> },
+  { path: '/study-session-enhanced', component: () => <PageWrapper component={EnhancedStudySession} /> },
 
   // Parent Routes
   { path: '/parent/dashboard', component: () => <PageWrapper component={ParentDashboard} /> },
