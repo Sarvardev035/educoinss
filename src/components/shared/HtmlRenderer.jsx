@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getRouteFromLabel } from '../../utils/routeMap';
 
 const BOOLEAN_ATTRIBUTES = new Set(['checked', 'selected', 'disabled', 'readonly', 'multiple', 'autofocus']);
 const FORM_TAGS = new Set(['input', 'textarea', 'select']);
@@ -23,73 +24,6 @@ const parseStyle = (styleText) =>
 const toPath = (onclickValue) => {
   const match = onclickValue.match(/window\.location\.(?:href|assign)\s*=\s*['"]([^'"]+)['"]/);
   return match ? match[1] : null;
-};
-
-const normalizeText = (value) =>
-  value
-    .replace(/\s+/g, ' ')
-    .trim()
-    .toLowerCase();
-
-const resolveDashboardRoute = (pathname, family) => {
-  if (family === 'student') {
-    return pathname.includes('/student/dashboard-2') ? '/student/dashboard' : '/student/dashboard-2';
-  }
-
-  if (family === 'parent') {
-    return pathname.includes('/parent/dashboard-2') ? '/parent/dashboard' : '/parent/dashboard-2';
-  }
-
-  return '/role-selection';
-};
-
-const resolveRouteFromText = (text, pathname) => {
-  const family = pathname.startsWith('/parent') ? 'parent' : pathname.startsWith('/student') ? 'student' : 'shared';
-  const label = normalizeText(text);
-
-  if (!label) {
-    return family === 'student' ? '/student/dashboard' : family === 'parent' ? '/parent/dashboard' : '/role-selection';
-  }
-
-  if (family === 'student') {
-    if (/(sign out|log out|logout)/.test(label)) return '/role-selection';
-    if (/settings/.test(label)) return '/settings';
-    if (/(help|support)/.test(label)) return '/chat';
-    if (/(community|classes|social)/.test(label)) return '/community-classes';
-    if (/(profile|avatar)/.test(label)) return '/student/avatar-shop';
-    if (/(wardrobe|ward|gear)/.test(label)) return '/student/wardrobe';
-    if (/(gift|gifts|request|requests|treasury|vault|wallet|card link|rewards)/.test(label)) return '/student/gifts';
-    if (/(library|my shelf|lending|resources|curriculum)/.test(label)) return '/student/library';
-    if (/(market|store|discover)/.test(label)) return '/student/marketplace';
-    if (/(academy|quest|quests|mission|missions|history|activity|achievements|leaderboard|earn|view assignment history)/.test(label)) {
-      if (/history|activity|view assignment history/.test(label)) return '/study-session-4';
-      if (/missions?/.test(label)) return '/study-session-2';
-      if (/achievements|leaderboard|earn|academy/.test(label)) return '/study-session-3';
-      return '/study-session';
-    }
-    if (/(dashboard|overview|home|dash|view all)/.test(label)) return resolveDashboardRoute(pathname, family);
-    return '/student/dashboard';
-  }
-
-  if (family === 'parent') {
-    if (/(sign out|log out|logout)/.test(label)) return '/role-selection';
-    if (/settings/.test(label)) return '/settings';
-    if (/(help|support|alerts|notifications)/.test(label)) return '/chat';
-    if (/(community|classes|social|leaderboard|earn)/.test(label)) return '/community-classes';
-    if (/(gift|gifts|request|requests|activity)/.test(label)) return '/parent/gift-manager';
-    if (/(treasury|wallet|vault|rewards|card link)/.test(label)) return '/parent/treasury-tips';
-    if (/(library|my shelf|lending|resources|curriculum|discover)/.test(label)) return '/parent/library-manager';
-    if (/(children|kids|family hub|profile)/.test(label)) return '/parent/dashboard';
-    if (/(dashboard|overview|home)/.test(label)) return resolveDashboardRoute(pathname, family);
-    return '/parent/dashboard';
-  }
-
-  if (/(sign out|log out|logout)/.test(label)) return '/role-selection';
-  if (/settings/.test(label)) return '/settings';
-  if (/(help|support)/.test(label)) return '/chat';
-  if (/(community|classes|social)/.test(label)) return '/community-classes';
-  if (/(dashboard|overview|home)/.test(label)) return '/role-selection';
-  return '/role-selection';
 };
 
 const nodeToReact = (node, key, navigate, pathname) => {
@@ -162,24 +96,27 @@ const nodeToReact = (node, key, navigate, pathname) => {
   if (tagName === 'a') {
     const rawHref = props.href;
     const textContent = node.textContent || '';
-    const resolvedHref =
-      typeof rawHref === 'string' && rawHref.startsWith('/')
-        ? rawHref
-        : rawHref === '#' || rawHref === '' || (typeof rawHref === 'string' && rawHref.startsWith('{{DATA:')) || (typeof rawHref === 'string' && rawHref.startsWith('#'))
-          ? resolveRouteFromText(textContent, pathname)
-          : rawHref;
+    
+    // Resolve broken/placeholder hrefs to real routes
+    let resolvedHref = rawHref;
+    
+    if (!rawHref || rawHref === '#' || rawHref.includes('{{DATA:SCREEN:')) {
+      // Try to resolve from button text first
+      resolvedHref = getRouteFromLabel(textContent, pathname);
+      if (!resolvedHref) {
+        // Fallback to default dashboard
+        resolvedHref = pathname.startsWith('/parent') ? '/parent/dashboard' : '/student/dashboard';
+      }
+    } else if (rawHref.startsWith('/')) {
+      // Already a real route
+      resolvedHref = rawHref;
+    }
 
-    if (typeof resolvedHref === 'string' && resolvedHref.startsWith('/')) {
+    if (resolvedHref && resolvedHref.startsWith('/')) {
       props.href = resolvedHref;
       props.onClick = (event) => {
         event.preventDefault();
         navigate(resolvedHref);
-      };
-    } else if (!rawHref || rawHref === '#') {
-      props.href = resolveRouteFromText(textContent, pathname);
-      props.onClick = (event) => {
-        event.preventDefault();
-        navigate(props.href);
       };
     }
   }
