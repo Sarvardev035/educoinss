@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sidebar, TopNav, PageHeader } from '../components/shared/Navigation';
+import { Sidebar, TopNav, PageHeader } from '../../components/shared/Navigation';
 
 // Generic Dashboard Layout Template
 const DashboardPage = ({ title, subtitle, icon, children, navigation, type }) => {
