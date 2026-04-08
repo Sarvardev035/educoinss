@@ -94,13 +94,20 @@ const nodeToReact = (node, key) => {
 
 export default function HtmlRenderer({ html }) {
   const content = useMemo(() => {
+    const firstTagIndex = html.indexOf('<');
+    const leadingStyles = firstTagIndex > 0 ? html.slice(0, firstTagIndex).trim() : '';
+    const markup = firstTagIndex > 0 ? html.slice(firstTagIndex) : html;
     const parser = new DOMParser();
-    const document = parser.parseFromString(`<div id="html-render-root">${html}</div>`, 'text/html');
+    const document = parser.parseFromString(`<div id="html-render-root">${markup}</div>`, 'text/html');
     const root = document.getElementById('html-render-root');
 
-    return Array.from(root.childNodes)
+    const nodes = Array.from(root.childNodes)
       .map((node, index) => nodeToReact(node, index))
       .filter((node) => node !== null && node !== undefined);
+
+    return leadingStyles
+      ? [React.createElement('style', { key: 'styles' }, leadingStyles), ...nodes]
+      : nodes;
   }, [html]);
 
   return <>{content}</>;
