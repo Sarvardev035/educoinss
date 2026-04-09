@@ -33,7 +33,7 @@ export default function EnhancedStudySession() {
   const [detectionConfidence, setDetectionConfidence] = useState(0);
 
   // Audio state
-  const [soundEnabled, setSoundEnabled] = useState(true);
+  const [soundEnabled] = useState(true);
   const [currentSound, setCurrentSound] = useState('forest');
 
   // Initialize camera on mount
@@ -72,7 +72,15 @@ export default function EnhancedStudySession() {
       setTimeLeft((prev) => {
         if (prev <= 1) {
           // Phase complete
-          handlePhaseComplete();
+          if (isWorkPhase) {
+            setSessionsCompleted((current) => current + 1);
+            playNotification();
+            setActivityWarning('Great work! Time for a break. Step away and relax.');
+          } else {
+            playNotification();
+            setActivityWarning('Break complete! Ready for another session?');
+          }
+          setIsWorkPhase((current) => !current);
           return isWorkPhase ? 5 * 60 : 25 * 60; // Switch to break or work
         }
         return prev - 1;
@@ -138,18 +146,6 @@ export default function EnhancedStudySession() {
     const detectionInterval = setInterval(detectActivity, 1000);
     return () => clearInterval(detectionInterval);
   }, [cameraActive, isRunning, isWorkPhase]);
-
-  const handlePhaseComplete = () => {
-    if (isWorkPhase) {
-      setSessionsCompleted((prev) => prev + 1);
-      playNotification();
-      setActivityWarning('Great work! Time for a break. Step away and relax.');
-    } else {
-      playNotification();
-      setActivityWarning('Break complete! Ready for another session?');
-    }
-    setIsWorkPhase(!isWorkPhase);
-  };
 
   const playNotification = () => {
     // Use Web Audio API to play a notification sound

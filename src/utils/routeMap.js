@@ -40,6 +40,8 @@ export const ROUTE_MAP = {
   'gift-manager-alt': '/parent/gift-manager-2',
   'library-manager': '/parent/library-manager',
   'treasury-tips': '/parent/treasury-tips',
+  'child-detailed-activity': '/parent/child-activity',
+  'parent-control-settings': '/parent/control-settings',
 
   // Shared Routes
   'settings': '/settings',
@@ -132,7 +134,14 @@ export const getRouteFromLabel = (label, pathname = '') => {
   }
 
   if (/(kids|child|children|family)/.test(label.toLowerCase())) {
+    if (/(activity|analytics|report|detail)/.test(label.toLowerCase())) {
+      return '/parent/child-activity';
+    }
     return '/parent/dashboard';
+  }
+
+  if (/(control|parental|limits|permissions)/.test(label.toLowerCase())) {
+    return '/parent/control-settings';
   }
 
   if (/(tip|advice|guide|coach)/.test(label.toLowerCase())) {

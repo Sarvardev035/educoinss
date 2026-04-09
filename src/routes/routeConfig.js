@@ -31,6 +31,8 @@ const GiftManager = lazy(() => import('../pages/parent/GiftManager'));
 const GiftManager2 = lazy(() => import('../pages/parent/GiftManager2'));
 const LibraryManager = lazy(() => import('../pages/parent/LibraryManager'));
 const TreasuryTips = lazy(() => import('../pages/parent/TreasuryTips'));
+const ChildDetailedActivity = lazy(() => import('../pages/parent/ChildDetailedActivity'));
+const ParentControlSettings = lazy(() => import('../pages/parent/ParentControlSettings'));
 const Settings = lazy(() => import('../pages/Settings'));
 const Chat = lazy(() => import('../pages/Chat'));
 const CommunityClasses = lazy(() => import('../pages/CommunityClasses'));
@@ -92,6 +94,8 @@ const routes = [
   { path: '/parent/gift-manager-2', component: () => <PageWrapper component={GiftManager2} /> },
   { path: '/parent/library-manager', component: () => <PageWrapper component={LibraryManager} /> },
   { path: '/parent/treasury-tips', component: () => <PageWrapper component={TreasuryTips} /> },
+  { path: '/parent/child-activity', component: () => <PageWrapper component={ChildDetailedActivity} /> },
+  { path: '/parent/control-settings', component: () => <PageWrapper component={ParentControlSettings} /> },
 
   // Common Routes
   { path: '/settings', component: () => <PageWrapper component={Settings} /> },

@@ -28,6 +28,8 @@ export const pageMapping = {
   'parent_gift_card_manager_2': { path: '/parent/gift-manager-2', component: 'GiftManager2', type: 'parent' },
   'parent_library_manager_1': { path: '/parent/library-manager', component: 'LibraryManager', type: 'parent' },
   'parent_treasury_tips': { path: '/parent/treasury-tips', component: 'TreasuryTips', type: 'parent' },
+  'child_detailed_activity_report': { path: '/parent/child-activity', component: 'ChildDetailedActivity', type: 'parent' },
+  'parent_control_settings': { path: '/parent/control-settings', component: 'ParentControlSettings', type: 'parent' },
   'user_settings_profile_editor': { path: '/settings', component: 'Settings', type: 'common' },
   'direct_chat_social_hub': { path: '/chat', component: 'Chat', type: 'common' },
   'community_classes': { path: '/community-classes', component: 'CommunityClasses', type: 'common' },
