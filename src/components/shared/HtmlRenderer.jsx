@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getRouteFromLabel } from '../../utils/routeMap';
 
@@ -26,7 +26,37 @@ const toPath = (onclickValue) => {
   return match ? match[1] : null;
 };
 
-const nodeToReact = (node, key, navigate, pathname) => {
+const getContextText = (node, maxDepth = 3) => {
+  const parts = [];
+  let current = node;
+  let depth = 0;
+
+  while (current && depth <= maxDepth) {
+    const text = (current.textContent || '').replace(/\s+/g, ' ').trim();
+    if (text) parts.push(text);
+    current = current.parentElement;
+    depth += 1;
+  }
+
+  return parts.join(' ').slice(0, 1200);
+};
+
+const inferCostFromContext = (contextText) => {
+  const patterns = [
+    /(\d{1,5})\s*(?:edu\s*)?coins?\b/i,
+    /(\d{1,5})\s*ec\b/i,
+    /\$\s*(\d{1,4})/i,
+  ];
+
+  for (const pattern of patterns) {
+    const match = contextText.match(pattern);
+    if (match) return Number(match[1]);
+  }
+
+  return 100;
+};
+
+const nodeToReact = (node, key, navigate, pathname, showToast) => {
   if (node.nodeType === Node.TEXT_NODE) {
     return node.textContent;
   }
@@ -38,7 +68,7 @@ const nodeToReact = (node, key, navigate, pathname) => {
   const tagName = node.tagName.toLowerCase();
   const props = { key };
   let childNodes = Array.from(node.childNodes)
-    .map((child, index) => nodeToReact(child, `${key}-${index}`, navigate, pathname))
+    .map((child, index) => nodeToReact(child, `${key}-${index}`, navigate, pathname, showToast))
     .filter((child) => child !== null && child !== undefined);
 
   for (const attr of Array.from(node.attributes)) {
@@ -121,6 +151,90 @@ const nodeToReact = (node, key, navigate, pathname) => {
     }
   }
 
+  if (tagName === 'form') {
+    props.onSubmit = (event) => {
+      event.preventDefault();
+      showToast('Form saved locally (demo mode).');
+    };
+  }
+
+  if (tagName === 'button' && !props.onClick) {
+    props.type = props.type || 'button';
+    const label = (node.textContent || '').replace(/\s+/g, ' ').trim();
+    const lowerLabel = label.toLowerCase();
+    const contextText = getContextText(node);
+
+    props.onClick = (event) => {
+      event.preventDefault();
+
+      if (/(purchase|buy|redeem|claim)\b/.test(lowerLabel)) {
+        const balanceKey = 'educoin_balance';
+        const txKey = 'educoin_transactions';
+        const currentBalance = Number(localStorage.getItem(balanceKey) || '2450');
+        const cost = inferCostFromContext(contextText);
+        const itemLabel = label || 'Item';
+
+        if (currentBalance < cost) {
+          showToast(`Not enough coins. Need ${cost} EC, you have ${currentBalance} EC.`);
+          return;
+        }
+
+        const nextBalance = currentBalance - cost;
+        localStorage.setItem(balanceKey, String(nextBalance));
+
+        const currentTx = JSON.parse(localStorage.getItem(txKey) || '[]');
+        currentTx.unshift({
+          type: 'purchase',
+          item: itemLabel,
+          cost,
+          balance: nextBalance,
+          createdAt: Date.now(),
+        });
+        localStorage.setItem(txKey, JSON.stringify(currentTx.slice(0, 50)));
+
+        window.dispatchEvent(
+          new CustomEvent('educoin:wallet-updated', {
+            detail: { balance: nextBalance, delta: -cost, item: itemLabel },
+          }),
+        );
+
+        showToast(`Purchased successfully: ${itemLabel} (-${cost} EC). Balance: ${nextBalance} EC.`);
+        event.currentTarget.disabled = true;
+        event.currentTarget.classList.add('opacity-60', 'cursor-not-allowed');
+        event.currentTarget.textContent = 'Purchased';
+        return;
+      }
+
+      if (/(start|launch|continue).*(study|session|learning)|study now/.test(lowerLabel)) {
+        navigate('/study-session-enhanced');
+        return;
+      }
+
+      if (/(end|stop).*(study|session)/.test(lowerLabel)) {
+        navigate('/student/dashboard');
+        return;
+      }
+
+      if (/(sign out|logout|log out)/.test(lowerLabel)) {
+        navigate('/role-selection');
+        return;
+      }
+
+      if (/(save|discard|approve|decline|copy|change|edit|delete)/.test(lowerLabel)) {
+        showToast(`${label || 'Action'} completed.`);
+        return;
+      }
+
+      const resolvedRoute = getRouteFromLabel(label, pathname);
+      if (resolvedRoute && resolvedRoute.startsWith('/')) {
+        navigate(resolvedRoute);
+        return;
+      }
+
+      showToast(`"${label || 'This action'}" is now interactive, but no route was mapped.`);
+    };
+  }
+
   if (tagName === 'select') {
     delete props.value;
   }
@@ -130,7 +244,17 @@ const nodeToReact = (node, key, navigate, pathname) => {
 
 export default function HtmlRenderer({ html }) {
   const navigate = useNavigate();
+  const [toast, setToast] = useState('');
   const pathname = window.location.pathname;
+
+  const showToast = (message) => setToast(message);
+
+  useEffect(() => {
+    if (!toast) return undefined;
+    const timeout = setTimeout(() => setToast(''), 2600);
+    return () => clearTimeout(timeout);
+  }, [toast]);
+
   const content = useMemo(() => {
     const firstTagIndex = html.indexOf('<');
     const leadingStyles = firstTagIndex > 0 ? html.slice(0, firstTagIndex).trim() : '';
@@ -140,7 +264,7 @@ export default function HtmlRenderer({ html }) {
     const root = document.getElementById('html-render-root');
 
     const nodes = Array.from(root.childNodes)
-      .map((node, index) => nodeToReact(node, index, navigate, pathname))
+      .map((node, index) => nodeToReact(node, index, navigate, pathname, showToast))
       .filter((node) => node !== null && node !== undefined);
 
     return leadingStyles
@@ -148,5 +272,14 @@ export default function HtmlRenderer({ html }) {
       : nodes;
   }, [html, navigate, pathname]);
 
-  return <>{content}</>;
+  return (
+    <>
+      {content}
+      {toast ? (
+        <div className="fixed bottom-6 left-1/2 z-[9999] -translate-x-1/2 rounded-xl bg-slate-900/95 border border-white/10 px-4 py-2 text-sm text-white shadow-lg">
+          {toast}
+        </div>
+      ) : null}
+    </>
+  );
 }
